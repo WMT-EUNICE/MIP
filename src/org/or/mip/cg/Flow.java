@@ -9,12 +9,12 @@ import java.util.List;
  * Created by baohuaw on 6/20/17.
  */
 public class Flow {
-    String from;
-    String to;
+    Node from;
+    Node to;
     double volume;
     List<GraphPath> paths;
 
-    public Flow(String from, String to, double volume) {
+    public Flow(Node from, Node to, double volume) {
         this.from = from;
         this.to = to;
         this.volume = volume;

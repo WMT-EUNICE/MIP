@@ -7,4 +7,8 @@ import org.jgrapht.graph.DefaultWeightedEdge;
  */
 public class CapacitatedEdge extends DefaultWeightedEdge {
     double capacity;
+    double originWeight;
+
+
+
 }
