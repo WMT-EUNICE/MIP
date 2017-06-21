@@ -1,18 +1,12 @@
 package org.or.mip.cg;
 
 import com.dashoptimization.*;
-import grph.Grph;
-import grph.in_memory.InMemoryGrph;
-import org.antlr.v4.runtime.misc.IntSet;
 import org.graphstream.algorithm.Dijkstra;
 import org.graphstream.graph.Edge;
 import org.graphstream.graph.Graph;
+import org.graphstream.graph.Node;
 import org.graphstream.graph.Path;
 import org.graphstream.graph.implementations.SingleGraph;
-import org.jgrapht.GraphPath;
-import org.jgrapht.alg.shortestpath.DijkstraShortestPath;
-import org.jgrapht.graph.DefaultDirectedWeightedGraph;
-import org.jgrapht.graph.GraphWalk;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -22,22 +16,37 @@ import java.util.*;
  * Created by baohuaw on 6/21/17.
  */
 public class MultiCommodityFlow {
+    public class Flow {
+        Node from;
+        Node to;
+        double volume;
+        List<Path> paths;
+
+        public Flow(Node from, Node to, double volume) {
+            this.from = from;
+            this.to = to;
+            this.volume = volume;
+            paths = new LinkedList<>();
+        }
+    }
+
     XPRB bcl = new XPRB();
-    XPRBprob problem = bcl.newProb("MCF");      /* Create a new problem in BCL */
 
     Map<Flow, XPRBctr> flowConstraints = new HashMap<>();
     Map<Flow, Double> flowDuals = new HashMap<>();
     Map<Edge, XPRBctr> edgeConstraints = new HashMap<>();
     Map<Edge, Double> edgeDuals = new HashMap<>();
+    Map<Edge, Double> originWeightOfModifiedEdges = new HashMap<>();
 
     //    DefaultDirectedWeightedGraph<Node, CapacitatedEdge> graph;
     Graph graph;
-//    DijkstraShortestPath<Node, CapacitatedEdge> pathFinder;
+    //    DijkstraShortestPath<Node, CapacitatedEdge> pathFinder;
     List<Flow> flows = new ArrayList<>();
     Dijkstra dijkstra = new Dijkstra(Dijkstra.Element.EDGE, null, "weight");
 
     public MultiCommodityFlow() {
         buildGraph("src/org/or/mip/cg/tiny_network_01");
+        dijkstra.init(graph);
 //        pathFinder = new DijkstraShortestPath(graph);
         initFlows();
     }
@@ -48,11 +57,12 @@ public class MultiCommodityFlow {
     }
 
     void columnGeneration() {
-        boolean terminate = false;
-        while (terminate) {
+//        boolean genNewCol = true;
+        solveMaster();
+        while (!pricing()) {
             solveMaster();
-            if (pricing())
-                terminate = true;
+//            if (pricing())
+//                genNewCol = false;
         }
     }
 
@@ -71,79 +81,44 @@ public class MultiCommodityFlow {
             while (line != null) {
                 String[] edgeDescription = line.split("\\s");
 
-                if (!existingNodeIds.contains(edgeDescription[0]))
+                if (!existingNodeIds.contains(edgeDescription[0])) {
                     graph.addNode(edgeDescription[0]);
-                if (!existingNodeIds.contains(edgeDescription[1]))
+                    existingNodeIds.add(edgeDescription[0]);
+                }
+                if (!existingNodeIds.contains(edgeDescription[1])) {
                     graph.addNode(edgeDescription[1]);
-//                Node from = new Node(edgeDescription[0]);0
-//                Node to = new Node(edgeDescription[1]);
-//
-//
-////                if(graph.containsVertex())
-//                if(!existingNodeIds.contains(from.label)) {
-//                    graph.addVertex(from);
-//                    existingNodeIds.add(from.label);
-//                }
-//                if(!existingNodeIds.contains(to.label)) {
-//                    graph.addVertex(to);
-//                    existingNodeIds.add(to.label);
-//                }
+                    existingNodeIds.add(edgeDescription[1]);
+                }
 
                 graph.addEdge(edgeDescription[0] + "-" + edgeDescription[1], edgeDescription[0], edgeDescription[1], true).addAttribute("weight", Double.valueOf(edgeDescription[2]));
-                graph.getEdge(edgeDescription[0] + "-" + edgeDescription[1]).addAttribute("capacity", edgeDescription[3]);
-                graph.getEdge(edgeDescription[0] + "-" + edgeDescription[1]).addAttribute("originWeight", edgeDescription[2]);
-//                CapacitatedEdge edge = graph.addEdge(from, to);
-//                graph.setEdgeWeight(edge, Double.valueOf(edgeDescription[2]));
-//                edge.capacity = Double.valueOf(edgeDescription[3]);
-//                edge.originWeight = graph.getEdgeWeight(edge);
+                graph.getEdge(edgeDescription[0] + "-" + edgeDescription[1]).addAttribute("capacity", Double.valueOf(edgeDescription[3]));
                 line = in.readLine();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-//        return graph;
     }
 
     void initFlows() {
-//        Set<Node> nodes = graph.vertexSet();
-
-//        Node from1 = null, from2 = null, to1 = null, to2 = null;
-//        for (Node node : nodes) {
-//            if (node.label.equals("1")) {
-//                from1 = node;
-//                from2 = node;
-//            } else if (node.label.equals("5"))
-//                to1 = node;
-//            else if (node.label.equals("8"))
-//                to2 = node;
-//        }
         flows.add(new Flow(graph.getNode("1"), graph.getNode("5"), 15));
-        flows.add(new Flow(graph.getNode("1"), graph.getNode("5"), 10));
+        flows.add(new Flow(graph.getNode("1"), graph.getNode("8"), 10));
 
         for (Flow f : flows) {
-            List<CapacitatedEdge> superPathEdges = new LinkedList<>();
-
             Path superPath = new Path();
-            superPath.getEdgePath().add(graph.getEdge(f.from.label + "-" + f.to.label));
-
-//            for (CapacitatedEdge edge : graph.edgeSet()) {
-//                if (graph.getEdgeSource(edge).label.equals(f.from.label) && graph.getEdgeTarget(edge).label.equals(f.to.label) && graph.getEdgeWeight(edge) == 1000) {
-//                    superPathEdges.add(edge);
-//                }
-//            }
-//            GraphPath<Node, CapacitatedEdge> superPath = new GraphWalk<>(graph, f.from, f.to, superPathEdges, 1000);
+            superPath.getEdgePath().add(graph.getEdge(f.from.getId() + "-" + f.to.getId()));
             f.paths.add(superPath);
-
-//            Path sp = Dijkstra.shortestPath(graph, f.from, f.to);
-//            f.paths.add(sp);
+            //Add shortest path of each flow initially
+//            dijkstra.setSource(graph.getNode(f.from.getId()));
+//            dijkstra.compute();
+//            f.paths.add(dijkstra.getPath(f.to));
         }
     }
 
     void solveMaster() {
-        problem.reset();
 
-        XPRS.init();
-
+        XPRBprob problem = bcl.newProb("MCF");      /* Create a new problem in BCL */
+//        problem.reset();
+//        XPRS.init();
         Map<Flow, Map<Path, XPRBvar>> x_f_p = new HashMap<>();
         for (Flow f : flows) {
             if (!x_f_p.containsKey(f))
@@ -189,7 +164,7 @@ public class MultiCommodityFlow {
                 }
             }
             if (hasFlow)
-                edgeConstraints.put(edge, problem.newCtr(expr.lEql((double)edge.getAttribute("capacity"))));
+                edgeConstraints.put(edge, problem.newCtr(expr.lEql((double) edge.getAttribute("capacity"))));
         }
 
         problem.setSense(XPRB.MINIM);
@@ -230,8 +205,9 @@ public class MultiCommodityFlow {
         for (Edge edge : graph.getEdgeSet()) {
             if (!edgeDuals.containsKey(edge))
                 continue;
-            edge.setAttribute("originWeight", edge.getAttribute("weight"));
-            edge.setAttribute("weight", (double)edge.getAttribute("weight") + edgeDuals.get(edge));
+//            edge.setAttribute("originWeight", (double)edge.getAttribute("weight"));
+            originWeightOfModifiedEdges.put(edge, edge.getAttribute("weight"));
+            edge.setAttribute("weight", (double) edge.getAttribute("weight") + edgeDuals.get(edge));
 //            graph.setEdgeWeight(edge, graph.getEdgeWeight(edge) + edgeDuals.get(edge));
 //            edge.setWeight(e.getWeight() + edgeDuals.get(e.getId()));
         }
@@ -239,19 +215,18 @@ public class MultiCommodityFlow {
         boolean noPathFound = true;
 
         for (Flow f : flows) {
-            dijkstra.init(graph);
-            dijkstra.setSource(graph.getNode(f.from.label));
+            dijkstra.setSource(graph.getNode(f.from.getId()));
             dijkstra.compute();
 //            pathFinder.compute();
-            Path sp = dijkstra.getPath(graph.getNode(f.to.label));
-            if (dijkstra.getPathLength(graph.getNode(f.to.label)) < flowDuals.get(f)) {
+            Path sp = dijkstra.getPath(graph.getNode(f.to.getId()));
+            if (dijkstra.getPathLength(graph.getNode(f.to.getId())) < flowDuals.get(f)) {
                 noPathFound = false;
                 f.paths.add(sp);
             }
         }
 
-        for (Edge edge : graph.getEdgeSet()) {
-            edge.setAttribute("weight", edge.getAttribute("originWeight"));
+        for (Edge edge : originWeightOfModifiedEdges.keySet()) {
+            edge.setAttribute("weight", originWeightOfModifiedEdges.get(edge));
 //            graph.setEdgeWeight(edge, edge.originWeight);
         }
         return noPathFound;
