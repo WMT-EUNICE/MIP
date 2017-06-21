@@ -1,5 +1,6 @@
 package org.or.mip.cg;
 
+import org.graphstream.graph.Path;
 import org.jgrapht.GraphPath;
 
 import java.util.LinkedList;
@@ -12,7 +13,7 @@ public class Flow {
     Node from;
     Node to;
     double volume;
-    List<GraphPath> paths;
+    List<Path> paths;
 
     public Flow(Node from, Node to, double volume) {
         this.from = from;
