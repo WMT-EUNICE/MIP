@@ -49,7 +49,7 @@ public class MultiCommodityFlow2 {
     Dijkstra dijkstra = new Dijkstra(Dijkstra.Element.EDGE, null, "weight");
 
     Map<Flow, Map<Path, XPRBvar>> x_f_p = new HashMap<>();
-    XPRBexpr obj = new XPRBexpr();
+    XPRBctr obj;
 
     public MultiCommodityFlow2() {
         buildGraph("src/org/or/mip/cg/tiny_network_01");
@@ -137,14 +137,13 @@ public class MultiCommodityFlow2 {
         }
 
         //obj
-
+        XPRBexpr objExpr = new XPRBexpr();
         for (Flow f : flows) {
-
             for (Path p : f.paths) {
-//                obj.add(x_f_p.get(f).get(p)).mul(p.getTotalCost());
-                obj.add(x_f_p.get(f).get(p).mul(p.getPathWeight("weight")));
+                objExpr.add(x_f_p.get(f).get(p).mul(p.getPathWeight("weight")));
             }
         }
+        obj = problem.newCtr(objExpr);
         problem.setObj(obj);
 
         //flow conservation
@@ -231,37 +230,25 @@ public class MultiCommodityFlow2 {
             Path sp = dijkstra.getPath(graph.getNode(f.to.getId()));
             if (dijkstra.getPathLength(graph.getNode(f.to.getId())) < flowDuals.get(f)) {
 
-                if(!newPaths.containsKey(f))
-                    newPaths.put(f,new LinkedList<>());
-                newPaths.get(f).add(sp);
+                XPRBvar var = problem.newVar(XPRB.PL);
+                var.setLB(0);
+                x_f_p.get(f).put(sp, var);
+
+                obj.add(var.mul(dijkstra.getPathLength(graph.getNode(f.to.getId()))));
+
+                //update flow conservation constraint;
+                flowConstraints.get(f).add(var);
+
+                //update arc capacity constraint
+                for (Edge edge : graph.getEdgeSet()) {
+                    if (sp.getEdgePath().contains(edge)) {
+                        edgeConstraints.get(edge).add(var);
+                    }
+                }
                 noPathFound = false;
                 f.paths.add(sp);
             }
         }
-
-        //update var
-        for(Flow f : newPaths.keySet()){
-            for(Path p : newPaths.get(f)){
-                XPRBvar var = problem.newVar(XPRB.PL);
-                var.setLB(0);
-                x_f_p.get(f).put(p, var);
-            }
-
-        }
-
-
-        //update obj
-//        obj.add(var.mul(dijkstra.getPathLength(graph.getNode(f.to.getId()))));
-//
-//        //update flow conservation constraint;
-//        flowConstraints.get(f).add(var);
-//
-//        //update arc capacity constraint
-//        for (Edge edge : graph.getEdgeSet()) {
-//            if (sp.getEdgePath().contains(edge)) {
-//                edgeConstraints.get(edge).add(var);
-//            }
-//        }
 
         for (Edge edge : originWeightOfModifiedEdges.keySet()) {
             edge.setAttribute("weight", originWeightOfModifiedEdges.get(edge));
