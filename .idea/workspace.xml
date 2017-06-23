@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1842aaef-f73b-4006-ab03-e7773f027b72" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/antlr4-runtime-4.5.3.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/grph-1.10.2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/jgraph-5.13.0.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/jgrapht-core-1.0.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/jgrapht-demo-1.0.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/jgrapht-ext-1.0.1-uber.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/jgrapht-ext-1.0.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/jgraphx-2.0.0.1.jar" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/or/mip/bb/XpressModeller.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/or/mip/cg/MultiCommodityFlow2.java" afterPath="$PROJECT_DIR$/src/org/or/mip/cg/MultiCommodityFlow2.java" />
     </list>
@@ -35,21 +28,26 @@
       <file leaf-file-name="MultiCommodityFlow.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/or/mip/cg/MultiCommodityFlow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4420">
+            <state relative-caret-position="769">
               <caret line="221" column="0" lean-forward="false" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SingleGraph.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/lib/gs-core-1.3.jar!/org/graphstream/graph/implementations/SingleGraph.class">
+      <file leaf-file-name="SingleGraph.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.ideaLibSources/gs-core-1.3-sources.jar!/org/graphstream/graph/implementations/SingleGraph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="11" lean-forward="false" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
-              <folding />
+            <state relative-caret-position="920">
+              <caret line="79" column="36" lean-forward="false" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="36" />
+              <folding>
+                <element signature="e#0#4226#0" expanded="false" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#3323#3324#0" expanded="false" />
+                <element signature="e#3382#3383#0" expanded="false" />
+                <element signature="e#4193#4194#0" expanded="false" />
+                <element signature="e#4221#4222#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -57,8 +55,8 @@
       <file leaf-file-name="tiny_network_01" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/or/mip/cg/tiny_network_01">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="340">
+              <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -67,19 +65,126 @@
       <file leaf-file-name="MultiCommodityFlow2.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/or/mip/cg/MultiCommodityFlow2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="796">
-              <caret line="250" column="9" lean-forward="false" selection-start-line="250" selection-start-column="9" selection-end-line="250" selection-end-column="9" />
+            <state relative-caret-position="-471">
+              <caret line="176" column="0" lean-forward="true" selection-start-line="174" selection-start-column="7" selection-end-line="176" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-5820">
+            <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+              <folding>
+                <marker date="1498210781662" expanded="true" signature="62149:62166" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="62149:62184" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="62149:62197" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="62149:62212" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="62247:64749" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="62260:64734" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="62314:62609" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="62333:62594" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="62396:62574" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="62436:62540" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="62457:62518" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="62659:62986" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="62678:62971" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="62773:62951" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="62813:62917" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="62834:62895" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="63037:63356" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="63056:63341" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="63143:63321" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="63183:63287" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="63204:63265" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="63399:63705" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="63418:63690" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="63492:63670" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="63532:63636" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="63553:63614" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="63756:64062" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="63775:64047" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="63849:64027" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="63889:63993" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="63910:63971" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="64097:64403" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="64116:64388" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="64190:64368" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="64230:64334" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="64251:64312" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="64455:64720" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="64474:64705" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="64507:64685" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="64547:64651" ph="..." />
+                <marker date="1498210781662" expanded="true" signature="64568:64629" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Path.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.ideaLibSources/gs-core-1.3-sources.jar!/org/graphstream/graph/Path.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2580">
+              <caret line="173" column="18" lean-forward="false" selection-start-line="173" selection-start-column="18" selection-end-line="173" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#11401#0" expanded="false" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#3564#3565#0" expanded="false" />
+                <element signature="e#3587#3588#0" expanded="false" />
+                <element signature="e#4148#4149#0" expanded="false" />
+                <element signature="e#4185#4186#0" expanded="false" />
+                <element signature="e#4427#4428#0" expanded="false" />
+                <element signature="e#4464#4465#0" expanded="false" />
+                <element signature="e#4597#4598#0" expanded="false" />
+                <element signature="e#4627#4628#0" expanded="false" />
+                <element signature="e#4692#4693#0" expanded="false" />
+                <element signature="e#4721#4722#0" expanded="false" />
+                <element signature="e#5275#5276#0" expanded="false" />
+                <element signature="e#5297#5298#0" expanded="false" />
+                <element signature="e#5465#5466#0" expanded="false" />
+                <element signature="e#5487#5488#0" expanded="false" />
+                <element signature="e#6830#6831#0" expanded="false" />
+                <element signature="e#6852#6853#0" expanded="false" />
+                <element signature="e#6932#6933#0" expanded="false" />
+                <element signature="e#6948#6949#0" expanded="false" />
+                <element signature="e#7634#7635#0" expanded="false" />
+                <element signature="e#7663#7664#0" expanded="false" />
+                <element signature="e#7838#7839#0" expanded="false" />
+                <element signature="e#7867#7868#0" expanded="false" />
+                <element signature="e#9710#9711#0" expanded="false" />
+                <element signature="e#9743#9744#0" expanded="false" />
+                <element signature="e#9886#9887#0" expanded="false" />
+                <element signature="e#9915#9916#0" expanded="false" />
+                <element signature="e#10033#10034#0" expanded="false" />
+                <element signature="e#10062#10063#0" expanded="false" />
+                <element signature="e#10243#10244#0" expanded="false" />
+                <element signature="e#10290#10291#0" expanded="false" />
+                <element signature="e#10471#10472#0" expanded="false" />
+                <element signature="e#10518#10519#0" expanded="false" />
+                <element signature="e#10701#10702#0" expanded="false" />
+                <element signature="e#10747#10748#0" expanded="false" />
+                <element signature="e#10930#10931#0" expanded="false" />
+                <element signature="e#10976#10977#0" expanded="false" />
+                <element signature="e#11149#11150#0" expanded="false" />
+                <element signature="e#11187#11188#0" expanded="false" />
+                <element signature="e#11360#11361#0" expanded="false" />
+                <element signature="e#11398#11399#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XpressModeller.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/org/or/mip/bb/XpressModeller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="629">
+              <caret line="82" column="8" lean-forward="false" selection-start-line="82" selection-start-column="8" selection-end-line="82" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -114,15 +219,17 @@
         <option value="$PROJECT_DIR$/src/org/or/mip/cg/CapacitatedEdge.java" />
         <option value="$PROJECT_DIR$/src/org/or/mip/cg/Flow.java" />
         <option value="$PROJECT_DIR$/src/org/or/mip/cg/MultiCommodityFlow.java" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/src/org/or/mip/cg/MultiCommodityFlow2.java" />
+        <option value="$PROJECT_DIR$/src/org/or/mip/bb/XpressModeller.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="64" />
-    <option name="y" value="-11" />
-    <option name="width" value="2497" />
-    <option name="height" value="1452" />
+    <option name="x" value="65" />
+    <option name="y" value="-4" />
+    <option name="width" value="2495" />
+    <option name="height" value="1444" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -156,6 +263,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -182,7 +290,33 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="mip" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="cg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MIP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MIP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mip" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bb" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -216,13 +350,12 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/gs-core-1.3.jar!/" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -538,7 +671,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="2497" height="1452" extended-state="6" />
+    <frame x="65" y="-4" width="2495" height="1444" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -548,9 +681,9 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945737" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945737" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32945737" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.124948956" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12658228" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Brazil" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -617,9 +750,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4420">
           <caret line="221" column="0" lean-forward="false" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -627,7 +758,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="11" lean-forward="false" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -651,9 +781,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3587">
           <caret line="221" column="0" lean-forward="false" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -661,7 +789,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="24" column="11" lean-forward="false" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -709,7 +836,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="11" lean-forward="false" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -727,39 +853,162 @@
     <entry file="file://$PROJECT_DIR$/src/org/or/mip/cg/CapacitatedEdge.java" />
     <entry file="file://$PROJECT_DIR$/src/org/or/mip/cg/Node.java" />
     <entry file="jar://$USER_HOME$/Downloads/gs-algo-1.3/gs-algo-1.3-sources.jar!/org/graphstream/algorithm/AbstractSpanningTree.java" />
-    <entry file="file://$PROJECT_DIR$/src/org/or/mip/cg/tiny_network_01">
+    <entry file="jar://$USER_HOME$/Downloads/gs-core-1.3/gs-core-1.3-sources.jar!/org/graphstream/graph/Element.java" />
+    <entry file="file://$PROJECT_DIR$/src/org/or/mip/cg/Flow.java" />
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1498210781662" expanded="true" signature="62149:62166" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="62149:62184" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="62149:62197" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="62149:62212" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="62247:64749" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="62260:64734" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="62314:62609" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="62333:62594" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="62396:62574" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="62436:62540" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="62457:62518" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="62659:62986" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="62678:62971" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="62773:62951" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="62813:62917" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="62834:62895" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="63037:63356" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="63056:63341" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="63143:63321" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="63183:63287" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="63204:63265" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="63399:63705" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="63418:63690" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="63492:63670" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="63532:63636" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="63553:63614" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="63756:64062" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="63775:64047" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="63849:64027" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="63889:63993" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="63910:63971" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="64097:64403" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="64116:64388" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="64190:64368" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="64230:64334" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="64251:64312" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="64455:64720" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="64474:64705" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="64507:64685" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="64547:64651" ph="..." />
+            <marker date="1498210781662" expanded="true" signature="64568:64629" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/Downloads/gs-core-1.3/gs-core-1.3-sources.jar!/org/graphstream/graph/Element.java" />
-    <entry file="file://$PROJECT_DIR$/src/org/or/mip/cg/Flow.java" />
-    <entry file="file://$PROJECT_DIR$/src/org/or/mip/cg/MultiCommodityFlow.java">
+    <entry file="jar://$PROJECT_DIR$/lib/gs-core-1.3.jar!/org/graphstream/graph/Path.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4420">
-          <caret line="221" column="0" lean-forward="false" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
+        <state relative-caret-position="279">
+          <caret line="52" column="18" lean-forward="false" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ideaLibSources/gs-core-1.3-sources.jar!/org/graphstream/graph/implementations/SingleGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="920">
+          <caret line="79" column="36" lean-forward="false" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="36" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#0#4226#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#3323#3324#0" expanded="false" />
+            <element signature="e#3382#3383#0" expanded="false" />
+            <element signature="e#4193#4194#0" expanded="false" />
+            <element signature="e#4221#4222#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ideaLibSources/gs-core-1.3-sources.jar!/org/graphstream/graph/Path.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2580">
+          <caret line="173" column="18" lean-forward="false" selection-start-line="173" selection-start-column="18" selection-end-line="173" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#11401#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#3564#3565#0" expanded="false" />
+            <element signature="e#3587#3588#0" expanded="false" />
+            <element signature="e#4148#4149#0" expanded="false" />
+            <element signature="e#4185#4186#0" expanded="false" />
+            <element signature="e#4427#4428#0" expanded="false" />
+            <element signature="e#4464#4465#0" expanded="false" />
+            <element signature="e#4597#4598#0" expanded="false" />
+            <element signature="e#4627#4628#0" expanded="false" />
+            <element signature="e#4692#4693#0" expanded="false" />
+            <element signature="e#4721#4722#0" expanded="false" />
+            <element signature="e#5275#5276#0" expanded="false" />
+            <element signature="e#5297#5298#0" expanded="false" />
+            <element signature="e#5465#5466#0" expanded="false" />
+            <element signature="e#5487#5488#0" expanded="false" />
+            <element signature="e#6830#6831#0" expanded="false" />
+            <element signature="e#6852#6853#0" expanded="false" />
+            <element signature="e#6932#6933#0" expanded="false" />
+            <element signature="e#6948#6949#0" expanded="false" />
+            <element signature="e#7634#7635#0" expanded="false" />
+            <element signature="e#7663#7664#0" expanded="false" />
+            <element signature="e#7838#7839#0" expanded="false" />
+            <element signature="e#7867#7868#0" expanded="false" />
+            <element signature="e#9710#9711#0" expanded="false" />
+            <element signature="e#9743#9744#0" expanded="false" />
+            <element signature="e#9886#9887#0" expanded="false" />
+            <element signature="e#9915#9916#0" expanded="false" />
+            <element signature="e#10033#10034#0" expanded="false" />
+            <element signature="e#10062#10063#0" expanded="false" />
+            <element signature="e#10243#10244#0" expanded="false" />
+            <element signature="e#10290#10291#0" expanded="false" />
+            <element signature="e#10471#10472#0" expanded="false" />
+            <element signature="e#10518#10519#0" expanded="false" />
+            <element signature="e#10701#10702#0" expanded="false" />
+            <element signature="e#10747#10748#0" expanded="false" />
+            <element signature="e#10930#10931#0" expanded="false" />
+            <element signature="e#10976#10977#0" expanded="false" />
+            <element signature="e#11149#11150#0" expanded="false" />
+            <element signature="e#11187#11188#0" expanded="false" />
+            <element signature="e#11360#11361#0" expanded="false" />
+            <element signature="e#11398#11399#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/or/mip/cg/tiny_network_01">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/or/mip/cg/MultiCommodityFlow2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="796">
-          <caret line="250" column="9" lean-forward="false" selection-start-line="250" selection-start-column="9" selection-end-line="250" selection-end-column="9" />
+        <state relative-caret-position="-471">
+          <caret line="176" column="0" lean-forward="true" selection-start-line="174" selection-start-column="7" selection-end-line="176" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+    <entry file="file://$PROJECT_DIR$/src/org/or/mip/cg/MultiCommodityFlow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5820">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="769">
+          <caret line="221" column="0" lean-forward="false" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/or/mip/bb/XpressModeller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="82" column="8" lean-forward="false" selection-start-line="82" selection-start-column="8" selection-end-line="82" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

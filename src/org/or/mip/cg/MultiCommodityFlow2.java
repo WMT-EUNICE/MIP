@@ -158,16 +158,13 @@ public class MultiCommodityFlow2 {
         //arc capacity
         for (Edge edge : graph.getEdgeSet()) {
             XPRBexpr expr = new XPRBexpr();
-//            boolean hasFlow = false;
             for (Flow f : flows) {
                 for (Path p : f.paths) {
                     if (p.getEdgePath().contains(edge)) {
                         expr.add(x_f_p.get(f).get(p));
-//                        hasFlow = true;
                     }
                 }
             }
-//            if (hasFlow)
             edgeConstraints.put(edge, problem.newCtr(expr.lEql((double) edge.getAttribute("capacity"))));
         }
 
@@ -223,8 +220,9 @@ public class MultiCommodityFlow2 {
 
         boolean noPathFound = true;
 
-        Map<Flow, List<Path>> newPaths = new HashMap<>();
         for (Flow f : flows) {
+
+//
             dijkstra.setSource(graph.getNode(f.from.getId()));
             dijkstra.compute();
             Path sp = dijkstra.getPath(graph.getNode(f.to.getId()));
