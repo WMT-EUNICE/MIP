@@ -3,17 +3,26 @@ package org.or.mip.bb;
 import com.dashoptimization.*;
 
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 /**
  * Created by baohuaw on 6/23/17.
  */
 public class XpressModeller {
+    public class ConstraintSet{
+        List<XPRBctr> constraints = new LinkedList<>();
+        XPRBbasis basis;
+    }
+
+    List<ConstraintSet> branchingConsSet = new LinkedList<>();
+
     XPRB bcl = new XPRB();
 
     XPRBprob problem = bcl.newProb("Example");      /* Create a new problem in BCL */
 
-    XPRBbasis basis;
+
 
     XPRBctr obj;
 
@@ -29,7 +38,25 @@ public class XpressModeller {
 
     }
 
-    void buildModel(){
+    void buildInitialConstraintSet(){
+//        ConstraintSet set = new ConstraintSet();
+        XPRBexpr constraint1 = new XPRBexpr();
+        constraint1.add(vars.get("x1"));
+        constraint1.add(vars.get("x2"));
+//        set.constraints.add();
+        problem.newCtr(constraint1.lEql(6));
+
+
+        XPRBexpr constraint2 = new XPRBexpr();
+        constraint1.add(vars.get("x1").mul(5));
+        constraint1.add(vars.get("x2").mul(9));
+//        set.constraints.add();
+
+        problem.newCtr(constraint2.lEql(45));
+//        branchingProblemCons.add(set);
+    }
+
+    void buildInitalModel(){
 
         XPRBvar x1 = problem.newVar(0, Double.MAX_VALUE);
         vars.put("x1", x1);
@@ -43,16 +70,31 @@ public class XpressModeller {
         problem.setObj(obj);
 
         XPRBexpr constraint1 = new XPRBexpr();
-        constraint1.add(x1);
-        constraint1.add(x2);
+        constraint1.add(vars.get("x1"));
+        constraint1.add(vars.get("x2"));
+//        set.constraints.add();
         problem.newCtr(constraint1.lEql(6));
 
+
         XPRBexpr constraint2 = new XPRBexpr();
-        constraint1.add(x1.mul(5));
-        constraint1.add(x2.mul(9));
+        constraint1.add(vars.get("x1").mul(5));
+        constraint1.add(vars.get("x2").mul(9));
+//        set.constraints.add();
+
         problem.newCtr(constraint2.lEql(45));
 
+
         problem.setSense(XPRB.MINIM);
+    }
+
+
+    Boolean integerSolution(){
+        for(String varName : vars.keySet()){
+            if(Math.abs(vars.get(varName).getSol() - (int)vars.get(varName).getSol()) >= 0.00001 ){
+                return false;
+            }
+        }
+        return true;
     }
 
     void solveRelaxedModel(){
@@ -60,13 +102,62 @@ public class XpressModeller {
         problem.lpOptimize("");             /* Solve the LP-problem */
         System.out.println("Objective: " + problem.getObjVal());  /* Get objective value */
 
+        if(integerSolution()) {
+            System.out.println("Integer Solution Found! No branching needed...");
+            return;
+        }
 
-        basis = problem.saveBasis();
+        lb = problem.getObjVal();
+
+        ConstraintSet set = new ConstraintSet();
+
+        set.basis = problem.saveBasis();
+        Iterable<XPRBctr> ctrIter = problem.getCtrs();
+
+        ctrIter.forEach(ctr->{
+            set.constraints.add(ctr);
+        });
+        branchingConsSet.add(set);
+
+
+
+        ConstraintSet target = branchingConsSet.get(0);
+        branchingConsSet.remove(0);
+
+        branching(target);
+
+        while(!branchingConsSet.isEmpty()){
+            target = branchingConsSet.get(0);
+            branchingConsSet.remove(0);
+            branching(target);
+
+
+
+        }
+
 
 
     }
 
-    void branching(){
+    void buildBranchingConstraintSet(ConstraintSet targetSet, XPRBvar targetVar, boolean left){
+        ConstraintSet branchingSet = new ConstraintSet();
+
+        branchingSet.constraints.addAll(targetSet.constraints);
+        branchingSet.basis = targetSet.basis;
+        //add existing constraints
+
+        XPRBexpr branching = new XPRBexpr();
+        branching.add(targetVar);
+        if(left) {
+            branchingSet.constraints.add(problem.newCtr(branching.lEql(((int) targetVar.getSol()))));
+        }else{
+            branchingSet.constraints.add(problem.newCtr(branching.gEql(((int) targetVar.getSol() + 1))));
+        }
+        branchingConsSet.add(branchingSet);
+
+    }
+
+    void branching(ConstraintSet set){
         XPRBvar target = null;
         for(String varName : vars.keySet()){
             if(Math.abs(vars.get(varName).getSol() - (int)vars.get(varName).getSol()) >= 0.00001 ){
@@ -80,6 +171,8 @@ public class XpressModeller {
             return;
         }
 
-        XPRBexpr leftBranching = new XPRBexpr();
+        buildBranchingConstraintSet(set, target, true);
+        buildBranchingConstraintSet(set, target, false);
+
     }
 }
