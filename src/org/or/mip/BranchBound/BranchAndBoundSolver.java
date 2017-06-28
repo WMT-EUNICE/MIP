@@ -7,7 +7,7 @@ import java.util.*;
 /**
  * Created by baohuaw on 6/23/17.
  */
-public class XpressModeller {
+public class BranchAndBoundSolver {
     enum BoundingType {
         LE, GE
     }
@@ -38,7 +38,7 @@ public class XpressModeller {
     XPRBprob problem = bcl.newProb("Example");      /* Create a new problem in BCL */
 
 
-    XPRBctr obj;
+//    XPRBctr obj;
 
     double lb = -Double.MAX_VALUE;
     double ub = Double.MAX_VALUE;
@@ -48,7 +48,7 @@ public class XpressModeller {
 
     public static void main(String[] args) {
 
-        XpressModeller modeller = new XpressModeller();
+        BranchAndBoundSolver modeller = new BranchAndBoundSolver();
         modeller.buildInitalModel();
         modeller.branchAndBound();
     }
