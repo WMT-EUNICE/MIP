@@ -1,4 +1,4 @@
-package org.or.mip.cg;
+package org.or.mip.ColumnGeneration;
 
 import com.dashoptimization.*;
 import org.graphstream.algorithm.Dijkstra;

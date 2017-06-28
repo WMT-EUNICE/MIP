@@ -1,4 +1,4 @@
-package org.or.mip.bb;
+package org.or.mip.BranchBound;
 
 import com.dashoptimization.*;
 
@@ -137,7 +137,11 @@ public class XpressModeller {
 
         branching(target);
 
-        while (!branchingConsSet.isEmpty() || !(ub == lb)) {
+        while (!branchingConsSet.isEmpty()) {
+            if(ub == lb) {
+                System.out.println("Terminate with UB = " + ub + "    LB = " + lb);
+                return;
+            }
             target = branchingConsSet.get(0);
             branchingConsSet.remove(0);
 
