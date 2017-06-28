@@ -8,12 +8,12 @@ import java.util.*;
  * Created by baohuaw on 6/23/17.
  */
 public class XpressModeller {
-    enum BoundingType{
+    enum BoundingType {
         LE, GE
     }
 
 
-    public class BoundingConstraint{
+    public class BoundingConstraint {
 
         String boundingVarName;
         BoundingType type;
@@ -55,38 +55,26 @@ public class XpressModeller {
 
     void buildInitalModel() {
 
-        XPRBvar x1 = problem.newVar(XPRB.PL,0, Double.MAX_VALUE);
+        XPRBvar x1 = problem.newVar(XPRB.PL, 0, Double.MAX_VALUE);
         vars.put("x1", x1);
-        XPRBvar x2 = problem.newVar(XPRB.PL,0, Double.MAX_VALUE);
+        XPRBvar x2 = problem.newVar(XPRB.PL, 0, Double.MAX_VALUE);
         vars.put("x2", x2);
 
         XPRBexpr objExpr = new XPRBexpr();
-        objExpr.add(x1.mul(-1));
-        objExpr.add(x2.mul(-4));
-//        obj = problem.newCtr(objExpr);
+        objExpr.add(x1.mul(-5));
+        objExpr.add(x2.mul(-8));
         problem.setObj(objExpr);
 
         XPRBexpr constraint1 = new XPRBexpr();
-        constraint1.add(vars.get("x1").mul(2));
-        constraint1.add(vars.get("x2").mul(4));
-//        set.constraints.add();
-        problem.newCtr("major 1", constraint1.lEql(7));
+        constraint1.add(vars.get("x1").mul(1));
+        constraint1.add(vars.get("x2").mul(1));
+        problem.newCtr("major 1", constraint1.lEql(6));
 
 
         XPRBexpr constraint2 = new XPRBexpr();
-        constraint2.add(vars.get("x1").mul(10));
-        constraint2.add(vars.get("x2").mul(3));
-//        set.constraints.add();
-
-        problem.newCtr("major 2", constraint2.lEql(14));
-
-//        XPRBexpr constraint3 = new XPRBexpr();
-////        constraint2.add(vars.get("x1").mul(10));
-//        constraint3.add(vars.get("x2").mul(1));
-////        set.constraints.add();
-//
-//        problem.newCtr("major 3", constraint3.lEql(1));
-
+        constraint2.add(vars.get("x1").mul(5));
+        constraint2.add(vars.get("x2").mul(9));
+        problem.newCtr("major 2", constraint2.lEql(45));
 
         problem.setSense(XPRB.MINIM);
 
@@ -126,9 +114,8 @@ public class XpressModeller {
             return;
         }
 
-        if(lb < problem.getObjVal())
+        if (lb < problem.getObjVal())
             lb = problem.getObjVal();
-
 
 
         BranchingConstraintSet target = new BranchingConstraintSet();
@@ -138,30 +125,30 @@ public class XpressModeller {
         branching(target);
 
         while (!branchingConsSet.isEmpty()) {
-            if(ub == lb) {
-                System.out.println("Terminate with UB = " + ub + "    LB = " + lb);
+            if (ub == lb) {
+                System.out.println("Terminate because of UB = LB = " + lb);
                 return;
             }
             target = branchingConsSet.get(0);
             branchingConsSet.remove(0);
 
-            if(solveBranchingModel(target))
+            if (solveBranchingModel(target))
                 branching(target);
         }
-
     }
 
+    //if need further branching, return true; Else, return false
     boolean solveBranchingModel(BranchingConstraintSet targetSet) {
         int branchingId = 0;
         List<XPRBctr> branchingConsName = new ArrayList<>();
-        for(BoundingConstraint branching : targetSet.constraints){
+         for (BoundingConstraint branching : targetSet.constraints) {
             XPRBexpr expr = new XPRBexpr();
             expr.add(vars.get(branching.boundingVarName));
 
             XPRBctr b;
-            if(branching.type == BoundingType.LE)
+            if (branching.type == BoundingType.LE)
                 b = problem.newCtr("branching " + branchingId, expr.lEql(branching.bound));
-            else{
+            else {
                 b = problem.newCtr("branching " + branchingId, expr.gEql(branching.bound));
             }
 
@@ -183,21 +170,25 @@ public class XpressModeller {
 
         problem.lpOptimize("");             /* Solve the LP-problem */
 
-        for(XPRBctr b : branchingConsName){
+        for (XPRBctr b : branchingConsName) {
             problem.delCtr(b);
         }
 
-        if(problem.getLPStat() == XPRB.LP_OPTIMAL){
+        if (problem.getLPStat() == XPRB.LP_OPTIMAL) {
             System.out.println("Objective: " + problem.getObjVal());  /* Get objective value */
-
-
-            if(lb < problem.getObjVal())
-                lb = problem.getObjVal();
-
             if (integerSolution()) {
-                ub = problem.getObjVal();
+                if (problem.getObjVal() < ub)
+                    ub = problem.getObjVal();
+
+//                if (problem.getObjVal() > lb)
+//                    lb = problem.getObjVal();
+
+                return false;
+            } else {
+                if (problem.getObjVal() > lb)
+                    lb = problem.getObjVal();
             }
-        }else{
+        } else {
             System.out.println("Current branch is infeasible!");
             return false;
         }
