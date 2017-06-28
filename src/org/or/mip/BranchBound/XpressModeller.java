@@ -77,16 +77,6 @@ public class XpressModeller {
         problem.newCtr("major 2", constraint2.lEql(45));
 
         problem.setSense(XPRB.MINIM);
-
-//        for(Iterator<XPRBctr> iterable = problem.getCtrs().iterator(); iterable.hasNext();){
-//            XPRBctr ctr = iterable.next();
-//            for(String var : vars.keySet()){
-//                System.out.println(ctr.getCoefficient(vars.get(var)));
-////                System.out.println(vars.get(var).getLB());
-////                System.out.println(vars.get(var).getUB());
-//            }
-//            System.out.println(ctr.getType());
-//        }
     }
 
 
@@ -187,6 +177,8 @@ public class XpressModeller {
             } else {
                 if (problem.getObjVal() > lb)
                     lb = problem.getObjVal();
+//                else
+//                    return false;
             }
         } else {
             System.out.println("Current branch is infeasible!");
