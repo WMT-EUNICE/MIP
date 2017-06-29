@@ -37,9 +37,6 @@ public class BranchAndBoundSolver {
 
     XPRBprob problem = bcl.newProb("Example");      /* Create a new problem in BCL */
 
-
-//    XPRBctr obj;
-
     double lb = -Double.MAX_VALUE;
     double ub = Double.MAX_VALUE;
 

@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1842aaef-f73b-4006-ab03-e7773f027b72" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/BenderDecompositionSolver.java" afterPath="$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/BenderDecompositionSolver.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/or/mip/langragianRelaxation/LangragianRelaxationSolver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/or/mip/BranchBound/BranchAndBoundSolver.java" afterPath="$PROJECT_DIR$/src/org/or/mip/BranchBound/BranchAndBoundSolver.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -77,59 +79,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1498713448813" expanded="true" signature="78118:78160" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="78118:78178" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="78118:78191" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="78118:78206" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="78118:78143" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="78241:80743" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="78254:80728" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="78308:78603" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="78327:78588" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="78390:78568" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="78430:78534" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="78451:78512" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="78653:78980" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="78672:78965" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="78767:78945" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="78807:78911" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="78828:78889" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="79031:79350" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="79050:79335" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="79137:79315" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="79177:79281" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="79198:79259" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="79393:79699" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="79412:79684" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="79486:79664" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="79526:79630" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="79547:79608" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="79750:80056" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="79769:80041" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="79843:80021" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="79883:79987" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="79904:79965" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="80091:80397" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="80110:80382" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="80184:80362" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="80224:80328" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="80245:80306" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="80449:80714" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="80468:80699" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="80501:80679" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="80541:80645" ph="..." />
-                <marker date="1498713448813" expanded="true" signature="80562:80623" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Path.java" pinned="false" current-in-tab="false">
         <entry file="jar://$USER_HOME$/.ideaLibSources/gs-core-1.3-sources.jar!/org/graphstream/graph/Path.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -186,9 +135,11 @@
       <file leaf-file-name="BranchAndBoundSolver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/or/mip/BranchBound/BranchAndBoundSolver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1840">
-              <caret line="92" column="9" lean-forward="false" selection-start-line="92" selection-start-column="9" selection-end-line="92" selection-end-column="9" />
-              <folding />
+            <state relative-caret-position="440">
+              <caret line="91" column="30" lean-forward="true" selection-start-line="91" selection-start-column="30" selection-end-line="91" selection-end-column="30" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -203,11 +154,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BenderDecompositionSolver.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BenderDecompositionSolver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/BenderDecompositionSolver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="560">
-              <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+            <state relative-caret-position="320">
+              <caret line="85" column="9" lean-forward="true" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -221,6 +172,18 @@
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LangragianRelaxationSolver.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/org/or/mip/langragianRelaxation/LangragianRelaxationSolver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="718">
+              <caret line="147" column="12" lean-forward="false" selection-start-line="147" selection-start-column="12" selection-end-line="147" selection-end-column="12" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -264,6 +227,8 @@
         <option value="$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/BDXpressModeller.java" />
         <option value="$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/BenderDecomposition.java" />
         <option value="$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/BenderDecompositionSolver.java" />
+        <option value="$PROJECT_DIR$/src/org/or/mip/BranchBound/BranchAndBoundSolver.java" />
+        <option value="$PROJECT_DIR$/src/org/or/mip/langragianRelaxation/LangragianRelaxationSolver.java" />
       </list>
     </option>
   </component>
@@ -315,6 +280,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="MIP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MIP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MIP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mip" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="langragianRelaxation" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -437,7 +424,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.BenderDecompositionSolver">
+  <component name="RunManager" selected="Application.LangragianRelaxationSolver">
     <configuration default="false" name="MultiCommodityFlow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -512,6 +499,28 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="org.or.mip.BenderDecomposition.BenderDecompositionSolver" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="MIP" />
+      <envs>
+        <env name="LD_LIBRARY_PATH" value="/opt/xpressmp/lib" />
+      </envs>
+      <method />
+    </configuration>
+    <configuration default="false" name="LangragianRelaxationSolver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="org.or.mip.langragianRelaxation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="org.or.mip.langragianRelaxation.LangragianRelaxationSolver" />
       <option name="VM_PARAMETERS" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
@@ -732,18 +741,20 @@
       <envs />
       <method />
     </configuration>
-    <list size="4">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Application.MultiCommodityFlow" />
       <item index="1" class="java.lang.String" itemvalue="Application.MultiCommodityFlow2" />
       <item index="2" class="java.lang.String" itemvalue="Application.BranchAndBoundSolver" />
       <item index="3" class="java.lang.String" itemvalue="Application.BenderDecompositionSolver" />
+      <item index="4" class="java.lang.String" itemvalue="Application.LangragianRelaxationSolver" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Application.BenderDecompositionSolver" />
-        <item index="1" class="java.lang.String" itemvalue="Application.BranchAndBoundSolver" />
-        <item index="2" class="java.lang.String" itemvalue="Application.MultiCommodityFlow2" />
-        <item index="3" class="java.lang.String" itemvalue="Application.MultiCommodityFlow" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Application.LangragianRelaxationSolver" />
+        <item index="1" class="java.lang.String" itemvalue="Application.BenderDecompositionSolver" />
+        <item index="2" class="java.lang.String" itemvalue="Application.BranchAndBoundSolver" />
+        <item index="3" class="java.lang.String" itemvalue="Application.MultiCommodityFlow2" />
+        <item index="4" class="java.lang.String" itemvalue="Application.MultiCommodityFlow" />
       </list>
     </recent_temporary>
   </component>
@@ -781,14 +792,14 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945737" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32993057" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32790697" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32790697" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22172315" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Brazil" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -869,31 +880,31 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/org/or/mip/BranchBound/BranchAndBoundSolver.java</url>
-          <line>51</line>
+          <line>48</line>
           <properties />
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/org/or/mip/BranchBound/BranchAndBoundSolver.java</url>
-          <line>101</line>
+          <line>98</line>
           <properties />
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/org/or/mip/BranchBound/BranchAndBoundSolver.java</url>
-          <line>124</line>
+          <line>121</line>
           <properties />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/org/or/mip/BranchBound/BranchAndBoundSolver.java</url>
-          <line>98</line>
+          <line>95</line>
           <properties />
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/org/or/mip/BranchBound/BranchAndBoundSolver.java</url>
-          <line>166</line>
+          <line>163</line>
           <properties />
           <option name="timeStamp" value="24" />
         </line-breakpoint>
@@ -915,8 +926,32 @@
           <properties />
           <option name="timeStamp" value="35" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/org/or/mip/langragianRelaxation/LangragianRelaxationSolver.java</url>
+          <line>125</line>
+          <properties />
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/org/or/mip/langragianRelaxation/LangragianRelaxationSolver.java</url>
+          <line>36</line>
+          <properties />
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/org/or/mip/langragianRelaxation/LangragianRelaxationSolver.java</url>
+          <line>89</line>
+          <properties />
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/org/or/mip/langragianRelaxation/LangragianRelaxationSolver.java</url>
+          <line>111</line>
+          <properties />
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="36" />
+      <option name="time" value="44" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -925,23 +960,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/org/or/mip/ColumnGeneration/MultiCommodityFlow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3587">
-          <caret line="221" column="0" lean-forward="false" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/gs-core-1.3.jar!/org/graphstream/graph/implementations/SingleGraph.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="24" column="11" lean-forward="false" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/or/mip/ColumnGeneration/tiny_network_01">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1012,48 +1030,48 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1498713448813" expanded="true" signature="78118:78160" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="78118:78178" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="78118:78191" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="78118:78206" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="78118:78143" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="78241:80743" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="78254:80728" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="78308:78603" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="78327:78588" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="78390:78568" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="78430:78534" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="78451:78512" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="78653:78980" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="78672:78965" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="78767:78945" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="78807:78911" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="78828:78889" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="79031:79350" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="79050:79335" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="79137:79315" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="79177:79281" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="79198:79259" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="79393:79699" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="79412:79684" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="79486:79664" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="79526:79630" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="79547:79608" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="79750:80056" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="79769:80041" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="79843:80021" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="79883:79987" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="79904:79965" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="80091:80397" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="80110:80382" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="80184:80362" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="80224:80328" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="80245:80306" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="80449:80714" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="80468:80699" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="80501:80679" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="80541:80645" ph="..." />
-            <marker date="1498713448813" expanded="true" signature="80562:80623" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="78473:78490" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="78473:78508" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="78473:78521" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="78473:78536" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="77848:77873" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="78571:81073" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="78584:81058" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="78638:78933" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="78657:78918" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="78720:78898" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="78760:78864" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="78781:78842" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="78983:79310" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="79002:79295" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="79097:79275" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="79137:79241" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="79158:79219" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="79361:79680" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="79380:79665" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="79467:79645" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="79507:79611" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="79528:79589" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="79723:80029" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="79742:80014" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="79816:79994" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="79856:79960" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="79877:79938" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="80080:80386" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="80099:80371" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="80173:80351" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="80213:80317" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="80234:80295" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="80421:80727" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="80440:80712" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="80514:80692" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="80554:80658" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="80575:80636" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="80779:81044" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="80798:81029" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="80831:81009" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="80871:80975" ph="..." />
+            <marker date="1498727980173" expanded="true" signature="80892:80953" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1160,6 +1178,22 @@
       </provider>
     </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/lang/Iterable.java" />
+    <entry file="jar:///opt/xpressmp/lib/xprb.jar!/com/dashoptimization/XPRBprob.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3220">
+          <caret line="187" column="19" lean-forward="false" selection-start-line="187" selection-start-column="19" selection-end-line="187" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/or/mip/LangragianRelaxation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="33" lean-forward="false" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/uiDesigner.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1170,24 +1204,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/or/mip/BranchBound/BranchAndBoundSolver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1840">
-          <caret line="92" column="9" lean-forward="false" selection-start-line="92" selection-start-column="9" selection-end-line="92" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///opt/xpressmp/lib/xprb.jar!/com/dashoptimization/XPRBprob.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3220">
-          <caret line="187" column="19" lean-forward="false" selection-start-line="187" selection-start-column="19" selection-end-line="187" selection-end-column="19" />
-          <folding />
+        <state relative-caret-position="440">
+          <caret line="91" column="30" lean-forward="true" selection-start-line="91" selection-start-column="30" selection-end-line="91" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/BenderDecompositionSolver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+        <state relative-caret-position="320">
+          <caret line="85" column="9" lean-forward="true" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/or/mip/langragianRelaxation/LangragianRelaxationSolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="718">
+          <caret line="147" column="12" lean-forward="false" selection-start-line="147" selection-start-column="12" selection-end-line="147" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
