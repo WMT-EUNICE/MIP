@@ -19,6 +19,9 @@
     <SUITE FILE_PATH="coverage/MIP$MultiCommodityFlow.coverage" NAME="MultiCommodityFlow Coverage Results" MODIFIED="1498030387414" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>org.or.mip.cg.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/MIP$BenderDecompositionSolver.coverage" NAME="BenderDecompositionSolver Coverage Results" MODIFIED="1498707117752" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.or.mip.BenderDecomposition.*</FILTER>
+    </SUITE>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
@@ -80,48 +83,48 @@
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <marker date="1498645433727" expanded="true" signature="78931:79052" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="78931:79070" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="78931:79083" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="78931:79098" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="78954:79035" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="79133:81635" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="79146:81620" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="79200:79495" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="79219:79480" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="79282:79460" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="79322:79426" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="79343:79404" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="79545:79872" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="79564:79857" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="79659:79837" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="79699:79803" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="79720:79781" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="79923:80242" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="79942:80227" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="80029:80207" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="80069:80173" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="80090:80151" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="80285:80591" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="80304:80576" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="80378:80556" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="80418:80522" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="80439:80500" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="80642:80948" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="80661:80933" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="80735:80913" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="80775:80879" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="80796:80857" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="80983:81289" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="81002:81274" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="81076:81254" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="81116:81220" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="81137:81198" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="81341:81606" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="81360:81591" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="81393:81571" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="81433:81537" ph="..." />
-                <marker date="1498645433727" expanded="true" signature="81454:81515" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="78250:78292" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="78250:78310" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="78250:78323" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="78250:78338" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="78250:78275" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="78373:80875" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="78386:80860" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="78440:78735" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="78459:78720" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="78522:78700" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="78562:78666" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="78583:78644" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="78785:79112" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="78804:79097" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="78899:79077" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="78939:79043" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="78960:79021" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="79163:79482" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="79182:79467" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="79269:79447" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="79309:79413" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="79330:79391" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="79525:79831" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="79544:79816" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="79618:79796" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="79658:79762" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="79679:79740" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="79882:80188" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="79901:80173" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="79975:80153" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="80015:80119" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="80036:80097" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="80223:80529" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="80242:80514" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="80316:80494" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="80356:80460" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="80377:80438" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="80581:80846" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="80600:80831" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="80633:80811" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="80673:80777" ph="..." />
+                <marker date="1498712728843" expanded="true" signature="80694:80755" ph="..." />
               </folding>
             </state>
           </provider>
@@ -183,11 +186,9 @@
       <file leaf-file-name="BranchAndBoundSolver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/or/mip/BranchBound/BranchAndBoundSolver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
+            <state relative-caret-position="1840">
               <caret line="92" column="9" lean-forward="false" selection-start-line="92" selection-start-column="9" selection-end-line="92" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -195,20 +196,9 @@
       <file leaf-file-name="XPRBprob.class" pinned="false" current-in-tab="false">
         <entry file="jar:///opt/xpressmp/lib/xprb.jar!/com/dashoptimization/XPRBprob.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
+            <state relative-caret-position="3220">
               <caret line="187" column="19" lean-forward="false" selection-start-line="187" selection-start-column="19" selection-end-line="187" selection-end-column="19" />
-              <folding>
-                <element signature="e#5757#5758#0" expanded="true" />
-                <element signature="e#5823#5824#0" expanded="true" />
-                <element signature="e#5878#5879#0" expanded="true" />
-                <element signature="e#5941#5942#0" expanded="true" />
-                <element signature="e#6425#6426#0" expanded="true" />
-                <element signature="e#6493#6494#0" expanded="true" />
-                <element signature="e#9881#9882#0" expanded="true" />
-                <element signature="e#9920#9921#0" expanded="true" />
-                <element signature="e#10464#10465#0" expanded="true" />
-                <element signature="e#10511#10512#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -216,10 +206,11 @@
       <file leaf-file-name="BenderDecompositionSolver.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/BenderDecompositionSolver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="116" column="74" lean-forward="true" selection-start-line="116" selection-start-column="74" selection-end-line="116" selection-end-column="74" />
+            <state relative-caret-position="699">
+              <caret line="89" column="2" lean-forward="true" selection-start-line="89" selection-start-column="2" selection-end-line="89" selection-end-column="2" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3043#3101#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -248,6 +239,7 @@
     <findStrings>
       <find>getLength</find>
       <find>getAttribute</find>
+      <find>newProb</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -314,8 +306,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -410,7 +401,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -789,9 +781,10 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945737" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32993057" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32790697" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2196815" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22172315" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Brazil" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -809,7 +802,6 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32993057" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
@@ -914,12 +906,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/BenderDecompositionSolver.java</url>
-          <line>132</line>
+          <line>58</line>
           <properties />
-          <option name="timeStamp" value="26" />
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/BenderDecompositionSolver.java</url>
+          <line>86</line>
+          <properties />
+          <option name="timeStamp" value="35" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="27" />
+      <option name="time" value="36" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1015,48 +1013,48 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1498645433727" expanded="true" signature="78931:79052" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="78931:79070" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="78931:79083" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="78931:79098" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="78954:79035" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="79133:81635" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="79146:81620" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="79200:79495" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="79219:79480" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="79282:79460" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="79322:79426" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="79343:79404" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="79545:79872" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="79564:79857" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="79659:79837" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="79699:79803" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="79720:79781" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="79923:80242" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="79942:80227" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="80029:80207" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="80069:80173" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="80090:80151" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="80285:80591" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="80304:80576" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="80378:80556" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="80418:80522" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="80439:80500" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="80642:80948" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="80661:80933" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="80735:80913" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="80775:80879" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="80796:80857" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="80983:81289" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="81002:81274" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="81076:81254" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="81116:81220" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="81137:81198" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="81341:81606" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="81360:81591" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="81393:81571" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="81433:81537" ph="..." />
-            <marker date="1498645433727" expanded="true" signature="81454:81515" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="78250:78292" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="78250:78310" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="78250:78323" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="78250:78338" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="78250:78275" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="78373:80875" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="78386:80860" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="78440:78735" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="78459:78720" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="78522:78700" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="78562:78666" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="78583:78644" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="78785:79112" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="78804:79097" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="78899:79077" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="78939:79043" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="78960:79021" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="79163:79482" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="79182:79467" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="79269:79447" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="79309:79413" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="79330:79391" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="79525:79831" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="79544:79816" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="79618:79796" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="79658:79762" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="79679:79740" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="79882:80188" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="79901:80173" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="79975:80153" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="80015:80119" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="80036:80097" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="80223:80529" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="80242:80514" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="80316:80494" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="80356:80460" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="80377:80438" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="80581:80846" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="80600:80831" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="80633:80811" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="80673:80777" ph="..." />
+            <marker date="1498712728843" expanded="true" signature="80694:80755" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1173,39 +1171,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/or/mip/BranchBound/BranchAndBoundSolver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
+        <state relative-caret-position="1840">
           <caret line="92" column="9" lean-forward="false" selection-start-line="92" selection-start-column="9" selection-end-line="92" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar:///opt/xpressmp/lib/xprb.jar!/com/dashoptimization/XPRBprob.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
+        <state relative-caret-position="3220">
           <caret line="187" column="19" lean-forward="false" selection-start-line="187" selection-start-column="19" selection-end-line="187" selection-end-column="19" />
-          <folding>
-            <element signature="e#5757#5758#0" expanded="true" />
-            <element signature="e#5823#5824#0" expanded="true" />
-            <element signature="e#5878#5879#0" expanded="true" />
-            <element signature="e#5941#5942#0" expanded="true" />
-            <element signature="e#6425#6426#0" expanded="true" />
-            <element signature="e#6493#6494#0" expanded="true" />
-            <element signature="e#9881#9882#0" expanded="true" />
-            <element signature="e#9920#9921#0" expanded="true" />
-            <element signature="e#10464#10465#0" expanded="true" />
-            <element signature="e#10511#10512#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/BenderDecompositionSolver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="116" column="74" lean-forward="true" selection-start-line="116" selection-start-column="74" selection-end-line="116" selection-end-column="74" />
+        <state relative-caret-position="699">
+          <caret line="89" column="2" lean-forward="true" selection-start-line="89" selection-start-column="2" selection-end-line="89" selection-end-column="2" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3043#3101#0" expanded="false" />
           </folding>
         </state>
       </provider>
