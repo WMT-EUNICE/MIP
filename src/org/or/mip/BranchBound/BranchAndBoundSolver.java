@@ -6,20 +6,21 @@ import java.util.*;
 
 /**
  * Created by baohuaw on 6/23/17.
+ * Mininize cx
+ * s.t.
+ * Ax <= b
  */
 public class BranchAndBoundSolver {
     enum BoundingType {
         LE, GE
     }
 
-
     public class BoundingConstraint {
-
         String boundingVarName;
         BoundingType type;
         int bound;
 
-        public BoundingConstraint(String boundingVarName, BoundingType type, int bound) {
+        BoundingConstraint(String boundingVarName, BoundingType type, int bound) {
             this.boundingVarName = boundingVarName;
             this.type = type;
             this.bound = bound;
@@ -174,6 +175,7 @@ public class BranchAndBoundSolver {
             } else {
                 if (problem.getObjVal() > lb)
                     lb = problem.getObjVal();
+                return true;
 //                else
 //                    return false;
             }
@@ -181,7 +183,6 @@ public class BranchAndBoundSolver {
             System.out.println("Current branch is infeasible!");
             return false;
         }
-        return true;
     }
 
     void buildBranchingConstraintSet(BranchingConstraintSet targetSet, String targetVarName, boolean left) {
