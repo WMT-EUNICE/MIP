@@ -1,4 +1,4 @@
-package org.or.mip.langragianRelaxation;
+package org.or.mip.LangragianRelaxation;
 
 import com.dashoptimization.XPRB;
 import com.dashoptimization.XPRBexpr;
