@@ -14,33 +14,18 @@ public class BenderDecompositionSolver {
 
     XPRB bcl = new XPRB();
 
-//    XPRBprob problem = bcl.newProb("Example");      /* Create a new problem in BCL */
-
     XPRBprob master = bcl.newProb("Master");      /* Create a new problem in BCL */
     Map<String, XPRBprob> subs = new HashMap<>();
-//    XPRBprob sub = bcl.newProb("Sub");      /* Create a new problem in BCL */
-
-
-    XPRBexpr originalObj;
-//    XPRBctr obj;
-//    XPRBvar comlicatingVar;
 
     double lb = -Double.MAX_VALUE;
     double ub = Double.MAX_VALUE;
 
-//    Map<String, XPRBvar> vars = new HashMap<>();
-
     Map<String, XPRBvar> masterVars = new HashMap<>();
     Map<String, XPRBvar> subVars = new HashMap<>();
-
-//    Map<String, XPRBctr> originalCons = new HashMap<>();
-
 
     public static void main(String[] args) {
         BenderDecompositionSolver solver = new BenderDecompositionSolver();
         solver.solve();
-//        solver.init();
-//        while (Math.abs(ub - lb))
     }
 
     void solve() {
@@ -85,49 +70,16 @@ public class BenderDecompositionSolver {
 
 
             addBendersCutToMaster(boundingVarDuals, subs.get("Sub_y"), complicatingVarBoundings);
-
-//            master.lpOptimise();
-//
-//            lb = master.getObjVal();
         }
     }
 
     void init() {
         XPRBprob sub_y = bcl.newProb("Sub_y");
         subs.put("Sub_y", sub_y);
-//        XPRBvar x = problem.newVar("x", XPRB.PL, 0, 16);
-//        vars.put("x", x);
-//        XPRBvar y = problem.newVar("y", XPRB.PL, 0, Double.MAX_VALUE);
-//        vars.put("y", y);
-//
 
-//
-//        XPRBexpr constraint1 = new XPRBexpr();
-//        constraint1.add(vars.get("y").mul(1));
-//        constraint1.add(vars.get("x").mul(-1));
-//        originalCons.put("original cons 1", problem.newCtr("original cons 1", constraint1.lEql(5)));
-//
-//
-//        XPRBexpr constraint2 = new XPRBexpr();
-//        constraint2.add(vars.get("y").mul(1));
-//        constraint2.add(vars.get("x").mul(-0.5));
-//        originalCons.put("original cons 2", problem.newCtr("original cons 2", constraint2.lEql(7.5)));
-//
-//        XPRBexpr constraint3 = new XPRBexpr();
-//        constraint3.add(vars.get("y").mul(1));
-//        constraint3.add(vars.get("x").mul(0.5));
-//        originalCons.put("original cons 3", problem.newCtr("original cons 3", constraint3.lEql(17.5)));
-//
-//        XPRBexpr constraint4 = new XPRBexpr();
-//        constraint4.add(vars.get("y").mul(-1));
-//        constraint4.add(vars.get("x").mul(1));
-//        originalCons.put("original cons 4", problem.newCtr("original cons 4", constraint4.lEql(10)));
-//
-//        problem.setSense(XPRB.MINIM);
     }
 
     Map<String, Double> buildMasterModel(List<String> complicatingVarNames) {
-//        XPRBvar complicatingVar = vars.get("x");
         master.newVar("x", XPRB.PL, 0, 16);
         for (String complicatingVarName : complicatingVarNames) {
             masterVars.put(complicatingVarName, master.getVarByName("x"));
@@ -143,8 +95,6 @@ public class BenderDecompositionSolver {
         master.setObj(objExpr);
 
         master.setSense(XPRB.MINIM);
-
-//        XPRBvar temp = master.getVarByName("alpha");
 
         master.lpOptimise();
 
@@ -234,7 +184,6 @@ public class BenderDecompositionSolver {
             sumOfBoundingMultipliedDual += masterVarDuals.get(masterVar) * masterVarBoundings.get(masterVar);
         }
         cutExpr.add(masterVars.get("alpha").mul(-1));
-
 
         master.newCtr("Benders Cut", cutExpr.lEql(-sub.getObjVal() + sumOfBoundingMultipliedDual));
     }
