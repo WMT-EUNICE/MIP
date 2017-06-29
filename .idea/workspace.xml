@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1842aaef-f73b-4006-ab03-e7773f027b72" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/or/mip/langragianRelaxation/LangragianRelaxationSolver.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/or/mip/BranchBound/BranchAndBoundSolver.java" afterPath="$PROJECT_DIR$/src/org/or/mip/BranchBound/BranchAndBoundSolver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/or/mip/langragianRelaxation/SubgradientOptimization.java" afterPath="$PROJECT_DIR$/src/org/or/mip/langragianRelaxation/SubgradientOptimization.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,33 +26,17 @@
     </SUITE>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="MIP" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="MultiCommodityFlow.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/or/mip/ColumnGeneration/MultiCommodityFlow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4220">
+            <state relative-caret-position="0">
               <caret line="221" column="0" lean-forward="false" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SingleGraph.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.ideaLibSources/gs-core-1.3-sources.jar!/org/graphstream/graph/implementations/SingleGraph.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="920">
-              <caret line="79" column="36" lean-forward="false" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#4226#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-                <element signature="e#3323#3324#0" expanded="false" />
-                <element signature="e#3382#3383#0" expanded="false" />
-                <element signature="e#4193#4194#0" expanded="false" />
-                <element signature="e#4221#4222#0" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -60,7 +44,7 @@
       <file leaf-file-name="tiny_network_01" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/or/mip/ColumnGeneration/tiny_network_01">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
+            <state relative-caret-position="0">
               <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
               <folding />
             </state>
@@ -70,11 +54,9 @@
       <file leaf-file-name="MultiCommodityFlow2.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/or/mip/ColumnGeneration/MultiCommodityFlow2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3320">
+            <state relative-caret-position="0">
               <caret line="176" column="0" lean-forward="false" selection-start-line="174" selection-start-column="7" selection-end-line="176" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -82,52 +64,9 @@
       <file leaf-file-name="Path.java" pinned="false" current-in-tab="false">
         <entry file="jar://$USER_HOME$/.ideaLibSources/gs-core-1.3-sources.jar!/org/graphstream/graph/Path.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2580">
+            <state relative-caret-position="0">
               <caret line="173" column="18" lean-forward="false" selection-start-line="173" selection-start-column="18" selection-end-line="173" selection-end-column="18" />
-              <folding>
-                <element signature="e#0#11401#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-                <element signature="e#3564#3565#0" expanded="false" />
-                <element signature="e#3587#3588#0" expanded="false" />
-                <element signature="e#4148#4149#0" expanded="false" />
-                <element signature="e#4185#4186#0" expanded="false" />
-                <element signature="e#4427#4428#0" expanded="false" />
-                <element signature="e#4464#4465#0" expanded="false" />
-                <element signature="e#4597#4598#0" expanded="false" />
-                <element signature="e#4627#4628#0" expanded="false" />
-                <element signature="e#4692#4693#0" expanded="false" />
-                <element signature="e#4721#4722#0" expanded="false" />
-                <element signature="e#5275#5276#0" expanded="false" />
-                <element signature="e#5297#5298#0" expanded="false" />
-                <element signature="e#5465#5466#0" expanded="false" />
-                <element signature="e#5487#5488#0" expanded="false" />
-                <element signature="e#6830#6831#0" expanded="false" />
-                <element signature="e#6852#6853#0" expanded="false" />
-                <element signature="e#6932#6933#0" expanded="false" />
-                <element signature="e#6948#6949#0" expanded="false" />
-                <element signature="e#7634#7635#0" expanded="false" />
-                <element signature="e#7663#7664#0" expanded="false" />
-                <element signature="e#7838#7839#0" expanded="false" />
-                <element signature="e#7867#7868#0" expanded="false" />
-                <element signature="e#9710#9711#0" expanded="false" />
-                <element signature="e#9743#9744#0" expanded="false" />
-                <element signature="e#9886#9887#0" expanded="false" />
-                <element signature="e#9915#9916#0" expanded="false" />
-                <element signature="e#10033#10034#0" expanded="false" />
-                <element signature="e#10062#10063#0" expanded="false" />
-                <element signature="e#10243#10244#0" expanded="false" />
-                <element signature="e#10290#10291#0" expanded="false" />
-                <element signature="e#10471#10472#0" expanded="false" />
-                <element signature="e#10518#10519#0" expanded="false" />
-                <element signature="e#10701#10702#0" expanded="false" />
-                <element signature="e#10747#10748#0" expanded="false" />
-                <element signature="e#10930#10931#0" expanded="false" />
-                <element signature="e#10976#10977#0" expanded="false" />
-                <element signature="e#11149#11150#0" expanded="false" />
-                <element signature="e#11187#11188#0" expanded="false" />
-                <element signature="e#11360#11361#0" expanded="false" />
-                <element signature="e#11398#11399#0" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -135,8 +74,8 @@
       <file leaf-file-name="BranchAndBoundSolver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/or/mip/BranchBound/BranchAndBoundSolver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="91" column="30" lean-forward="true" selection-start-line="91" selection-start-column="30" selection-end-line="91" selection-end-column="30" />
+            <state relative-caret-position="0">
+              <caret line="91" column="30" lean-forward="false" selection-start-line="91" selection-start-column="30" selection-end-line="91" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -147,7 +86,7 @@
       <file leaf-file-name="XPRBprob.class" pinned="false" current-in-tab="false">
         <entry file="jar:///opt/xpressmp/lib/xprb.jar!/com/dashoptimization/XPRBprob.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3220">
+            <state relative-caret-position="0">
               <caret line="187" column="19" lean-forward="false" selection-start-line="187" selection-start-column="19" selection-end-line="187" selection-end-column="19" />
               <folding />
             </state>
@@ -157,8 +96,8 @@
       <file leaf-file-name="BenderDecompositionSolver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/BenderDecompositionSolver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="85" column="9" lean-forward="true" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
+            <state relative-caret-position="0">
+              <caret line="85" column="9" lean-forward="false" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -176,14 +115,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LangragianRelaxationSolver.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/org/or/mip/langragianRelaxation/LangragianRelaxationSolver.java">
+      <file leaf-file-name="SubgradientOptimization.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/org/or/mip/langragianRelaxation/SubgradientOptimization.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="718">
-              <caret line="147" column="12" lean-forward="false" selection-start-line="147" selection-start-column="12" selection-end-line="147" selection-end-column="12" />
+            <state relative-caret-position="1187">
+              <caret line="120" column="99" lean-forward="false" selection-start-line="120" selection-start-column="99" selection-end-line="120" selection-end-column="99" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="0">
+                <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -229,6 +181,7 @@
         <option value="$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/BenderDecompositionSolver.java" />
         <option value="$PROJECT_DIR$/src/org/or/mip/BranchBound/BranchAndBoundSolver.java" />
         <option value="$PROJECT_DIR$/src/org/or/mip/langragianRelaxation/LangragianRelaxationSolver.java" />
+        <option value="$PROJECT_DIR$/src/org/or/mip/langragianRelaxation/SubgradientOptimization.java" />
       </list>
     </option>
   </component>
@@ -271,6 +224,8 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -387,8 +342,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -397,7 +350,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="SearchEverywhereHistoryKey" value="Dijkstr&#9;FILE&#9;jar:///home/local/ANT/baohuaw/IdeaProjects/MIP/lib/gs-algo-1.3.jar!/org/graphstream/algorithm/Dijkstra.class&#10;graphPath&#9;FILE&#9;jar:///home/local/ANT/baohuaw/.ideaLibSources/jgrapht-core-1.0.1-sources.jar!/org/jgrapht/GraphPath.java&#10;Path&#9;FILE&#9;jar:///home/local/ANT/baohuaw/.ideaLibSources/jgrapht-core-1.0.1-sources.jar!/org/jgrapht/alg/shortestpath/DijkstraShortestPath.java&#10;Default&#9;FILE&#9;jar:///home/local/ANT/baohuaw/.ideaLibSources/jgrapht-core-1.0.1-sources.jar!/org/jgrapht/graph/DefaultEdge.java&#10;simpleDirec&#9;PSI&#9;JAVA://org.jgrapht.graph.SimpleDirectedWeightedGraph" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -424,7 +377,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.LangragianRelaxationSolver">
+  <component name="RunManager" selected="Application.SubgradientOptimization">
     <configuration default="false" name="MultiCommodityFlow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -513,14 +466,14 @@
       </envs>
       <method />
     </configuration>
-    <configuration default="false" name="LangragianRelaxationSolver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="SubgradientOptimization" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="org.or.mip.langragianRelaxation.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="org.or.mip.langragianRelaxation.LangragianRelaxationSolver" />
+      <option name="MAIN_CLASS_NAME" value="org.or.mip.langragianRelaxation.SubgradientOptimization" />
       <option name="VM_PARAMETERS" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
@@ -746,17 +699,23 @@
       <item index="1" class="java.lang.String" itemvalue="Application.MultiCommodityFlow2" />
       <item index="2" class="java.lang.String" itemvalue="Application.BranchAndBoundSolver" />
       <item index="3" class="java.lang.String" itemvalue="Application.BenderDecompositionSolver" />
-      <item index="4" class="java.lang.String" itemvalue="Application.LangragianRelaxationSolver" />
+      <item index="4" class="java.lang.String" itemvalue="Application.SubgradientOptimization" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.LangragianRelaxationSolver" />
+        <item index="0" class="java.lang.String" itemvalue="Application.SubgradientOptimization" />
         <item index="1" class="java.lang.String" itemvalue="Application.BenderDecompositionSolver" />
         <item index="2" class="java.lang.String" itemvalue="Application.BranchAndBoundSolver" />
         <item index="3" class="java.lang.String" itemvalue="Application.MultiCommodityFlow2" />
         <item index="4" class="java.lang.String" itemvalue="Application.MultiCommodityFlow" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SFStoredExecutionPersistentComponent">
+    <executions>
+      <execution name="Default" sourceToExecute="" />
+    </executions>
+    <lastSelectedExecutionName>Default</lastSelectedExecutionName>
   </component>
   <component name="SbtLocalSettings">
     <option name="externalProjectsViewState">
@@ -779,28 +738,39 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="2497" height="1452" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug Logs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945737" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32993057" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32945737" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32790697" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22172315" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16047366" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Brazil" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Salesforce" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -809,10 +779,11 @@
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32993057" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -927,26 +898,26 @@
           <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/org/or/mip/langragianRelaxation/LangragianRelaxationSolver.java</url>
-          <line>125</line>
+          <url>file://$PROJECT_DIR$/src/org/or/mip/langragianRelaxation/SubgradientOptimization.java</url>
+          <line>124</line>
           <properties />
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/org/or/mip/langragianRelaxation/LangragianRelaxationSolver.java</url>
+          <url>file://$PROJECT_DIR$/src/org/or/mip/langragianRelaxation/SubgradientOptimization.java</url>
           <line>36</line>
           <properties />
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/org/or/mip/langragianRelaxation/LangragianRelaxationSolver.java</url>
+          <url>file://$PROJECT_DIR$/src/org/or/mip/langragianRelaxation/SubgradientOptimization.java</url>
           <line>89</line>
           <properties />
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/org/or/mip/langragianRelaxation/LangragianRelaxationSolver.java</url>
-          <line>111</line>
+          <url>file://$PROJECT_DIR$/src/org/or/mip/langragianRelaxation/SubgradientOptimization.java</url>
+          <line>110</line>
           <properties />
           <option name="timeStamp" value="43" />
         </line-breakpoint>
@@ -960,21 +931,11 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/org/or/mip/ColumnGeneration/tiny_network_01">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/or/mip/ColumnGeneration/MultiCommodityFlow2.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1122">
           <caret line="76" column="5" lean-forward="true" selection-start-line="76" selection-start-column="5" selection-end-line="76" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1029,50 +990,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1498727980173" expanded="true" signature="78473:78490" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="78473:78508" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="78473:78521" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="78473:78536" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="77848:77873" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="78571:81073" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="78584:81058" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="78638:78933" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="78657:78918" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="78720:78898" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="78760:78864" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="78781:78842" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="78983:79310" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="79002:79295" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="79097:79275" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="79137:79241" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="79158:79219" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="79361:79680" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="79380:79665" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="79467:79645" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="79507:79611" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="79528:79589" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="79723:80029" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="79742:80014" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="79816:79994" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="79856:79960" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="79877:79938" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="80080:80386" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="80099:80371" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="80173:80351" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="80213:80317" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="80234:80295" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="80421:80727" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="80440:80712" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="80514:80692" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="80554:80658" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="80575:80636" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="80779:81044" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="80798:81029" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="80831:81009" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="80871:80975" ph="..." />
-            <marker date="1498727980173" expanded="true" signature="80892:80953" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1087,71 +1005,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="920">
           <caret line="79" column="36" lean-forward="false" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#4226#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#3323#3324#0" expanded="false" />
-            <element signature="e#3382#3383#0" expanded="false" />
-            <element signature="e#4193#4194#0" expanded="false" />
-            <element signature="e#4221#4222#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/.ideaLibSources/gs-core-1.3-sources.jar!/org/graphstream/graph/Path.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2580">
+        <state relative-caret-position="0">
           <caret line="173" column="18" lean-forward="false" selection-start-line="173" selection-start-column="18" selection-end-line="173" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#11401#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#3564#3565#0" expanded="false" />
-            <element signature="e#3587#3588#0" expanded="false" />
-            <element signature="e#4148#4149#0" expanded="false" />
-            <element signature="e#4185#4186#0" expanded="false" />
-            <element signature="e#4427#4428#0" expanded="false" />
-            <element signature="e#4464#4465#0" expanded="false" />
-            <element signature="e#4597#4598#0" expanded="false" />
-            <element signature="e#4627#4628#0" expanded="false" />
-            <element signature="e#4692#4693#0" expanded="false" />
-            <element signature="e#4721#4722#0" expanded="false" />
-            <element signature="e#5275#5276#0" expanded="false" />
-            <element signature="e#5297#5298#0" expanded="false" />
-            <element signature="e#5465#5466#0" expanded="false" />
-            <element signature="e#5487#5488#0" expanded="false" />
-            <element signature="e#6830#6831#0" expanded="false" />
-            <element signature="e#6852#6853#0" expanded="false" />
-            <element signature="e#6932#6933#0" expanded="false" />
-            <element signature="e#6948#6949#0" expanded="false" />
-            <element signature="e#7634#7635#0" expanded="false" />
-            <element signature="e#7663#7664#0" expanded="false" />
-            <element signature="e#7838#7839#0" expanded="false" />
-            <element signature="e#7867#7868#0" expanded="false" />
-            <element signature="e#9710#9711#0" expanded="false" />
-            <element signature="e#9743#9744#0" expanded="false" />
-            <element signature="e#9886#9887#0" expanded="false" />
-            <element signature="e#9915#9916#0" expanded="false" />
-            <element signature="e#10033#10034#0" expanded="false" />
-            <element signature="e#10062#10063#0" expanded="false" />
-            <element signature="e#10243#10244#0" expanded="false" />
-            <element signature="e#10290#10291#0" expanded="false" />
-            <element signature="e#10471#10472#0" expanded="false" />
-            <element signature="e#10518#10519#0" expanded="false" />
-            <element signature="e#10701#10702#0" expanded="false" />
-            <element signature="e#10747#10748#0" expanded="false" />
-            <element signature="e#10930#10931#0" expanded="false" />
-            <element signature="e#10976#10977#0" expanded="false" />
-            <element signature="e#11149#11150#0" expanded="false" />
-            <element signature="e#11187#11188#0" expanded="false" />
-            <element signature="e#11360#11361#0" expanded="false" />
-            <element signature="e#11398#11399#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/or/mip/ColumnGeneration/tiny_network_01">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
+        <state relative-caret-position="0">
           <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
           <folding />
         </state>
@@ -1159,41 +1026,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/or/mip/ColumnGeneration/MultiCommodityFlow2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3320">
+        <state relative-caret-position="0">
           <caret line="176" column="0" lean-forward="false" selection-start-line="174" selection-start-column="7" selection-end-line="176" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/or/mip/ColumnGeneration/MultiCommodityFlow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4220">
+        <state relative-caret-position="0">
           <caret line="221" column="0" lean-forward="false" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/lang/Iterable.java" />
     <entry file="jar:///opt/xpressmp/lib/xprb.jar!/com/dashoptimization/XPRBprob.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3220">
+        <state relative-caret-position="0">
           <caret line="187" column="19" lean-forward="false" selection-start-line="187" selection-start-column="19" selection-end-line="187" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/or/mip/LangragianRelaxation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="33" lean-forward="false" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/or/mip/LangragianRelaxation.java" />
     <entry file="file://$PROJECT_DIR$/.idea/uiDesigner.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1204,8 +1060,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/or/mip/BranchBound/BranchAndBoundSolver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="91" column="30" lean-forward="true" selection-start-line="91" selection-start-column="30" selection-end-line="91" selection-end-column="30" />
+        <state relative-caret-position="0">
+          <caret line="91" column="30" lean-forward="false" selection-start-line="91" selection-start-column="30" selection-end-line="91" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1214,18 +1070,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/BenderDecompositionSolver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="85" column="9" lean-forward="true" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
+        <state relative-caret-position="0">
+          <caret line="85" column="9" lean-forward="false" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/or/mip/langragianRelaxation/LangragianRelaxationSolver.java">
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/or/mip/langragianRelaxation/SubgradientOptimization.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="718">
-          <caret line="147" column="12" lean-forward="false" selection-start-line="147" selection-start-column="12" selection-end-line="147" selection-end-column="12" />
+        <state relative-caret-position="1187">
+          <caret line="120" column="99" lean-forward="false" selection-start-line="120" selection-start-column="99" selection-end-line="120" selection-end-column="99" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
