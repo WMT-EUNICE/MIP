@@ -1,6 +1,7 @@
 package org.or.mip.Modelling;
 
 import com.dashoptimization.XPRB;
+import com.dashoptimization.XPRBctr;
 import com.dashoptimization.XPRBexpr;
 import com.dashoptimization.XPRBprob;
 
@@ -17,6 +18,10 @@ public class XpressSolver implements ModelSolver {
     ModelSolverType type;
 
 
+    public XpressSolver(){
+
+    }
+
     public XpressSolver(Model model) {
         this.model = model;
         problem = bcl.newProb(model.name);
@@ -29,7 +34,8 @@ public class XpressSolver implements ModelSolver {
 
     @Override
     public void setModel(Model model) {
-
+        this.model = model;
+        problem = bcl.newProb(model.name);
     }
 
     @Override
@@ -39,6 +45,32 @@ public class XpressSolver implements ModelSolver {
 
     @Override
     public void solve() {
+
+        problem.lpOptimise();
+        model.optimum = problem.getObjVal();
+
+        for(Variable var : model.vars){
+            var.value = problem.getVarByName(var.name).getSol();
+        }
+    }
+
+    @Override
+    public void addConstraint(Constraint constraint) {
+        XPRBexpr conExpr = new XPRBexpr();
+        for(Term term : constraint.terms){
+            conExpr.add(problem.getVarByName(term.var.name).mul(term.coef));
+        }
+        if(constraint.type == ConstraintType.EQL) {
+            problem.newCtr(constraint.name, conExpr.eql(constraint.bound));
+        }else if(constraint.type == ConstraintType.LEQL) {
+            problem.newCtr(constraint.name, conExpr.lEql(constraint.bound));
+        }else if(constraint.type == ConstraintType.GEQL) {
+            problem.newCtr(constraint.name, conExpr.gEql(constraint.bound));
+        }
+    }
+
+    @Override
+    public void translateModel() {
         for(Variable var : model.vars){
             if(var.type == VariableType.BINARY){
                 problem.newVar(var.name, XPRB.BV, var.lb, var.ub);
@@ -50,7 +82,7 @@ public class XpressSolver implements ModelSolver {
         }
 
         XPRBexpr obj = new XPRBexpr();
-        for(Expression.Term term : model.obj.terms){
+        for(Term term : model.obj.terms){
             obj.add(problem.getVarByName(term.var.name).mul(term.coef));
         }
         problem.setObj(obj);
@@ -63,7 +95,7 @@ public class XpressSolver implements ModelSolver {
 
         for(Constraint cons : model.constraints){
             XPRBexpr conExpr = new XPRBexpr();
-            for(Expression.Term term : cons.terms){
+            for(Term term : cons.terms){
                 conExpr.add(problem.getVarByName(term.var.name).mul(term.coef));
             }
             if(cons.type == ConstraintType.EQL) {
@@ -74,8 +106,11 @@ public class XpressSolver implements ModelSolver {
                 problem.newCtr(cons.name, conExpr.gEql(cons.bound));
             }
         }
-        problem.lpOptimise();
-        model.optimum = problem.getObjVal();
+    }
 
+    @Override
+    public void removeConstraint(Constraint constraint) {
+        XPRBctr target = problem.getCtrByName(constraint.name);
+        problem.delCtr(target);
     }
 }

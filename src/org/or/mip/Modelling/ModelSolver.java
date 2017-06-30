@@ -11,4 +11,10 @@ public interface ModelSolver {
     ModelSolverType getType();
 
     void solve();
+
+    void addConstraint(Constraint constraint);
+
+    void translateModel();
+
+    void removeConstraint(Constraint constraint);
 }
