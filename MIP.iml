@@ -30,5 +30,21 @@
         <jarDirectory url="file:///opt/xpressmp/lib" recursive="false" />
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$USER_HOME$/OpenSouce/GoogleORTools/or-tools_MacOsX-10.12.2_v5.1.4048/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <NATIVE>
+          <root url="file://$USER_HOME$/OpenSouce/GoogleORTools/or-tools_MacOsX-10.12.2_v5.1.4048/lib" />
+        </NATIVE>
+        <SOURCES>
+          <root url="file://$USER_HOME$/OpenSouce/GoogleORTools/or-tools_MacOsX-10.12.2_v5.1.4048/lib" />
+        </SOURCES>
+        <jarDirectory url="file://$USER_HOME$/OpenSouce/GoogleORTools/or-tools_MacOsX-10.12.2_v5.1.4048/lib" recursive="false" />
+        <jarDirectory url="file://$USER_HOME$/OpenSouce/GoogleORTools/or-tools_MacOsX-10.12.2_v5.1.4048/lib" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
   </component>
 </module>

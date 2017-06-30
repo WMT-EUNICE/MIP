@@ -15,7 +15,7 @@ public class XpressSolver implements ModelSolver {
 
     Model model;
 
-    ModelSolverType type;
+//    ModelSolverType type;
 
 
     public XpressSolver(){
