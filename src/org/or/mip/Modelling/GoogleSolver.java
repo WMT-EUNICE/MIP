@@ -128,6 +128,5 @@ public class GoogleSolver implements ModelSolver{
             }
 
         }
-//        translateModel();
     }
 }
