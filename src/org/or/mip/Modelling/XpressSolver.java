@@ -5,38 +5,44 @@ import com.dashoptimization.XPRBctr;
 import com.dashoptimization.XPRBexpr;
 import com.dashoptimization.XPRBprob;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.or.mip.Modelling.SolverUtils.bcl;
+
 /**
  * Created by baohuaw on 2017/6/30.
  */
 public class XpressSolver implements ModelSolver {
-    XPRB bcl = new XPRB();
-
     XPRBprob problem;
 
-    Model model;
+    String name;
+    Expression obj;
+    Map<String, Constraint> constraints = new HashMap<>();
+    Map<String,Variable> vars = new HashMap<>();
 
-//    ModelSolverType type;
+    Status status;
 
+    Sense sense;
+    double optimum;
 
-    public XpressSolver(){
-
+    public XpressSolver(String name) {
+//        this.model = model;
+//        model = new Model(modelName);
+        this.name = name;
+        problem = bcl.newProb(name);
     }
 
-    public XpressSolver(Model model) {
-        this.model = model;
-        problem = bcl.newProb(model.name);
-    }
-
-    @Override
-    public Model getModel() {
-        return null;
-    }
-
-    @Override
-    public void setModel(Model model) {
-        this.model = model;
-        problem = bcl.newProb(model.name);
-    }
+//    @Override
+//    public Model getModel() {
+//        return null;
+//    }
+//
+//    @Override
+//    public void setModel(Model model) {
+//        this.model = model;
+//        problem = bcl.newProb(name);
+//    }
 
     @Override
     public ModelSolverType getType() {
@@ -47,10 +53,10 @@ public class XpressSolver implements ModelSolver {
     public void solve() {
 
         problem.lpOptimise();
-        model.optimum = problem.getObjVal();
+        optimum = problem.getObjVal();
 
-        for(Variable var : model.vars){
-            var.value = problem.getVarByName(var.name).getSol();
+        for(String varName : vars.keySet()){
+            vars.get(varName).value = problem.getVarByName(varName).getSol();
         }
     }
 
@@ -71,39 +77,39 @@ public class XpressSolver implements ModelSolver {
 
     @Override
     public void translateModel() {
-        for(Variable var : model.vars){
-            if(var.type == VariableType.BINARY){
-                problem.newVar(var.name, XPRB.BV, var.lb, var.ub);
-            }else if(var.type == VariableType.REAL){
-                problem.newVar(var.name, XPRB.PL, var.lb, var.ub);
-            }else if(var.type == VariableType.INTEGER){
-                problem.newVar(var.name, XPRB.UI, var.lb, var.ub);
+        for(String varName : vars.keySet()){
+            if(vars.get(varName).type == VariableType.BINARY){
+                problem.newVar(varName, XPRB.BV, vars.get(varName).lb,  vars.get(varName).ub);
+            }else if( vars.get(varName).type == VariableType.REAL){
+                problem.newVar(varName, XPRB.PL,  vars.get(varName).lb,  vars.get(varName).ub);
+            }else if( vars.get(varName).type == VariableType.INTEGER){
+                problem.newVar(varName, XPRB.UI,  vars.get(varName).lb,  vars.get(varName).ub);
             }
         }
 
-        XPRBexpr obj = new XPRBexpr();
-        for(Term term : model.obj.terms){
-            obj.add(problem.getVarByName(term.var.name).mul(term.coef));
+        XPRBexpr xprbObj = new XPRBexpr();
+        for(Term term : obj.terms){
+            xprbObj.add(problem.getVarByName(term.var.name).mul(term.coef));
         }
-        problem.setObj(obj);
+        problem.setObj(xprbObj);
 
-        if(model.sense == Model.Sense.MAX) {
+        if(sense == Sense.MAX) {
             problem.setSense(XPRB.MAXIM);
         }else {
             problem.setSense(XPRB.MINIM);
         }
 
-        for(Constraint cons : model.constraints){
+        for(String consName : constraints.keySet()){
             XPRBexpr conExpr = new XPRBexpr();
-            for(Term term : cons.terms){
+            for(Term term : constraints.get(consName).terms){
                 conExpr.add(problem.getVarByName(term.var.name).mul(term.coef));
             }
-            if(cons.type == ConstraintType.EQL) {
-                problem.newCtr(cons.name, conExpr.eql(cons.bound));
-            }else if(cons.type == ConstraintType.LEQL) {
-                problem.newCtr(cons.name, conExpr.lEql(cons.bound));
-            }else if(cons.type == ConstraintType.GEQL) {
-                problem.newCtr(cons.name, conExpr.gEql(cons.bound));
+            if(constraints.get(consName).type == ConstraintType.EQL) {
+                problem.newCtr(consName, conExpr.eql(constraints.get(consName).bound));
+            }else if(constraints.get(consName).type == ConstraintType.LEQL) {
+                problem.newCtr(consName, conExpr.lEql(constraints.get(consName).bound));
+            }else if(constraints.get(consName).type == ConstraintType.GEQL) {
+                problem.newCtr(consName, conExpr.gEql(constraints.get(consName).bound));
             }
         }
     }
@@ -112,5 +118,46 @@ public class XpressSolver implements ModelSolver {
     public void removeConstraint(Constraint constraint) {
         XPRBctr target = problem.getCtrByName(constraint.name);
         problem.delCtr(target);
+    }
+
+    @Override
+    public double getDual(Constraint constraint) {
+        XPRBctr target = problem.getCtrByName(constraint.name);
+        return target.getDual();
+    }
+
+    @Override
+    public Expression getObj() {
+        return obj;
+    }
+
+    @Override
+    public void setObj(Expression obj) {
+        this.obj = obj;
+    }
+
+    @Override
+    public void setSense(Sense sense) {
+        this.sense = sense;
+    }
+
+    @Override
+    public Map<String, Variable> getVars() {
+        return vars;
+    }
+
+    @Override
+    public Map<String, Constraint> getConstraints() {
+        return constraints;
+    }
+
+    @Override
+    public double getOptimum() {
+        return optimum;
+    }
+
+    @Override
+    public Status getStatus() {
+        return status;
     }
 }

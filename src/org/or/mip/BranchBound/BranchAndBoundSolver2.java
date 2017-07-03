@@ -12,7 +12,7 @@ import java.util.List;
  * Ax <= b
  */
 public class BranchAndBoundSolver2 {
-    ModelSolver solver = new XpressSolver();
+    ModelSolver solver = new XpressSolver("Branch and Bound");
     public class BranchingConstraintSet {
         List<Constraint> constraints = new LinkedList<>();
     }
@@ -22,7 +22,7 @@ public class BranchAndBoundSolver2 {
     double lb = -Double.MAX_VALUE;
     double ub = Double.MAX_VALUE;
 
-    Model model = new Model();
+//    Model model = new Model();
 
 
     public static void main(String[] args) {
@@ -30,7 +30,7 @@ public class BranchAndBoundSolver2 {
         BranchAndBoundSolver2 modeller = new BranchAndBoundSolver2();
 
         modeller.buildInitalModel();
-        modeller.solver.setModel(modeller.model);
+//        modeller.solver.setModel(modeller.model);
         modeller.branchAndBound();
     }
 
@@ -39,32 +39,32 @@ public class BranchAndBoundSolver2 {
         Variable x1 = new Variable("x1", VariableType.REAL, 0, Double.MAX_VALUE);
         Variable x2 = new Variable("x2", VariableType.REAL, 0, Double.MAX_VALUE);
 
-        model.getVars().add(x1);
-        model.getVars().add(x2);
+        solver.getVars().put("x1", x1);
+        solver.getVars().put("x2", x2);
 
         Expression obj = new Expression();
         obj.getTerms().add(new Term(x1, -5));
         obj.getTerms().add(new Term(x2, -8));
-        model.setObj(obj);
+        solver.setObj(obj);
 
         Constraint constraint1 = new Constraint(ConstraintType.LEQL, 6);
         constraint1.getTerms().add(new Term(x1, 1));
         constraint1.getTerms().add(new Term(x2, 1));
-        model.getConstraints().add(constraint1);
+        solver.getConstraints().put("constraint 1", constraint1);
 
         Constraint constraint2 = new Constraint(ConstraintType.LEQL, 45);
         constraint2.getTerms().add(new Term(x1, 5));
         constraint2.getTerms().add(new Term(x2, 9));
-        model.getConstraints().add(constraint2);
+        solver.getConstraints().put("constraint 2", constraint2);
 
-        model.setSense(Model.Sense.MIN);
+        solver.setSense(ModelSolver.Sense.MIN);
     }
 
 
     Boolean integerSolution() {
-        for (Variable var : model.getVars()) {
-            System.out.println(var + " = " + var.getValue());
-            if (Math.abs(var.getValue() - (int) var.getValue()) >= 0.00001) {
+        for (String varName : solver.getVars().keySet()) {
+            System.out.println(varName + " = " + solver.getVars().get(varName).getValue());
+            if (Math.abs( solver.getVars().get(varName).getValue() - (int)  solver.getVars().get(varName).getValue()) >= 0.00001) {
                 return false;
             }
         }
@@ -80,15 +80,15 @@ public class BranchAndBoundSolver2 {
 //        problem.lpOptimize("");             /* Solve the LP-problem */
         solver.solve();
 
-        System.out.println("Objective: " + model.getOptimum());  /* Get objective value */
+        System.out.println("Objective: " + solver.getOptimum());  /* Get objective value */
 
         if (integerSolution()) {
             System.out.println("Integer Solution Found! No branching needed...");
             return;
         }
 
-        if (lb < model.getOptimum())
-            lb = model.getOptimum();
+        if (lb < solver.getOptimum())
+            lb = solver.getOptimum();
 
 
         BranchingConstraintSet target = new BranchingConstraintSet();
@@ -122,15 +122,15 @@ public class BranchAndBoundSolver2 {
             solver.removeConstraint(branching);
         }
 
-        if (model.getStatus() == Model.Status.OPTIMAL) {
-            System.out.println("Objective: " + model.getOptimum());  /* Get objective value */
+        if (solver.getStatus() == ModelSolver.Status.OPTIMAL) {
+            System.out.println("Objective: " + solver.getOptimum());  /* Get objective value */
             if (integerSolution()) {
-                if (model.getOptimum() < ub)
-                    ub = model.getOptimum();
+                if (solver.getOptimum() < ub)
+                    ub = solver.getOptimum();
                 return false;
             } else {
-                if (model.getOptimum() > lb)
-                    lb = model.getOptimum();
+                if (solver.getOptimum() > lb)
+                    lb = solver.getOptimum();
                 return true;
             }
         } else {
@@ -161,9 +161,9 @@ public class BranchAndBoundSolver2 {
 
     void branching(BranchingConstraintSet set) {
         Variable target = null;
-        for (Variable var : model.getVars()) {
-            if (Math.abs(var.getValue() - (int) var.getValue()) >= 0.00001) {
-                target = var;
+        for (String varName : solver.getVars().keySet()) {
+            if (Math.abs(solver.getVars().get(varName).getValue() - (int) solver.getVars().get(varName).getValue()) >= 0.00001) {
+                target = solver.getVars().get(varName);
                 break;
             }
         }

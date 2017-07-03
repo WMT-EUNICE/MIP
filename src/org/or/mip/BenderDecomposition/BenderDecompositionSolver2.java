@@ -1,6 +1,5 @@
 package org.or.mip.BenderDecomposition;
 
-import com.dashoptimization.*;
 import org.or.mip.Modelling.*;
 
 import java.util.ArrayList;
@@ -14,23 +13,12 @@ import java.util.Map;
  * Chapter 3 Decompistion Techniques in Integer Programming
  */
 public class BenderDecompositionSolver2 {
-    ModelSolver subSolver = new XpressSolver();
-    ModelSolver masterSolver = new XpressSolver();
+    Map<String, ModelSolver> subSolvers = new HashMap<>();
+    ModelSolver masterSolver = new XpressSolver("Master");
 
-    Model master = new Model();
-    Map<String, Model> subs = new HashMap<>();
-
-
-//    XPRB bcl = new XPRB();
-
-//    XPRBprob master = bcl.newProb("Master");      /* Create a new problem in BCL */
-//    Map<String, XPRBprob> subs = new HashMap<>();
 
     double lb = -Double.MAX_VALUE;
     double ub = Double.MAX_VALUE;
-
-    Map<String, Variable> masterVars = new HashMap<>();
-    Map<String, Variable> subVars = new HashMap<>();
 
     public static void main(String[] args) {
         BenderDecompositionSolver2 solver = new BenderDecompositionSolver2();
@@ -44,159 +32,164 @@ public class BenderDecompositionSolver2 {
 
         Map<String, Double> complicatingVarBoundings = buildMasterModel(complicatingVarNames);
 
-        Map<String, Double> boundingVarDuals = buildSubModel(subs.get("Sub_y"), complicatingVarBoundings);
+        Map<String, Double> boundingVarDuals = buildSubModel(subSolvers.get("Sub_y"), complicatingVarBoundings);
 
-        addBendersCutToMaster(boundingVarDuals, subs.get("Sub_y"), complicatingVarBoundings);
+        addBendersCutToMaster(boundingVarDuals, subSolvers.get("Sub_y"), complicatingVarBoundings);
 
 
 
         while (Math.abs(ub - lb) >= 1) {
 
-            master.lpOptimise();
+//            master.lpOptimise();
+            masterSolver.solve();
 
-            lb = master.getObjVal();
+            lb = masterSolver.getOptimum();
 
             for (String complicatingVarName : complicatingVarNames) {
-                complicatingVarBoundings.put(complicatingVarName, masterVars.get(complicatingVarName).getSol());
+                complicatingVarBoundings.put(complicatingVarName, masterSolver.getVars().get(complicatingVarName).getValue());
 
-                XPRBctr boundingCtr = subs.get("Sub_y").getCtrByName("Bounding with " + complicatingVarName);
-                boundingCtr.setRange(masterVars.get(complicatingVarName).getSol(), masterVars.get(complicatingVarName).getSol());
+                Constraint boudingCtr = subSolvers.get("Sub_y").getConstraints().get("Bounding with " + complicatingVarName);
+                boudingCtr.setBound(masterSolver.getVars().get(complicatingVarName).getValue());
+//                boundingCtr.setRange(masterVars.get(complicatingVarName).getSol(), masterVars.get(complicatingVarName).getSol());
             }
 
 
-            subs.get("Sub_y").lpOptimise();
+            subSolvers.get("Sub_y").solve();
 
-            System.out.println("Sub model objective value: " + subs.get("Sub_y").getObjVal());
+            System.out.println("Sub model objective value: " + subSolvers.get("Sub_y").getOptimum());
 
 //            Map<String, Double> boundingDuals = new HashMap<>();
 
             for (String complicatingVarName : complicatingVarNames) {
-                XPRBctr boundingCtr = subs.get("Sub_y").getCtrByName("Bounding with " + complicatingVarName);
-                boundingVarDuals.put(complicatingVarName, boundingCtr.getDual());
+                Constraint boundingCtr = subSolvers.get("Sub_y").getConstraints().get("Bounding with " + complicatingVarName);
+//                XPRBctr boundingCtr = subSolvers.get("Sub_y").getCtrByName("Bounding with " + complicatingVarName);
+                boundingVarDuals.put(complicatingVarName, subSolvers.get("Sub_y").getDual(boundingCtr));
             }
 
-            ub = -subVars.get("x").getSol() * 0.25 - subVars.get("y").getSol();
+            ub = -subSolvers.get("Sub_y").getVars().get("x").getValue() * 0.25 - subSolvers.get("Sub_y").getVars().get("y").getValue();
 
 
-            addBendersCutToMaster(boundingVarDuals, subs.get("Sub_y"), complicatingVarBoundings);
+            addBendersCutToMaster(boundingVarDuals, subSolvers.get("Sub_y"), complicatingVarBoundings);
         }
     }
 
     void init() {
 //        XPRBprob sub_y = bcl.newProb("Sub_y");
-        Model sub_y = new Model();
-        subs.put("Sub_y", sub_y);
-
-        subSolver.setModel(sub_y);
-
+        ModelSolver sub_y = new XpressSolver("Sub_y");
+        subSolvers.put("Sub_y", sub_y);
     }
 
     Map<String, Double> buildMasterModel(List<String> complicatingVarNames) {
-        master.newVar("x", XPRB.PL, 0, 16);
-        for (String complicatingVarName : complicatingVarNames) {
-            masterVars.put(complicatingVarName, master.getVarByName("x"));
-        }
+//        master.newVar("x", XPRB.PL, 0, 16);
+        Variable x = new Variable("x", VariableType.REAL, 0 ,16);
+        masterSolver.getVars().put("x",x);
 
-        XPRBvar alpha = master.newVar("alpha", XPRB.PL, -25, Double.MAX_VALUE);
-        masterVars.put("alpha", alpha);
+        Variable alpha = new Variable("alpha", VariableType.REAL, -25, Double.MAX_VALUE);
+        masterSolver.getVars().put("alpha", alpha);
 
 
-        XPRBexpr objExpr = new XPRBexpr();
-        objExpr.add(masterVars.get("x").mul(-0.25));
-        objExpr.add(masterVars.get("alpha").mul(1));
-        master.setObj(objExpr);
+        Expression obj = new Expression();
 
-        master.setSense(XPRB.MINIM);
+//        XPRBexpr objExpr = new XPRBexpr();
+        obj.getTerms().add(new Term(masterSolver.getVars().get("x"), -0.25));
+        obj.getTerms().add(new Term(masterSolver.getVars().get("alpha"), 1));
+//        objExpr.add(masterVars.get("alpha").mul(1));
+        masterSolver.setObj(obj);
 
-        master.lpOptimise();
+        masterSolver.setSense(ModelSolver.Sense.MIN);
 
-        lb = master.getObjVal();
+//        master.lpOptimise();
+//        masterSolver.setModel(masterSolver.getModel());
+
+        masterSolver.solve();
+
+        lb = masterSolver.getOptimum();
 
         Map<String, Double> complicatingVarBoundings = new HashMap<>();
 
         for (String complicatingVarName : complicatingVarNames) {
-            complicatingVarBoundings.put(complicatingVarName, masterVars.get(complicatingVarName).getSol());
+            complicatingVarBoundings.put(complicatingVarName, masterSolver.getVars().get(complicatingVarName).getValue());
         }
 
         return complicatingVarBoundings;
     }
 
-    Map<String, Double> buildSubModel(Model sub, Map<String, Double> complicatingVarBoundings) {
+    Map<String, Double> buildSubModel(ModelSolver subSolver, Map<String, Double> complicatingVarBoundings) {
 
 //        XPRBvar y = sub.newVar("y", XPRB.PL, 0, Double.MAX_VALUE);
         Variable y = new Variable("y", VariableType.REAL, 0 , Double.MAX_VALUE);
-        subVars.put("y", y);
+        subSolver.getVars().put("y", y);
 
 
         for (String boundingVar : complicatingVarBoundings.keySet()) {
             Variable var = new Variable(boundingVar, VariableType.REAL, 0, Double.MAX_VALUE);
-            subVars.put(boundingVar, var);
+            subSolver.getVars().put(boundingVar, var);
         }
 
         Expression objExpression = new Expression();
-        objExpression.getTerms().add(new Term(subVars.get("y"), -1));
-        sub.setObj(objExpression);
+        objExpression.getTerms().add(new Term(subSolver.getVars().get("y"), -1));
+        subSolver.setObj(objExpression);
 
         Constraint constraint1 = new Constraint(ConstraintType.LEQL,5);
-        constraint1.getTerms().add(new Term(subVars.get("y"), 1));
-        constraint1.getTerms().add(new Term(subVars.get("x"), -1));
-        sub.getConstraints().add(constraint1);
+        constraint1.getTerms().add(new Term(subSolver.getVars().get("y"), 1));
+        constraint1.getTerms().add(new Term(subSolver.getVars().get("x"), -1));
+        subSolver.getConstraints().put("constraint 1", constraint1);
 
         Constraint constraint2 = new Constraint(ConstraintType.LEQL,7.5);
-        constraint2.getTerms().add(new Term(subVars.get("y"), 1));
-        constraint2.getTerms().add(new Term(subVars.get("x"), -0.5));
-        sub.getConstraints().add(constraint2);
+        constraint2.getTerms().add(new Term(subSolver.getVars().get("y"), 1));
+        constraint2.getTerms().add(new Term(subSolver.getVars().get("x"), -0.5));
+        subSolver.getConstraints().put("constraint 2", constraint2);
 
         Constraint constraint3 = new Constraint(ConstraintType.LEQL,17.5);
-        constraint3.getTerms().add(new Term(subVars.get("y"), 1));
-        constraint3.getTerms().add(new Term(subVars.get("x"), 0.5));
-        sub.getConstraints().add(constraint3);
+        constraint3.getTerms().add(new Term(subSolver.getVars().get("y"), 1));
+        constraint3.getTerms().add(new Term(subSolver.getVars().get("x"), 0.5));
+        subSolver.getConstraints().put("constraint 3", constraint3);
 
         Constraint constraint4 = new Constraint(ConstraintType.LEQL,10);
-        constraint4.getTerms().add(new Term(subVars.get("y"), -1));
-        constraint4.getTerms().add(new Term(subVars.get("x"), 1));
-        sub.getConstraints().add(constraint4);
+        constraint4.getTerms().add(new Term(subSolver.getVars().get("y"), -1));
+        constraint4.getTerms().add(new Term(subSolver.getVars().get("x"), 1));
+        subSolver.getConstraints().put("constraint 4", constraint4);
 
         Map<String, Constraint> boundingCtrs = new HashMap<>();
         for (String boundingVar : complicatingVarBoundings.keySet()) {
 //            XPRBexpr complicatingVarBoundingCons = new XPRBexpr();
             Constraint complicatingVarBoundingCons = new Constraint(ConstraintType.EQL, complicatingVarBoundings.get(boundingVar));
-            complicatingVarBoundingCons.getTerms().add(new Term(subVars.get(boundingVar), 1));
+            complicatingVarBoundingCons.getTerms().add(new Term(subSolver.getVars().get(boundingVar), 1));
             boundingCtrs.put("Bounding with " + boundingVar, complicatingVarBoundingCons);
 //            boundingCtrs.put(boundingVar, sub.newCtr("Bounding with " + boundingVar,
 //                    complicatingVarBoundingCons.eql(complicatingVarBoundings.get(boundingVar))));
         }
 
-        sub.setSense(Model.Sense.MIN);
+        subSolver.setSense(ModelSolver.Sense.MIN);
         subSolver.solve();
 
 //        ub = sub.getObjVal();
-        System.out.println("Sub model objective value: " + sub.getOptimum());
+        System.out.println("Sub model objective value: " + subSolver.getOptimum());
 
         Map<String, Double> boundingDuals = new HashMap<>();
         for (String boundingVar : boundingCtrs.keySet()) {
-            boundingDuals.put(boundingVar, boundingCtrs.get(boundingVar).getDual());
+            boundingDuals.put(boundingVar, subSolver.getDual(boundingCtrs.get(boundingVar)));
         }
 
 
-        ub = -subVars.get("x").getSol() * 0.25 - subVars.get("y").getSol();
+        ub = -subSolver.getVars().get("x").getValue() * 0.25 - subSolver.getVars().get("y").getValue();
 
         return boundingDuals;
     }
 
-    void addBendersCutToMaster(Map<String, Double> masterVarDuals, XPRBprob sub, Map<String, Double> masterVarBoundings) {
-        XPRBexpr cutExpr = new XPRBexpr();
+    void addBendersCutToMaster(Map<String, Double> masterVarDuals, ModelSolver subSolver, Map<String, Double> masterVarBoundings) {
+        Constraint cut = new Constraint(ConstraintType.LEQL, 0);
 
         double sumOfBoundingMultipliedDual = 0;
 
 
         for (String masterVar : masterVarDuals.keySet()) {
-            cutExpr.add(masterVars.get(masterVar).mul(masterVarDuals.get(masterVar)));
+            cut.getTerms().add(new Term(masterSolver.getVars().get(masterVar), masterVarDuals.get(masterVar)));
             sumOfBoundingMultipliedDual += masterVarDuals.get(masterVar) * masterVarBoundings.get(masterVar);
         }
-        cutExpr.add(masterVars.get("alpha").mul(-1));
+        cut.getTerms().add(new Term(masterSolver.getVars().get("alpha"), -1));
 
-        master.newCtr("Benders Cut", cutExpr.lEql(-sub.getObjVal() + sumOfBoundingMultipliedDual));
+        cut.setBound(-subSolver.getOptimum() + sumOfBoundingMultipliedDual);
     }
 
 }
