@@ -39,38 +39,26 @@ public class BenderDecompositionSolver2 {
 
 
         while (Math.abs(ub - lb) >= 1) {
-
-//            master.lpOptimise();
             masterSolver.solve();
 
             lb = masterSolver.getOptimum();
 
             for (String complicatingVarName : complicatingVarNames) {
                 complicatingVarBoundings.put(complicatingVarName, masterSolver.getVars().get(complicatingVarName).getValue());
-
-//                Constraint boundingCtr = subSolvers.get("Sub_y").getConstraints().get("Bounding with " + complicatingVarName);
-//                boundingCtr.setBound(masterSolver.getVars().get(complicatingVarName).getValue());
-
                 subSolvers.get("Sub_y").setConstraintBound(subSolvers.get("Sub_y").getConstraints().get("Bounding with " + complicatingVarName),
                         masterSolver.getVars().get(complicatingVarName).getValue());
-//                boundingCtr.setRange(masterVars.get(complicatingVarName).getSol(), masterVars.get(complicatingVarName).getSol());
             }
-
 
             subSolvers.get("Sub_y").solve();
 
             System.out.println("Sub model objective value: " + subSolvers.get("Sub_y").getOptimum());
 
-//            Map<String, Double> boundingDuals = new HashMap<>();
-
             for (String complicatingVarName : complicatingVarNames) {
                 Constraint boundingCtr = subSolvers.get("Sub_y").getConstraints().get("Bounding with " + complicatingVarName);
-//                XPRBctr boundingCtr = subSolvers.get("Sub_y").getCtrByName("Bounding with " + complicatingVarName);
                 boundingVarDuals.put(complicatingVarName, subSolvers.get("Sub_y").getDual(boundingCtr));
             }
 
             ub = -subSolvers.get("Sub_y").getVars().get("x").getValue() * 0.25 - subSolvers.get("Sub_y").getVars().get("y").getValue();
-
 
             addBendersCutToMaster(boundingVarDuals, subSolvers.get("Sub_y"), complicatingVarBoundings);
         }
@@ -96,9 +84,6 @@ public class BenderDecompositionSolver2 {
         masterSolver.setObj(obj);
 
         masterSolver.setSense(ModelSolver.Sense.MIN);
-
-//        master.lpOptimise();
-//        masterSolver.setModel(masterSolver.getModel());
 
         masterSolver.translateModel();
         masterSolver.solve();
