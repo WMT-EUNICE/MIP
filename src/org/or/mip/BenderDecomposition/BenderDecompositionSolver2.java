@@ -48,8 +48,11 @@ public class BenderDecompositionSolver2 {
             for (String complicatingVarName : complicatingVarNames) {
                 complicatingVarBoundings.put(complicatingVarName, masterSolver.getVars().get(complicatingVarName).getValue());
 
-                Constraint boudingCtr = subSolvers.get("Sub_y").getConstraints().get("Bounding with " + complicatingVarName);
-                boudingCtr.setBound(masterSolver.getVars().get(complicatingVarName).getValue());
+//                Constraint boundingCtr = subSolvers.get("Sub_y").getConstraints().get("Bounding with " + complicatingVarName);
+//                boundingCtr.setBound(masterSolver.getVars().get(complicatingVarName).getValue());
+
+                subSolvers.get("Sub_y").setConstraintBound(subSolvers.get("Sub_y").getConstraints().get("Bounding with " + complicatingVarName),
+                        masterSolver.getVars().get(complicatingVarName).getValue());
 //                boundingCtr.setRange(masterVars.get(complicatingVarName).getSol(), masterVars.get(complicatingVarName).getSol());
             }
 
@@ -74,13 +77,11 @@ public class BenderDecompositionSolver2 {
     }
 
     void init() {
-//        XPRBprob sub_y = bcl.newProb("Sub_y");
         ModelSolver sub_y = new XpressSolver("Sub_y");
         subSolvers.put("Sub_y", sub_y);
     }
 
     Map<String, Double> buildMasterModel(List<String> complicatingVarNames) {
-//        master.newVar("x", XPRB.PL, 0, 16);
         Variable x = new Variable("x", VariableType.REAL, 0 ,16);
         masterSolver.getVars().put("x",x);
 
@@ -90,10 +91,8 @@ public class BenderDecompositionSolver2 {
 
         Expression obj = new Expression();
 
-//        XPRBexpr objExpr = new XPRBexpr();
         obj.getTerms().add(new Term(masterSolver.getVars().get("x"), -0.25));
         obj.getTerms().add(new Term(masterSolver.getVars().get("alpha"), 1));
-//        objExpr.add(masterVars.get("alpha").mul(1));
         masterSolver.setObj(obj);
 
         masterSolver.setSense(ModelSolver.Sense.MIN);
@@ -101,6 +100,7 @@ public class BenderDecompositionSolver2 {
 //        master.lpOptimise();
 //        masterSolver.setModel(masterSolver.getModel());
 
+        masterSolver.translateModel();
         masterSolver.solve();
 
         lb = masterSolver.getOptimum();
@@ -116,7 +116,6 @@ public class BenderDecompositionSolver2 {
 
     Map<String, Double> buildSubModel(ModelSolver subSolver, Map<String, Double> complicatingVarBoundings) {
 
-//        XPRBvar y = sub.newVar("y", XPRB.PL, 0, Double.MAX_VALUE);
         Variable y = new Variable("y", VariableType.REAL, 0 , Double.MAX_VALUE);
         subSolver.getVars().put("y", y);
 
@@ -130,37 +129,36 @@ public class BenderDecompositionSolver2 {
         objExpression.getTerms().add(new Term(subSolver.getVars().get("y"), -1));
         subSolver.setObj(objExpression);
 
-        Constraint constraint1 = new Constraint(ConstraintType.LEQL,5);
+        Constraint constraint1 = new Constraint("Constraint 1", ConstraintType.LEQL,5);
         constraint1.getTerms().add(new Term(subSolver.getVars().get("y"), 1));
         constraint1.getTerms().add(new Term(subSolver.getVars().get("x"), -1));
-        subSolver.getConstraints().put("constraint 1", constraint1);
+        subSolver.getConstraints().put(constraint1.getName(), constraint1);
 
-        Constraint constraint2 = new Constraint(ConstraintType.LEQL,7.5);
+        Constraint constraint2 = new Constraint("Constraint 2", ConstraintType.LEQL,7.5);
         constraint2.getTerms().add(new Term(subSolver.getVars().get("y"), 1));
         constraint2.getTerms().add(new Term(subSolver.getVars().get("x"), -0.5));
-        subSolver.getConstraints().put("constraint 2", constraint2);
+        subSolver.getConstraints().put(constraint2.getName(), constraint2);
 
-        Constraint constraint3 = new Constraint(ConstraintType.LEQL,17.5);
+        Constraint constraint3 = new Constraint("Constraint 3", ConstraintType.LEQL,17.5);
         constraint3.getTerms().add(new Term(subSolver.getVars().get("y"), 1));
         constraint3.getTerms().add(new Term(subSolver.getVars().get("x"), 0.5));
-        subSolver.getConstraints().put("constraint 3", constraint3);
+        subSolver.getConstraints().put(constraint3.getName(), constraint3);
 
-        Constraint constraint4 = new Constraint(ConstraintType.LEQL,10);
+        Constraint constraint4 = new Constraint("Constraint 4", ConstraintType.LEQL,10);
         constraint4.getTerms().add(new Term(subSolver.getVars().get("y"), -1));
         constraint4.getTerms().add(new Term(subSolver.getVars().get("x"), 1));
-        subSolver.getConstraints().put("constraint 4", constraint4);
+        subSolver.getConstraints().put(constraint4.getName(), constraint4);
 
         Map<String, Constraint> boundingCtrs = new HashMap<>();
         for (String boundingVar : complicatingVarBoundings.keySet()) {
-//            XPRBexpr complicatingVarBoundingCons = new XPRBexpr();
-            Constraint complicatingVarBoundingCons = new Constraint(ConstraintType.EQL, complicatingVarBoundings.get(boundingVar));
+            Constraint complicatingVarBoundingCons = new Constraint("Bounding with " + boundingVar, ConstraintType.EQL, complicatingVarBoundings.get(boundingVar));
             complicatingVarBoundingCons.getTerms().add(new Term(subSolver.getVars().get(boundingVar), 1));
-            boundingCtrs.put("Bounding with " + boundingVar, complicatingVarBoundingCons);
-//            boundingCtrs.put(boundingVar, sub.newCtr("Bounding with " + boundingVar,
-//                    complicatingVarBoundingCons.eql(complicatingVarBoundings.get(boundingVar))));
+            boundingCtrs.put(boundingVar, complicatingVarBoundingCons);
+            subSolver.getConstraints().put(complicatingVarBoundingCons.getName(), complicatingVarBoundingCons);
         }
 
         subSolver.setSense(ModelSolver.Sense.MIN);
+        subSolver.translateModel();
         subSolver.solve();
 
 //        ub = sub.getObjVal();
@@ -178,7 +176,7 @@ public class BenderDecompositionSolver2 {
     }
 
     void addBendersCutToMaster(Map<String, Double> masterVarDuals, ModelSolver subSolver, Map<String, Double> masterVarBoundings) {
-        Constraint cut = new Constraint(ConstraintType.LEQL, 0);
+        Constraint cut = new Constraint("Benders cut", ConstraintType.LEQL, 0);
 
         double sumOfBoundingMultipliedDual = 0;
 
@@ -190,6 +188,8 @@ public class BenderDecompositionSolver2 {
         cut.getTerms().add(new Term(masterSolver.getVars().get("alpha"), -1));
 
         cut.setBound(-subSolver.getOptimum() + sumOfBoundingMultipliedDual);
+
+        masterSolver.addConstraint(cut);
     }
 
 }

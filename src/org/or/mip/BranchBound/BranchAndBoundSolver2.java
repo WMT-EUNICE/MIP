@@ -47,15 +47,15 @@ public class BranchAndBoundSolver2 {
         obj.getTerms().add(new Term(x2, -8));
         solver.setObj(obj);
 
-        Constraint constraint1 = new Constraint(ConstraintType.LEQL, 6);
+        Constraint constraint1 = new Constraint("Constraint 1", ConstraintType.LEQL, 6);
         constraint1.getTerms().add(new Term(x1, 1));
         constraint1.getTerms().add(new Term(x2, 1));
-        solver.getConstraints().put("constraint 1", constraint1);
+        solver.getConstraints().put(constraint1.getName(), constraint1);
 
-        Constraint constraint2 = new Constraint(ConstraintType.LEQL, 45);
+        Constraint constraint2 = new Constraint("Constraint 2", ConstraintType.LEQL, 45);
         constraint2.getTerms().add(new Term(x1, 5));
         constraint2.getTerms().add(new Term(x2, 9));
-        solver.getConstraints().put("constraint 2", constraint2);
+        solver.getConstraints().put(constraint2.getName(), constraint2);
 
         solver.setSense(ModelSolver.Sense.MIN);
     }
@@ -146,11 +146,11 @@ public class BranchAndBoundSolver2 {
         int bound = (int) branchingVar.getValue();
         if (left) {
 
-            Constraint leftBranching = new Constraint(ConstraintType.LEQL, bound);
+            Constraint leftBranching = new Constraint("Left", ConstraintType.LEQL, bound);
             leftBranching.getTerms().add(new Term(branchingVar, 1));
             branchingSet.constraints.add(leftBranching);
         } else {
-            Constraint rightBranching = new Constraint(ConstraintType.GEQL, bound + 1);
+            Constraint rightBranching = new Constraint("Right", ConstraintType.GEQL, bound + 1);
             rightBranching.getTerms().add(new Term(branchingVar, 1));
             branchingSet.constraints.add(rightBranching);
         }

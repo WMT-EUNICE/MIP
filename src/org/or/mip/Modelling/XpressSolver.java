@@ -27,27 +27,10 @@ public class XpressSolver implements ModelSolver {
     double optimum;
 
     public XpressSolver(String name) {
-//        this.model = model;
-//        model = new Model(modelName);
         this.name = name;
         problem = bcl.newProb(name);
     }
 
-//    @Override
-//    public Model getModel() {
-//        return null;
-//    }
-//
-//    @Override
-//    public void setModel(Model model) {
-//        this.model = model;
-//        problem = bcl.newProb(name);
-//    }
-
-    @Override
-    public ModelSolverType getType() {
-        return null;
-    }
 
     @Override
     public void solve() {
@@ -62,6 +45,8 @@ public class XpressSolver implements ModelSolver {
 
     @Override
     public void addConstraint(Constraint constraint) {
+        constraints.put(constraint.name, constraint);
+
         XPRBexpr conExpr = new XPRBexpr();
         for(Term term : constraint.terms){
             conExpr.add(problem.getVarByName(term.var.name).mul(term.coef));
@@ -75,7 +60,6 @@ public class XpressSolver implements ModelSolver {
         }
     }
 
-    @Override
     public void translateModel() {
         for(String varName : vars.keySet()){
             if(vars.get(varName).type == VariableType.BINARY){
@@ -159,5 +143,11 @@ public class XpressSolver implements ModelSolver {
     @Override
     public Status getStatus() {
         return status;
+    }
+
+    @Override
+    public void setConstraintBound(Constraint constraint, double bound) {
+        constraint.bound = bound;
+        problem.getCtrByName(constraint.name).setRange(bound, bound);
     }
 }

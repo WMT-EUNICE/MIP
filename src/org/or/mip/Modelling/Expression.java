@@ -13,4 +13,12 @@ public class Expression {
     public List<Term> getTerms() {
         return terms;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

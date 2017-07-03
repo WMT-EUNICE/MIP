@@ -6,19 +6,15 @@ import java.util.Map;
  * Created by baohuaw on 2017/6/30.
  */
 public interface ModelSolver {
-    public enum Status{
+    enum Status {
         OPTIMAL, ELSE
     }
 
-    public enum Sense{
+    enum Sense {
         MAX, MIN
     }
 
-//    Model getModel();
-
-//    void setModel(Model model);
-
-    ModelSolverType getType();
+//    ModelSolverType getType();
 
     void solve();
 
@@ -43,4 +39,6 @@ public interface ModelSolver {
     double getOptimum();
 
     Status getStatus();
+
+    void setConstraintBound(Constraint constraint, double bound);
 }
