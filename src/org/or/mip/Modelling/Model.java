@@ -20,6 +20,8 @@ public interface Model {
 
     double getDual(String ctrName);
 
+    String getName();
+
     ModelSolver.Status getStatus();
 
     void setConstraintBound(String ctrName, double lb, double ub);

@@ -70,6 +70,11 @@ public class XpressModel implements Model {
     }
 
     @Override
+    public String getName() {
+        return problem.getName();
+    }
+
+    @Override
     public ModelSolver.Status getStatus() {
         if(problem.getLPStat() == XPRB.LP_OPTIMAL)
             return ModelSolver.Status.OPTIMAL;
