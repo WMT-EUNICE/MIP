@@ -44,7 +44,7 @@ public class XpressModel implements Model {
 
     @Override
     public void solve() {
-
+        problem.lpOptimise();
     }
 
     @Override

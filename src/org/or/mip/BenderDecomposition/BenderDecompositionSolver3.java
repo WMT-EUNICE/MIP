@@ -40,9 +40,9 @@ public class BenderDecompositionSolver3 {
             lb = masterSolver.getOptimum();
 
             for (String complicatingVarName : complicatingVarNames) {
-                complicatingVarBoundings.put(complicatingVarName, masterSolver.getVars().get(complicatingVarName).getValue());
-                subSolvers.get("Sub_y").setConstraintBound(subSolvers.get("Sub_y").getConstraints().get("Bounding with " + complicatingVarName),
-                        masterSolver.getVars().get(complicatingVarName).getValue());
+                complicatingVarBoundings.put(complicatingVarName, masterSolver.getVariableSol(complicatingVarName));
+                subSolvers.get("Sub_y").setConstraintBound("Bounding with " + complicatingVarName, masterSolver.getVariableSol(complicatingVarName),
+                        masterSolver.getVariableSol(complicatingVarName));
             }
 
             subSolvers.get("Sub_y").solve();
@@ -50,18 +50,20 @@ public class BenderDecompositionSolver3 {
             System.out.println("Sub model objective value: " + subSolvers.get("Sub_y").getOptimum());
 
             for (String complicatingVarName : complicatingVarNames) {
-                Constraint boundingCtr = subSolvers.get("Sub_y").getConstraints().get("Bounding with " + complicatingVarName);
-                boundingVarDuals.put(complicatingVarName, subSolvers.get("Sub_y").getDual(boundingCtr));
+                boundingVarDuals.put(complicatingVarName, subSolvers.get("Sub_y").getDual("Bounding with " + complicatingVarName));
             }
 
-            ub = -subSolvers.get("Sub_y").getVars().get("x").getValue() * 0.25 - subSolvers.get("Sub_y").getVars().get("y").getValue();
+            ub = -subSolvers.get("Sub_y").getVariableSol("x") * 0.25 - subSolvers.get("Sub_y").getVariableSol("y");
 
             addBendersCutToMaster(boundingVarDuals, subSolvers.get("Sub_y"), complicatingVarBoundings);
         }
+
+        System.out.println("Upper bound = " + ub);
+        System.out.println("Lower bound = " + lb);
     }
 
     void init() {
-        ModelSolver sub_y = new XpressSolver("Sub_y");
+        Model sub_y = new XpressModel("Sub_y");
         subSolvers.put("Sub_y", sub_y);
     }
 
@@ -71,7 +73,7 @@ public class BenderDecompositionSolver3 {
 
         Map<String, Double> objTerms = new LinkedHashMap<>();
         objTerms.put("x", -0.25);
-        objTerms.put("alpha", 1);
+        objTerms.put("alpha", 1.0);
         masterSolver.setObj(objTerms);
 
         masterSolver.setSense(ModelSolver.Sense.MIN);
@@ -92,102 +94,74 @@ public class BenderDecompositionSolver3 {
 
     Map<String, Double> buildSubModel(Model subSolver, Map<String, Double> complicatingVarBoundings) {
 
-//        Variable y = new Variable("y", VariableType.REAL, 0, Double.MAX_VALUE);
         subSolver.addVariable("y", VariableType.REAL, 0, Double.MAX_VALUE);
 
 
         for (String boundingVar : complicatingVarBoundings.keySet()) {
-//            Variable var = new Variable(boundingVar, VariableType.REAL, 0, Double.MAX_VALUE);
             subSolver.addVariable(boundingVar, VariableType.REAL, 0, Double.MAX_VALUE);
-//            subSolver.getVars().put(boundingVar, var);
         }
 
-//        Expression objExpression = new Expression();
-        Map<String,Double> objTerms = new LinkedHashMap<>();
+        Map<String, Double> objTerms = new LinkedHashMap<>();
         objTerms.put("y", -1.0);
         subSolver.setObj(objTerms);
 
-        Map<String,Double> ctr1Terms = new LinkedHashMap<>();
+        Map<String, Double> ctr1Terms = new LinkedHashMap<>();
         ctr1Terms.put("y", 1.0);
         ctr1Terms.put("x", -1.0);
         subSolver.addConstraint("Constraint 1", ctr1Terms, ConstraintType.LEQL, -Double.MAX_VALUE, 5);
 
-        Map<String,Double> ctr2Terms = new LinkedHashMap<>();
+        Map<String, Double> ctr2Terms = new LinkedHashMap<>();
         ctr2Terms.put("y", 1.0);
         ctr2Terms.put("x", -0.5);
         subSolver.addConstraint("Constraint 2", ctr2Terms, ConstraintType.LEQL, -Double.MAX_VALUE, 7.5);
 
-        Map<String,Double> ctr3Terms = new LinkedHashMap<>();
+        Map<String, Double> ctr3Terms = new LinkedHashMap<>();
         ctr3Terms.put("y", 1.0);
         ctr3Terms.put("x", 0.5);
         subSolver.addConstraint("Constraint 3", ctr3Terms, ConstraintType.LEQL, -Double.MAX_VALUE, 17.5);
 
-        Map<String,Double> ctr4Terms = new LinkedHashMap<>();
+        Map<String, Double> ctr4Terms = new LinkedHashMap<>();
         ctr4Terms.put("y", -1.0);
         ctr4Terms.put("x", 1.0);
         subSolver.addConstraint("Constraint 4", ctr4Terms, ConstraintType.LEQL, -Double.MAX_VALUE, 10);
-//        Constraint constraint1 = new Constraint("Constraint 1", ConstraintType.LEQL, 5);
-//        constraint1.getTerms().add(new Term(subSolver.getVars().get("y"), 1));
-//        constraint1.getTerms().add(new Term(subSolver.getVars().get("x"), -1));
-//        subSolver.getConstraints().put(constraint1.getName(), constraint1);
 
-//        Constraint constraint2 = new Constraint("Constraint 2", ConstraintType.LEQL, 7.5);
-//        constraint2.getTerms().add(new Term(subSolver.getVars().get("y"), 1));
-//        constraint2.getTerms().add(new Term(subSolver.getVars().get("x"), -0.5));
-//        subSolver.getConstraints().put(constraint2.getName(), constraint2);
-
-//        Constraint constraint3 = new Constraint("Constraint 3", ConstraintType.LEQL, 17.5);
-//        constraint3.getTerms().add(new Term(subSolver.getVars().get("y"), 1));
-//        constraint3.getTerms().add(new Term(subSolver.getVars().get("x"), 0.5));
-//        subSolver.getConstraints().put(constraint3.getName(), constraint3);
-
-//        Constraint constraint4 = new Constraint("Constraint 4", ConstraintType.LEQL, 10);
-//        constraint4.getTerms().add(new Term(subSolver.getVars().get("y"), -1));
-//        constraint4.getTerms().add(new Term(subSolver.getVars().get("x"), 1));
-//        subSolver.getConstraints().put(constraint4.getName(), constraint4);
-
-//        Map<String, Constraint> boundingCtrs = new HashMap<>();
-        List<String> boundingCtrNames = new ArrayList<>();
+        Map<String, String> boundingVarCtrMapping = new HashMap<>();
         for (String boundingVar : complicatingVarBoundings.keySet()) {
-            Constraint complicatingVarBoundingCons = new Constraint("Bounding with " + boundingVar, ConstraintType.EQL, complicatingVarBoundings.get(boundingVar));
-            complicatingVarBoundingCons.getTerms().add(new Term(subSolver.getVars().get(boundingVar), 1));
-            boundingCtrs.put(boundingVar, complicatingVarBoundingCons);
-            subSolver.getConstraints().put(complicatingVarBoundingCons.getName(), complicatingVarBoundingCons);
+            Map<String, Double> boundingTerms = new LinkedHashMap<>();
+            boundingTerms.put(boundingVar, 1.0);
+
+            subSolver.addConstraint("Bounding with " + boundingVar, boundingTerms, ConstraintType.EQL, complicatingVarBoundings.get(boundingVar), complicatingVarBoundings.get(boundingVar));
+            boundingVarCtrMapping.put(boundingVar, "Bounding with " + boundingVar);
         }
 
         subSolver.setSense(ModelSolver.Sense.MIN);
-        subSolver.translateModel();
         subSolver.solve();
 
-//        ub = sub.getObjVal();
         System.out.println("Sub model objective value: " + subSolver.getOptimum());
 
         Map<String, Double> boundingDuals = new HashMap<>();
-        for (String boundingVar : boundingCtrs.keySet()) {
-            boundingDuals.put(boundingVar, subSolver.getDual(boundingCtrs.get(boundingVar)));
+        for (String boundingVar : boundingVarCtrMapping.keySet()) {
+            boundingDuals.put(boundingVar, subSolver.getDual(boundingVarCtrMapping.get(boundingVar)));
         }
 
 
-        ub = -subSolver.getVars().get("x").getValue() * 0.25 - subSolver.getVars().get("y").getValue();
+        ub = -subSolver.getVariableSol("x") * 0.25 - subSolver.getVariableSol("y");
 
         return boundingDuals;
     }
 
-    void addBendersCutToMaster(Map<String, Double> masterVarDuals, ModelSolver subSolver, Map<String, Double> masterVarBoundings) {
-        Constraint cut = new Constraint("Benders cut", ConstraintType.LEQL, 0);
-
+    void addBendersCutToMaster(Map<String, Double> masterVarDuals, Model subSolver, Map<String, Double> masterVarBoundings) {
         double sumOfBoundingMultipliedDual = 0;
 
+        Map<String, Double> cutTerms = new LinkedHashMap<>();
 
         for (String masterVar : masterVarDuals.keySet()) {
-            cut.getTerms().add(new Term(masterSolver.getVars().get(masterVar), masterVarDuals.get(masterVar)));
+            cutTerms.put(masterVar, masterVarDuals.get(masterVar));
             sumOfBoundingMultipliedDual += masterVarDuals.get(masterVar) * masterVarBoundings.get(masterVar);
         }
-        cut.getTerms().add(new Term(masterSolver.getVars().get("alpha"), -1));
+        cutTerms.put("alpha", -1.0);
 
-        cut.setBound(-subSolver.getOptimum() + sumOfBoundingMultipliedDual);
-
-        masterSolver.addConstraint(cut);
+        masterSolver.addConstraint("Benders Cut", cutTerms, ConstraintType.LEQL, -Double.MAX_VALUE, -subSolver.getOptimum() + sumOfBoundingMultipliedDual);
     }
 
 }
