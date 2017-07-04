@@ -14,8 +14,6 @@ public interface ModelSolver {
         MAX, MIN
     }
 
-//    ModelSolverType getType();
-
     void solve();
 
     void addConstraint(Constraint constraint);
