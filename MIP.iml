@@ -46,5 +46,14 @@
         <jarDirectory url="file://$USER_HOME$/Applications/or-tools_Ubuntu-16.04-64bit_v6.0.4217/lib" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/OpenSouce/GLPK/libglpk-java-1.9.0/swig/glpk-java.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
