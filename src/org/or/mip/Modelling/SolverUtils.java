@@ -10,6 +10,10 @@ import com.dashoptimization.XPRBprob;
 public class SolverUtils {
     public static XPRB bcl = new XPRB();
 
+    public static void main(String[] args){
+        originModel();
+    }
+
     static void originModel(){
         XPRBprob problem = bcl.newProb("");
 

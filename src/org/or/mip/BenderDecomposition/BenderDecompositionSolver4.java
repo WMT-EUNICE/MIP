@@ -20,6 +20,8 @@ public class BenderDecompositionSolver4 {
     double lb = -Double.MAX_VALUE;
     double ub = Double.MAX_VALUE;
 
+    final double LARGE_POSTIVE = 10000;
+
     List<String> complicatingVarNames = new ArrayList<>();
 
     public static void main(String[] args) {
@@ -27,20 +29,7 @@ public class BenderDecompositionSolver4 {
         solver.solve();
     }
 
-    void solve() {
-        init();
-        initSubModel();
-        initAlwayseFeasibleSubModel();
-
-
-        solveMasterModel();
-        Map<String, Map<String, Double>> boundingVarSubDuals = new LinkedHashMap<>();
-        solveSubModel(boundingVarSubDuals);
-
-//        ub = -2 * subSolvers.get("Sub 1").getVariableSol("y1") + (-1) * subSolvers.get("Sub 2").getVariableSol("y2") +
-//                subSolvers.get("Sub 3").getVariableSol("y3") +
-//                3 * masterSolver.getVariableSol("x1") +
-//                (-3) * masterSolver.getVariableSol("x2");
+    void updateUB(){
         ub = 0;
         if (subSolvers.get("Sub 1").getStatus() == ModelSolver.Status.OPTIMAL) {
             ub += -2 * subSolvers.get("Sub 1").getVariableSol("y1");
@@ -61,97 +50,64 @@ public class BenderDecompositionSolver4 {
         }
 
 
-        ub += 3 * masterSolver.getVariableSol("x1") +
-                (-3) * masterSolver.getVariableSol("x2");
+        ub += 3 * masterSolver.getVariableSol("x1") + (-3) * masterSolver.getVariableSol("x2");
+    }
+
+    void solve() {
+        initMaster();
+        initSubModel();
+        initAlwayseFeasibleSubModel();
+
+
+        solveMasterModel();
+        Map<String, Map<String, Double>> boundingVarSubDuals = new LinkedHashMap<>();
+        solveSubModel(boundingVarSubDuals);
+
+        updateUB();
 
         addBendersCutToMaster(boundingVarSubDuals);
 
 
         while (Math.abs(ub - lb) >= 1) {
-            masterSolver.solve();
+            solveMasterModel();
+            solveSubModel(boundingVarSubDuals);
 
-            lb = masterSolver.getOptimum();
-
-            for (String subProblem : subSolvers.keySet()){
-                for(String complicatingVarName : complicatingVarNames){
-                    subSolvers.get(subProblem).setConstraintBound("Bounding with " +
-                                    complicatingVarName, masterSolver.getVariableSol(complicatingVarName),
-                            masterSolver.getVariableSol(complicatingVarName));
-                }
-
-                subSolvers.get(subProblem).solve();
-                if(subSolvers.get(subProblem).getStatus() == ModelSolver.Status.OPTIMAL){
-                    System.out.println(subProblem + " objective value: " + subSolvers.get(subProblem).getOptimum());
-                    for(String complicatingVarName : complicatingVarNames){
-                        boundingVarSubDuals.get(complicatingVarName).put(subProblem,
-                                subSolvers.get(subProblem).getDual("Bounding with " + complicatingVarName));
-                    }
-
-                }else{
-                    for(String complicatingVarName : complicatingVarNames){
-                        feasibleSubSolvers.get(subProblem).setConstraintBound("Bounding with " + complicatingVarName,
-                                masterSolver.getVariableSol(complicatingVarName),
-                                masterSolver.getVariableSol(complicatingVarName));
-                    }
-
-                    feasibleSubSolvers.get(subProblem).solve();
-
-                    if(feasibleSubSolvers.get(subProblem).getStatus() == ModelSolver.Status.OPTIMAL){
-
-                        System.out.println(subProblem + " objective value: " + feasibleSubSolvers.get(subProblem).getOptimum());
-                        for(String complicatingVarName : complicatingVarNames){
-                            boundingVarSubDuals.get(complicatingVarName).put(subProblem, feasibleSubSolvers.get(subProblem).getDual("Bounding with " + complicatingVarName));
-                        }
-
-                    }
-                }
-            }
-
-//            for (String complicatingVarName : complicatingVarNames) {
-//                complicatingVarBoundings.put(complicatingVarName, masterSolver.getVariableSol(complicatingVarName));
-//                for (String subProblem : subSolvers.keySet()) {
-//                    subSolvers.get(subProblem).setConstraintBound("Bounding with " + complicatingVarName, masterSolver.getVariableSol(complicatingVarName),
+//            for (String subProblem : subSolvers.keySet()){
+//                for(String complicatingVarName : complicatingVarNames){
+//                    subSolvers.get(subProblem).setConstraintBound("Bounding with " +
+//                                    complicatingVarName, masterSolver.getVariableSol(complicatingVarName),
 //                            masterSolver.getVariableSol(complicatingVarName));
-//                    subSolvers.get(subProblem).solve();
-//                    if(subSolvers.get(subProblem).getStatus() == ModelSolver.Status.OPTIMAL){
-//                        System.out.println(subProblem + " objective value: " + subSolvers.get(subProblem).getOptimum());
-//                        boundingVarSubDuals.get(complicatingVarName).put(subProblem, subSolvers.get(subProblem).getDual("Bounding with " + complicatingVarName));
-//                    }else{
-//                        feasibleSubSolvers.get(subProblem).setConstraintBound("Bounding with " + complicatingVarName, masterSolver.getVariableSol(complicatingVarName),
-//                                masterSolver.getVariableSol(complicatingVarName));
-//                        feasibleSubSolvers.get(subProblem).solve();
+//                }
 //
-//                        if(feasibleSubSolvers.get(subProblem).getStatus() == ModelSolver.Status.OPTIMAL){
-//                            System.out.println(subProblem + " objective value: " + feasibleSubSolvers.get(subProblem).getOptimum());
-//                            boundingVarSubDuals.get(complicatingVarName).put(subProblem, feasibleSubSolvers.get(subProblem).getDual("Bounding with " + complicatingVarName));
-//                        }
+//                subSolvers.get(subProblem).solve();
+//                if(subSolvers.get(subProblem).getStatus() == ModelSolver.Status.OPTIMAL){
+//                    System.out.println(subProblem + " objective value: " + subSolvers.get(subProblem).getOptimum());
+//                    for(String complicatingVarName : complicatingVarNames){
+//                        boundingVarSubDuals.get(complicatingVarName).put(subProblem,
+//                                subSolvers.get(subProblem).getDual("Bounding with " + complicatingVarName));
 //                    }
 //
+//                }else{
+//                    for(String complicatingVarName : complicatingVarNames){
+//                        feasibleSubSolvers.get(subProblem).setConstraintBound("Bounding with " + complicatingVarName,
+//                                masterSolver.getVariableSol(complicatingVarName),
+//                                masterSolver.getVariableSol(complicatingVarName));
+//                    }
+//
+//                    feasibleSubSolvers.get(subProblem).solve();
+//
+//                    if(feasibleSubSolvers.get(subProblem).getStatus() == ModelSolver.Status.OPTIMAL){
+//
+//                        System.out.println(subProblem + " objective value: " + feasibleSubSolvers.get(subProblem).getOptimum());
+//                        for(String complicatingVarName : complicatingVarNames){
+//                            boundingVarSubDuals.get(complicatingVarName).put(subProblem, feasibleSubSolvers.get(subProblem).getDual("Bounding with " + complicatingVarName));
+//                        }
+//
+//                    }
 //                }
 //            }
 
-            ub = 0;
-            if (subSolvers.get("Sub 1").getStatus() == ModelSolver.Status.OPTIMAL) {
-                ub += -2 * subSolvers.get("Sub 1").getVariableSol("y1");
-            } else {
-                ub += -2 * feasibleSubSolvers.get("Sub 1").getVariableSol("y1");
-            }
-
-            if (subSolvers.get("Sub 2").getStatus() == ModelSolver.Status.OPTIMAL) {
-                ub += -1 * subSolvers.get("Sub 2").getVariableSol("y2");
-            } else {
-                ub += -1 * feasibleSubSolvers.get("Sub 2").getVariableSol("y2");
-            }
-
-            if (subSolvers.get("Sub 3").getStatus() == ModelSolver.Status.OPTIMAL) {
-                ub += subSolvers.get("Sub 3").getVariableSol("y3");
-            } else {
-                ub += feasibleSubSolvers.get("Sub 3").getVariableSol("y3");
-            }
-
-
-            ub += 3 * masterSolver.getVariableSol("x1") +
-                    (-3) * masterSolver.getVariableSol("x2");
+            updateUB();
 
             addBendersCutToMaster(boundingVarSubDuals);
         }
@@ -244,8 +200,8 @@ public class BenderDecompositionSolver4 {
         sub1.addVariable("w", VariableType.REAL, 0, Double.MAX_VALUE);
         Map<String, Double> sub1ObjTerms = new LinkedHashMap<>();
         sub1ObjTerms.put("y1", -2.0);
-        sub1ObjTerms.put("v1", 20.0);
-        sub1ObjTerms.put("w", 20.0);
+        sub1ObjTerms.put("v1", LARGE_POSTIVE);
+        sub1ObjTerms.put("w", LARGE_POSTIVE);
         sub1.setObj(sub1ObjTerms);
         Map<String, Double> sub1Ctr1Terms = new LinkedHashMap<>();
         sub1Ctr1Terms.put("y1", 1.0);
@@ -276,8 +232,8 @@ public class BenderDecompositionSolver4 {
 
         Map<String, Double> sub2ObjTerms = new LinkedHashMap<>();
         sub2ObjTerms.put("y2", -1.0);
-        sub2ObjTerms.put("v3", 20.0);
-        sub2ObjTerms.put("w", 20.0);
+        sub2ObjTerms.put("v3", LARGE_POSTIVE);
+        sub2ObjTerms.put("w", LARGE_POSTIVE);
         sub2.setObj(sub2ObjTerms);
         Map<String, Double> sub2Ctr1Terms = new LinkedHashMap<>();
         sub2Ctr1Terms.put("y2", 2.0);
@@ -307,8 +263,8 @@ public class BenderDecompositionSolver4 {
         sub3.addVariable("w", VariableType.REAL, 0, Double.MAX_VALUE);
         Map<String, Double> sub3ObjTerms = new LinkedHashMap<>();
         sub3ObjTerms.put("y3", 1.0);
-        sub3ObjTerms.put("v3", 20.0);
-        sub3ObjTerms.put("w", 20.0);
+        sub3ObjTerms.put("v3", LARGE_POSTIVE);
+        sub3ObjTerms.put("w", LARGE_POSTIVE);
         sub3.setObj(sub3ObjTerms);
         Map<String, Double> sub3Ctr1Terms = new LinkedHashMap<>();
         sub3Ctr1Terms.put("y3", 1.0);
@@ -327,7 +283,7 @@ public class BenderDecompositionSolver4 {
         feasibleSubSolvers.put("Sub 3", sub3);
     }
 
-    void init() {
+    void initMaster() {
         //definition of complicating vars
         complicatingVarNames.add("x1");
         complicatingVarNames.add("x2");
@@ -351,28 +307,16 @@ public class BenderDecompositionSolver4 {
     void solveMasterModel() {
         masterSolver.solve();
         lb = masterSolver.getOptimum();
-//        Map<String, Double> complicatingVarBoundings = new HashMap<>();
-//        for (String complicatingVarName : complicatingVarNames) {
-//            complicatingVarBoundings.put(complicatingVarName, masterSolver.getVariableSol(complicatingVarName));
-//        }
-//        return complicatingVarBoundings;
     }
 
     void solveSubModel(Map<String, Map<String, Double>> boundingVarSubDuals) {
         for (String subProblem : subSolvers.keySet()) {
-//            Map<String, String> boundingVarCtrMapping = new HashMap<>();
             for (String boundingVar : complicatingVarNames) {
-//                Map<String, Double> boundingTerms = new LinkedHashMap<>();
-//                boundingTerms.put(boundingVar, 1.0);
-//
-//                subSolvers.get(subProblem).addConstraint("Bounding with " + boundingVar, boundingTerms, ConstraintType.EQL, complicatingVarBoundings.get(boundingVar), complicatingVarBoundings.get(boundingVar));
-//                boundingVarCtrMapping.put(boundingVar, "Bounding with " + boundingVar);
                 subSolvers.get(subProblem).setConstraintBound("Bounding with " +
                                 boundingVar, masterSolver.getVariableSol(boundingVar),
                         masterSolver.getVariableSol(boundingVar));
             }
 
-//            subSolvers.get(subProblem).setSense(ModelSolver.Sense.MIN);
             subSolvers.get(subProblem).solve();
 
             if (subSolvers.get(subProblem).getStatus() == ModelSolver.Status.OPTIMAL) {
@@ -386,16 +330,7 @@ public class BenderDecompositionSolver4 {
                 }
             } else {
                 System.out.println("Sub model infeasible!");
-
-//                boundingVarCtrMapping.clear();
                 for (String boundingVar : complicatingVarNames) {
-//                    Map<String, Double> boundingTerms = new LinkedHashMap<>();
-//                    boundingTerms.put(boundingVar, 1.0);
-//
-//                    feasibleSubSolvers.get(subProblem).addConstraint("Bounding with " + boundingVar,
-//                            boundingTerms, ConstraintType.EQL, complicatingVarBoundings.get(boundingVar),
-//                            complicatingVarBoundings.get(boundingVar));
-//                    boundingVarCtrMapping.put(boundingVar, "Bounding with " + boundingVar);
                     feasibleSubSolvers.get(subProblem).setConstraintBound("Bounding with " +
                                     boundingVar, masterSolver.getVariableSol(boundingVar),
                             masterSolver.getVariableSol(boundingVar));
