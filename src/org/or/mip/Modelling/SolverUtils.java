@@ -8,6 +8,7 @@ import com.dashoptimization.XPRBprob;
  * Created by baohuaw on 7/3/17.
  */
 public class SolverUtils {
+
     public static XPRB bcl = new XPRB();
 
     public static void main(String[] args){

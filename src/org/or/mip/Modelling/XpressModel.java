@@ -14,7 +14,7 @@ public class XpressModel implements Model {
 
     public XpressModel(String name) {
         problem = bcl.newProb(name);
-        problem.setMsgLevel(4);
+        problem.setMsgLevel(1);
     }
 
     @Override

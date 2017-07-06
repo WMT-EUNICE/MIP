@@ -37,8 +37,8 @@ public class UncapacitatedFacilityLocation {
 
     public static void main(String[] args) throws IOException {
         UncapacitatedFacilityLocation location = new UncapacitatedFacilityLocation();
-        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/BildeKrarup/B/B1.1");
-        long startTime = System.currentTimeMillis();
+        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/GalvaoRaggi/50/50.1");
+//        long startTime = System.currentTimeMillis();
 //        location.solveOriginalModel();
 //        System.out.println("Solving the problem with " + (System.currentTimeMillis() - startTime) / 1000 + " second");
 //
@@ -48,8 +48,8 @@ public class UncapacitatedFacilityLocation {
 //        startTime = System.currentTimeMillis();
 //        location.solveOriginalModelWithWeakerBound();
 //        System.out.println("Solving the problem with " + (System.currentTimeMillis() - startTime) / 1000 + " second");
-//        location.createVirtualFacility();
-//        location.solve();
+        location.createVirtualFacility();
+        location.solve();
     }
 
     void createVirtualFacility() {
