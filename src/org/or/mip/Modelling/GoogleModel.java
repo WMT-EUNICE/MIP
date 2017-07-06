@@ -17,8 +17,8 @@ public class GoogleModel implements Model {
     MPSolver solver;
     MPSolver.ResultStatus status;
 
-    public GoogleModel() {
-        solver = new MPSolver("", MPSolver.OptimizationProblemType.GLOP_LINEAR_PROGRAMMING);
+    public GoogleModel(String name) {
+        solver = new MPSolver(name, MPSolver.OptimizationProblemType.CBC_MIXED_INTEGER_PROGRAMMING);
     }
 
     @Override
@@ -26,7 +26,8 @@ public class GoogleModel implements Model {
         if(type == VariableType.REAL){
             solver.makeNumVar(lb, ub, name);
         }else if(type == VariableType.BINARY){
-            solver.makeBoolVar( name);
+//            if(lb == ub)
+            solver.makeBoolVar(name);
         }else if(type == VariableType.INTEGER){
             solver.makeIntVar(lb, ub, name);
         }
@@ -42,12 +43,12 @@ public class GoogleModel implements Model {
 
     @Override
     public void solveLP() {
-        solver.solve();
+        status = solver.solve();
     }
 
     @Override
     public void solveMIP() {
-        solver.solve();
+        status = solver.solve();
     }
 
     @Override
@@ -79,8 +80,10 @@ public class GoogleModel implements Model {
     public ModelSolver.Status getStatus() {
         if(status == MPSolver.ResultStatus.OPTIMAL)
             return ModelSolver.Status.OPTIMAL;
-        else
+        else {
+//            System.out.println(status);
             return ModelSolver.Status.ELSE;
+        }
     }
 
     @Override
