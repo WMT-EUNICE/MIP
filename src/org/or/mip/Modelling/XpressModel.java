@@ -14,6 +14,7 @@ public class XpressModel implements Model {
 
     public XpressModel(String name) {
         problem = bcl.newProb(name);
+        problem.setMsgLevel(4);
     }
 
     @Override
@@ -44,13 +45,13 @@ public class XpressModel implements Model {
 
     @Override
     public void solveLP() {
-        problem.setMsgLevel(1);
+//        problem.setMsgLevel(4);
         problem.lpOptimise();
     }
 
     @Override
     public void solveMIP() {
-        problem.setMsgLevel(1);
+//        problem.setMsgLevel(4);
         problem.mipOptimise();
     }
 

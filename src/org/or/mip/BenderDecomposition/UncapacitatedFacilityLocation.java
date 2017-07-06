@@ -37,10 +37,19 @@ public class UncapacitatedFacilityLocation {
 
     public static void main(String[] args) throws IOException {
         UncapacitatedFacilityLocation location = new UncapacitatedFacilityLocation();
-        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/simpleExample.txt");
+        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/BildeKrarup/B/B1.1");
+        long startTime = System.currentTimeMillis();
 //        location.solveOriginalModel();
-        location.createVirtualFacility();
-        location.solve();
+//        System.out.println("Solving the problem with " + (System.currentTimeMillis() - startTime) / 1000 + " second");
+//
+        System.out.println();
+        System.out.println();
+
+//        startTime = System.currentTimeMillis();
+//        location.solveOriginalModelWithWeakerBound();
+//        System.out.println("Solving the problem with " + (System.currentTimeMillis() - startTime) / 1000 + " second");
+//        location.createVirtualFacility();
+//        location.solve();
     }
 
     void createVirtualFacility() {
@@ -60,8 +69,11 @@ public class UncapacitatedFacilityLocation {
         String line;
         int lineId = 0;
         while ((line = in.readLine()) != null) {
-            System.out.println(line);
-            if (lineId == 0) {
+//            System.out.println(line);
+            if(lineId == 0){
+                System.out.println(line);
+            }
+            else if (lineId == 1) {
                 String[] elements = line.split(" ");
                 numFacility = Integer.valueOf(elements[0]);
                 numCustomer = Integer.valueOf(elements[1]);
@@ -156,18 +168,79 @@ public class UncapacitatedFacilityLocation {
 
         System.out.println("Origin Model Optimum " + originalSolver.getOptimum());
 
+//        for (int i = 1; i <= numFacility; i++) {
+//            if (Math.abs(originalSolver.getVariableSol("y" + i) - 1) <= 0.0001)
+//                System.out.println("Facility " + i + " is opening with cost of " + openCosts.get(String.valueOf(i)));
+//        }
+//
+//        for (int i = 1; i < numFacility; i++) {
+//            for (int j = 1; j <= numCustomer; j++) {
+//                if (Math.abs(originalSolver.getVariableSol("x" + i + "" + j) - 1) < 0.0001)
+//                    System.out.println("Facility " + i + " serves Customer " + j + " with cost of " + servingCosts.get(String.valueOf(i)).get(String.valueOf(j)));
+//            }
+//
+//        }
+
+    }
+
+    void solveOriginalModelWithWeakerBound() {
         for (int i = 1; i <= numFacility; i++) {
-            if (Math.abs(originalSolver.getVariableSol("y" + i) - 1) <= 0.0001)
-                System.out.println("Facility " + i + " is opening with cost of " + openCosts.get(String.valueOf(i)));
+            originalSolver.addVariable("y" + i, VariableType.BINARY, 0, 1);
         }
 
-        for (int i = 1; i < numFacility; i++) {
+        for (int i = 1; i <= numFacility; i++) {
             for (int j = 1; j <= numCustomer; j++) {
-                if (Math.abs(originalSolver.getVariableSol("x" + i + "" + j) - 1) < 0.0001)
-                    System.out.println("Facility " + i + " serves Customer " + j + " with cost of " + servingCosts.get(String.valueOf(i)).get(String.valueOf(j)));
+                originalSolver.addVariable("x" + i + "" + j, VariableType.BINARY, 0, 1);
+            }
+        }
+
+        Map<String, Double> objTerms = new LinkedHashMap<>();
+        for (int i = 1; i <= numFacility; i++) {
+            objTerms.put("y" + i, openCosts.get(String.valueOf(i)));
+        }
+
+        for (int i = 1; i <= numFacility; i++) {
+            for (int j = 1; j <= numCustomer; j++) {
+                objTerms.put("x" + i + "" + j, servingCosts.get(String.valueOf(i)).get(String.valueOf(j)));
+            }
+        }
+        originalSolver.setObj(objTerms);
+
+        for (int j = 1; j <= numCustomer; j++) {
+            Map<String, Double> terms = new LinkedHashMap<>();
+            for (int i = 1; i < numFacility; i++) {
+                terms.put("x" + i + "" + j, 1.0);
+            }
+            originalSolver.addConstraint("customer " + j + " serving", terms, ConstraintType.EQL, 1, 1);
+        }
+
+        for (int i = 1; i <= numFacility; i++) {
+            Map<String, Double> terms = new LinkedHashMap<>();
+            for(int j = 1;j <= numCustomer;j++){
+                terms.put("x" + i + "" + j, 1.0);
             }
 
+            terms.put("y" + i, (double)-numCustomer);
+            originalSolver.addConstraint("Weaker bound facility " + i, terms, ConstraintType.LEQL, -Double.MAX_VALUE, 0);
         }
+
+        originalSolver.setSense(ModelSolver.Sense.MIN);
+        originalSolver.solveMIP();
+
+        System.out.println("Origin Model Optimum " + originalSolver.getOptimum());
+
+//        for (int i = 1; i <= numFacility; i++) {
+//            if (Math.abs(originalSolver.getVariableSol("y" + i) - 1) <= 0.0001)
+//                System.out.println("Facility " + i + " is opening with cost of " + openCosts.get(String.valueOf(i)));
+//        }
+//
+//        for (int i = 1; i < numFacility; i++) {
+//            for (int j = 1; j <= numCustomer; j++) {
+//                if (Math.abs(originalSolver.getVariableSol("x" + i + "" + j) - 1) < 0.0001)
+//                    System.out.println("Facility " + i + " serves Customer " + j + " with cost of " + servingCosts.get(String.valueOf(i)).get(String.valueOf(j)));
+//            }
+//
+//        }
 
     }
 
