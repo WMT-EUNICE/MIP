@@ -44,11 +44,13 @@ public class XpressModel implements Model {
 
     @Override
     public void solveLP() {
+        problem.setMsgLevel(1);
         problem.lpOptimise();
     }
 
     @Override
     public void solveMIP() {
+        problem.setMsgLevel(1);
         problem.mipOptimise();
     }
 
