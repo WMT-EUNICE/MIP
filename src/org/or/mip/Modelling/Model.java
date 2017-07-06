@@ -10,7 +10,9 @@ public interface Model {
 
     void addConstraint(String name, Map<String, Double> terms, ConstraintType type, double lb, double ub);
 
-    void solve();
+    void solveLP();
+
+    void solveMIP();
 
     void removeConstraint(String ctrName);
 

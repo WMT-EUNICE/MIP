@@ -35,7 +35,7 @@ public class BenderDecompositionSolver3 {
 
 
         while (Math.abs(ub - lb) >= 1) {
-            masterSolver.solve();
+            masterSolver.solveLP();
 
             lb = masterSolver.getOptimum();
 
@@ -45,7 +45,7 @@ public class BenderDecompositionSolver3 {
                         masterSolver.getVariableSol(complicatingVarName));
             }
 
-            subSolvers.get("Sub_y").solve();
+            subSolvers.get("Sub_y").solveLP();
 
             System.out.println("Sub model objective value: " + subSolvers.get("Sub_y").getOptimum());
 
@@ -79,7 +79,7 @@ public class BenderDecompositionSolver3 {
         masterSolver.setSense(ModelSolver.Sense.MIN);
 
 //        masterSolver.translateModel();
-        masterSolver.solve();
+        masterSolver.solveLP();
 
         lb = masterSolver.getOptimum();
 
@@ -135,7 +135,7 @@ public class BenderDecompositionSolver3 {
         }
 
         subSolver.setSense(ModelSolver.Sense.MIN);
-        subSolver.solve();
+        subSolver.solveLP();
 
         System.out.println("Sub model objective value: " + subSolver.getOptimum());
 

@@ -305,7 +305,7 @@ public class BenderDecompositionSolver4 {
     }
 
     void solveMasterModel() {
-        masterSolver.solve();
+        masterSolver.solveLP();
         lb = masterSolver.getOptimum();
     }
 
@@ -317,7 +317,7 @@ public class BenderDecompositionSolver4 {
                         masterSolver.getVariableSol(boundingVar));
             }
 
-            subSolvers.get(subProblem).solve();
+            subSolvers.get(subProblem).solveLP();
 
             if (subSolvers.get(subProblem).getStatus() == ModelSolver.Status.OPTIMAL) {
                 System.out.println("Sub model objective value: " + subSolvers.get(subProblem).getOptimum());
@@ -336,7 +336,7 @@ public class BenderDecompositionSolver4 {
                             masterSolver.getVariableSol(boundingVar));
                 }
 
-                feasibleSubSolvers.get(subProblem).solve();
+                feasibleSubSolvers.get(subProblem).solveLP();
 
                 if (feasibleSubSolvers.get(subProblem).getStatus() == ModelSolver.Status.OPTIMAL) {
                     System.out.println("Sub model objective value: " + feasibleSubSolvers.get(subProblem).getOptimum());

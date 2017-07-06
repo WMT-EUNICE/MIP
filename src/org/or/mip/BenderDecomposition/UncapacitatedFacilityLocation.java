@@ -24,7 +24,8 @@ public class UncapacitatedFacilityLocation {
     //facility->customer->cost
     Map<String, Map<String, Double>> servingCosts = new LinkedHashMap<>();
 
-    final double LARGE_POSTIVE = 10000;
+    int masterBendersCutId = 0;
+    final double LARGE_POSTIVE = 100;
 
     public static void main(String[] args) throws IOException {
         UncapacitatedFacilityLocation location = new UncapacitatedFacilityLocation();
@@ -34,11 +35,8 @@ public class UncapacitatedFacilityLocation {
 
     void readProblem(String fileName) throws IOException {
         BufferedReader in = new BufferedReader(new FileReader(fileName));
-
         String line;
         int lineId = 0;
-
-
         while ((line = in.readLine()) != null) {
             System.out.println(line);
             if (lineId == 0) {
@@ -72,26 +70,23 @@ public class UncapacitatedFacilityLocation {
         for (int i = 1; i <= numFacility; i++) {
             complicatingVarNames.add("y" + i);
         }
+//        complicatingVarNames.add("y" + numFacility + 1);  //virtual facility which is always open and has very high opening cost
 
-        //definition of master model
         for (String locationVar : complicatingVarNames) {
-            masterSolver.addVariable(locationVar, VariableType.BINARY, 0, 1);
+            if(locationVar.equals("y5"))
+                masterSolver.addVariable(locationVar, VariableType.BINARY, 1, 1);
+            else
+                masterSolver.addVariable(locationVar, VariableType.BINARY, 0, 1);
         }
-        masterSolver.addVariable("alpha", VariableType.REAL, -100, Double.MAX_VALUE);
+        masterSolver.addVariable("alpha", VariableType.REAL, -10000, Double.MAX_VALUE);
 
         Map<String, Double> objTerms = new LinkedHashMap<>();
-
-
         for (int i = 1; i <= complicatingVarNames.size(); i++) {
             objTerms.put(complicatingVarNames.get(i - 1), openCosts.get(String.valueOf(i)));
         }
         objTerms.put("alpha", 1.0);
         masterSolver.setObj(objTerms);
 
-//        Map<String, Double> ctr1Terms = new LinkedHashMap<>();
-//        ctr1Terms.put("x1", -1.0);
-//        ctr1Terms.put("x2", 1.0);
-//        masterSolver.addConstraint("Master Ctr 1", ctr1Terms, ConstraintType.LEQL, -Double.MAX_VALUE, 2);
         masterSolver.setSense(ModelSolver.Sense.MIN);
     }
 
@@ -107,7 +102,7 @@ public class UncapacitatedFacilityLocation {
             }
 
             Map<String, Double> objTerms = new LinkedHashMap<>();
-            for (int i = 1; i < numFacility; i++) {
+            for (int i = 1; i <= numFacility; i++) {
                 objTerms.put("x" + i + "" + j, servingCosts.get(String.valueOf(i)).get(String.valueOf(j)));
             }
             customer.setObj(objTerms);
@@ -162,7 +157,7 @@ public class UncapacitatedFacilityLocation {
 
 
             Map<String, Double> objTerms = new LinkedHashMap<>();
-            for (int i = 1; i < numFacility; i++) {
+            for (int i = 1; i <= numFacility; i++) {
                 objTerms.put("x" + i + "" + j, servingCosts.get(String.valueOf(i)).get(String.valueOf(j)));
                 objTerms.put("v" + i, LARGE_POSTIVE);
                 objTerms.put("w", LARGE_POSTIVE);
@@ -207,31 +202,61 @@ public class UncapacitatedFacilityLocation {
     }
 
     void solveMasterModel() {
-        masterSolver.solve();
+        masterSolver.solveMIP();
+//        if (masterSolver.getOptimum() > lb)
         lb = masterSolver.getOptimum();
+
     }
 
     void updateUB() {
-        ub = 0;
+//        ub = 0;
+
+        double currentUb = 0;
 
         for (int i = 1; i <= numFacility; i++) {
-            ub += masterSolver.getVariableSol("y" + i) * openCosts.get(String.valueOf(i));
+            currentUb += masterSolver.getVariableSol("y" + i) * openCosts.get(String.valueOf(i));
 
         }
 
         for (int i = 1; i <= numFacility; i++) {
             for (int j = 1; j <= numCustomer; j++) {
                 if (subSolvers.get("Customer " + j).getStatus() == ModelSolver.Status.OPTIMAL) {
-                    ub += subSolvers.get("Customer + j").getVariableSol("x" + i + "" + j) * servingCosts.get(String.valueOf(i)).get(String.valueOf(j));
+                    currentUb += subSolvers.get("Customer " + j).getVariableSol("x" + i + "" + j) * servingCosts.get(String.valueOf(i)).get(String.valueOf(j));
                 } else {
-                    ub += feasibleSubSolvers.get("Customer + j").getVariableSol("x" + i + "" + j) * servingCosts.get(String.valueOf(i)).get(String.valueOf(j));
+                    currentUb += feasibleSubSolvers.get("Customer " + j).getVariableSol("x" + i + "" + j) * servingCosts.get(String.valueOf(i)).get(String.valueOf(j));
                 }
             }
         }
+
+//        if(currentUb < ub)
+        ub = currentUb;
     }
 
-    void addBendersCutToMaster(Map<String, Map<String, Double>> masterVarDuals){
+    void addBendersCutToMaster(Map<String, Map<String, Double>> masterVarDuals) {
+        double sumOfBoundingMultipliedDual = 0;
 
+        Map<String, Double> cutTerms = new LinkedHashMap<>();
+
+        for (String masterVar : masterVarDuals.keySet()) {
+            double masterVarCoeff = 0;
+            for (String subProblem : masterVarDuals.get(masterVar).keySet()) {
+                masterVarCoeff += masterVarDuals.get(masterVar).get(subProblem);
+                sumOfBoundingMultipliedDual += masterVarDuals.get(masterVar).get(subProblem) * masterSolver.getVariableSol(masterVar);
+            }
+            cutTerms.put(masterVar, masterVarCoeff);
+        }
+        cutTerms.put("alpha", -1.0);
+
+        double totalSubOptimum = 0;
+        for (String subProblem : subSolvers.keySet()) {
+            if (subSolvers.get(subProblem).getStatus() == ModelSolver.Status.OPTIMAL)
+                totalSubOptimum += subSolvers.get(subProblem).getOptimum();
+            else
+                totalSubOptimum += feasibleSubSolvers.get(subProblem).getOptimum();
+        }
+
+        masterSolver.addConstraint("Benders Cut " + masterBendersCutId, cutTerms, ConstraintType.LEQL, -Double.MAX_VALUE, -totalSubOptimum + sumOfBoundingMultipliedDual);
+        masterBendersCutId++;
     }
 
     void solve() {
@@ -268,7 +293,7 @@ public class UncapacitatedFacilityLocation {
                         masterSolver.getVariableSol(boundingVar));
             }
 
-            subSolvers.get(subProblem).solve();
+            subSolvers.get(subProblem).solveLP();
 
             if (subSolvers.get(subProblem).getStatus() == ModelSolver.Status.OPTIMAL) {
                 System.out.println("Sub model objective value: " + subSolvers.get(subProblem).getOptimum());
@@ -287,7 +312,7 @@ public class UncapacitatedFacilityLocation {
                             masterSolver.getVariableSol(boundingVar));
                 }
 
-                feasibleSubSolvers.get(subProblem).solve();
+                feasibleSubSolvers.get(subProblem).solveLP();
 
                 if (feasibleSubSolvers.get(subProblem).getStatus() == ModelSolver.Status.OPTIMAL) {
                     System.out.println("Sub model objective value: " + feasibleSubSolvers.get(subProblem).getOptimum());

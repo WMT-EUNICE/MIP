@@ -49,7 +49,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/OpenSouce/GLPK/libglpk-java-1.9.0/swig/glpk-java.jar!/" />
+          <root url="jar://$USER_HOME$/Applications/libglpk-java-1.9.0/swig/glpk-java.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
