@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * Created by baohuaw on 7/6/17.
  */
-public class GoogleModel implements Model {
+public class GoogleMIPModel implements Model {
     static {
         System.loadLibrary("jniortools");
     }
@@ -17,7 +17,7 @@ public class GoogleModel implements Model {
     MPSolver solver;
     MPSolver.ResultStatus status;
 
-    public GoogleModel(String name) {
+    public GoogleMIPModel(String name) {
         solver = new MPSolver(name, MPSolver.OptimizationProblemType.CBC_MIXED_INTEGER_PROGRAMMING);
     }
 
@@ -43,7 +43,8 @@ public class GoogleModel implements Model {
 
     @Override
     public void solveLP() {
-        status = solver.solve();
+        System.out.println("This is a MIP solver!");
+//        status = solver.solve();
     }
 
     @Override

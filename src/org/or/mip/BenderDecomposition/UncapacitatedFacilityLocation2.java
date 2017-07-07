@@ -19,9 +19,9 @@ public class UncapacitatedFacilityLocation2 {
     int numCustomer;
     Map<String, Model> subSolvers = new HashMap<>();
     Map<String, Model> feasibleSubSolvers = new HashMap<>();
-    Model masterSolver = new GoogleModel("Master");
+    Model masterSolver = new GoogleLPModel("Master");
 
-    Model originalSolver = new GoogleModel("Original");
+    Model originalSolver = new GoogleLPModel("Original");
     double lb = -Double.MAX_VALUE;
     double ub = Double.MAX_VALUE;
     List<String> complicatingVarNames = new ArrayList<>();
@@ -248,7 +248,7 @@ public class UncapacitatedFacilityLocation2 {
 
     void initSubModel() {
         for (int j = 1; j <= numCustomer; j++) {
-            Model customer = new GoogleModel("Customer " + j);
+            Model customer = new GoogleLPModel("Customer " + j);
             for (int i = 1; i <= numFacility; i++) {
                 customer.addVariable("x_" + i + "_" + j, VariableType.REAL, 0, Double.MAX_VALUE);
             }
