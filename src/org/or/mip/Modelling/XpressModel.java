@@ -12,10 +12,16 @@ import static org.or.mip.Modelling.SolverUtils.bcl;
 public class XpressModel implements Model {
     XPRBprob problem;
     XPRBbasis basis = null;
+    XPRSprob op;
+
+
 
     public XpressModel(String name) {
         problem = bcl.newProb(name);
         problem.setMsgLevel(1);
+        XPRS.init();
+
+        op = problem.getXPRSprob();
     }
 
     @Override
@@ -46,13 +52,20 @@ public class XpressModel implements Model {
 
     @Override
     public void addCut(int id, Map<String, Double> terms, ConstraintType type, double lb, double ub) {
+
+        problem.beginCB(op);
+        problem.sync(XPRB.XPRS_SOL);
         XPRBexpr ctr = new XPRBexpr();
         for (String varName : terms.keySet()) {
             ctr.add(problem.getVarByName(varName).mul(terms.get(varName)));
         }
-//        XPRBcut cut = problem.newCut(ctr, id);
-//        cut.setTerm(ub);
-        problem.newCut(ctr.lEql(ub));
+        XPRBcut cut = problem.newCut(ctr.lEql(ub));
+//        cut.setID(id);
+        XPRBcut cuts[] = new XPRBcut[1];
+        cuts[0] = cut;
+        problem.addCuts(cuts);
+
+        problem.endCB();
     }
 
     @Override
@@ -65,9 +78,10 @@ public class XpressModel implements Model {
     public void solveMIP() {
 //        problem.setMsgLevel(4);
 //        problem.mipOptimise();
-        XPRSprob opt = problem.getXPRSprob();
+//        XPRSprob opt = problem.getXPRSprob();
 //        opt.setIntControl(XPRS.MAXTIME, 240);
-        opt.setIntControl(XPRS.MIPTHREADS, 64);
+//        opt.setIntControl(XPRS.MIPTHREADS, 64);
+//        problem.setCutMode(0);
         problem.mipOptimise();
 //        if(basis == null){
 //            problem.mipOptimise();

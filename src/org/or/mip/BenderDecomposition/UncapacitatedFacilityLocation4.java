@@ -14,7 +14,7 @@ import java.util.*;
  * Instead, I create a virtual facility which has very high opening cost and serving cost for each customer and that works
  * , and further, easily to explain and we can decrease the sub problem to half as before
  */
-public class UncapacitatedFacilityLocation {
+public class UncapacitatedFacilityLocation4 {
     int numFacility;
     int numCustomer;
     Map<String, Model> subSolvers = new HashMap<>();
@@ -33,12 +33,12 @@ public class UncapacitatedFacilityLocation {
     int masterBendersCutId = 0;
 //    final double LARGE_POSTIVE = 100;
 
-    final double LARGE_COST = 20000.0;
+//    final double LARGE_COST = 20000.0;
 
     String VIRTUAL_FACILITY;
 
     public static void main(String[] args) throws IOException {
-        UncapacitatedFacilityLocation location = new UncapacitatedFacilityLocation();
+        UncapacitatedFacilityLocation4 location = new UncapacitatedFacilityLocation4();
 //        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/GalvaoRaggi/200/200.9");
         location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/KoerkelGhosh-sym/500/a/gs500a-1");
 //        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/simpleExample.txt");
@@ -46,19 +46,6 @@ public class UncapacitatedFacilityLocation {
 //        location.solveOriginalModel();
         location.solve();
         System.out.println("Solving the problem with " + (System.currentTimeMillis() - startTime) + " milli second");
-    }
-
-
-    void createVirtualFacility() {
-//        int virtualFacilityId = numFacility + 1;
-        numFacility++;
-        VIRTUAL_FACILITY = String.valueOf(numFacility);
-        openCosts.put(String.valueOf(numFacility), LARGE_COST);
-        for (int j = 1; j <= numCustomer; j++) {
-            if (!servingCosts.containsKey(String.valueOf(numFacility)))
-                servingCosts.put(String.valueOf(numFacility), new LinkedHashMap<>());
-            servingCosts.get(String.valueOf(numFacility)).put(String.valueOf(j), LARGE_COST);
-        }
     }
 
     void readProblem(String fileName) throws IOException {
@@ -102,10 +89,7 @@ public class UncapacitatedFacilityLocation {
         }
 
         for (String locationVar : complicatingVarNames) {
-            if (locationVar.equals("y_" + VIRTUAL_FACILITY))
-                masterSolver.addVariable(locationVar, VariableType.INTEGER, 1, 1);
-            else
-                masterSolver.addVariable(locationVar, VariableType.INTEGER, 0, 1);
+            masterSolver.addVariable(locationVar, VariableType.INTEGER, 0, 1);
         }
         masterSolver.addVariable("alpha", VariableType.REAL, -1000, Double.MAX_VALUE);
 
@@ -115,6 +99,12 @@ public class UncapacitatedFacilityLocation {
         }
         objTerms.put("alpha", 1.0);
         masterSolver.setObj(objTerms);
+
+        Map<String, Double> ctrTerms = new LinkedHashMap<>();
+        for(int i = 1;i <= complicatingVarNames.size();i++){
+            ctrTerms.put(complicatingVarNames.get(i - 1), 1.0);
+        }
+        masterSolver.addConstraint("Facility existence",ctrTerms, ConstraintType.GEQL, 1, Double.MAX_VALUE);
 
         masterSolver.setSense(ModelSolver.Sense.MIN);
     }
@@ -369,7 +359,7 @@ public class UncapacitatedFacilityLocation {
 //        }
 //    }
 
-    void solveMasterModel() {
+    protected void solveMasterModel() {
 //        masterSolver.solveMIP();
 //        long time = System.currentTimeMillis();
         masterSolver.solveMIP();
@@ -433,7 +423,7 @@ public class UncapacitatedFacilityLocation {
     }
 
     protected void solve() {
-        createVirtualFacility();
+//        createVirtualFacility();
 
         initMaster();
         initSubModel();
@@ -444,6 +434,7 @@ public class UncapacitatedFacilityLocation {
             System.out.println("Terminate due to sub problem infeasibility!");
             return;
         }
+
 
 
         updateUB();
@@ -490,7 +481,7 @@ public class UncapacitatedFacilityLocation {
             }
         }
 
-        System.out.println("Total cost " + (totalCost - LARGE_COST));
+        System.out.println("Total cost " + (totalCost));
         System.out.println("Benders Cut " + masterBendersCutId);
     }
 
