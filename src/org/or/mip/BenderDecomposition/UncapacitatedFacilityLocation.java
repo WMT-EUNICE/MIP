@@ -102,9 +102,9 @@ public class UncapacitatedFacilityLocation {
 
         for (String locationVar : complicatingVarNames) {
             if (locationVar.equals("y_" + VIRTUAL_FACILITY))
-                masterSolver.addVariable(locationVar, VariableType.REAL, 1, 1);
+                masterSolver.addVariable(locationVar, VariableType.INTEGER, 1, 1);
             else
-                masterSolver.addVariable(locationVar, VariableType.REAL, 0, 1);
+                masterSolver.addVariable(locationVar, VariableType.INTEGER, 0, 1);
         }
         masterSolver.addVariable("alpha", VariableType.REAL, -10000, Double.MAX_VALUE);
 
@@ -370,7 +370,7 @@ public class UncapacitatedFacilityLocation {
 
     void solveMasterModel() {
 //        masterSolver.solveMIP();
-        masterSolver.solveLP();
+        masterSolver.solveMIP();
 //        if (masterSolver.getOptimum() > lb)
         lb = masterSolver.getOptimum();
 
