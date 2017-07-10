@@ -2,19 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1842aaef-f73b-4006-ab03-e7773f027b72" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MIP.iml" afterPath="$PROJECT_DIR$/MIP.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/UncapacitatedFacilityLocation.java" afterPath="$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/UncapacitatedFacilityLocation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/UncapacitatedFacilityLocation2.java" afterPath="$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/UncapacitatedFacilityLocation2.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleLPModel.java" afterPath="$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleLPModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleMIPModel.java" afterPath="$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleMIPModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/or/mip/Modelling/Model.java" afterPath="$PROJECT_DIR$/src/org/or/mip/Modelling/Model.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/or/mip/Modelling/XpressModel.java" afterPath="$PROJECT_DIR$/src/org/or/mip/Modelling/XpressModel.java" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
-    <ignored path="$PROJECT_DIR$/.idea/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="CodeInsightWorkspaceSettings">
-    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/MIP$MultiCommodityFlow.coverage" NAME="MultiCommodityFlow Coverage Results" MODIFIED="1498030387414" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -23,7 +24,7 @@
     <SUITE FILE_PATH="coverage/MIP$BenderDecompositionSolver.coverage" NAME="BenderDecompositionSolver Coverage Results" MODIFIED="1498707117752" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>org.or.mip.BenderDecomposition.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/MIP$UncapacitatedFacilityLocation.coverage" NAME="UncapacitatedFacilityLocation Coverage Results" MODIFIED="1499318722516" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/MIP$UncapacitatedFacilityLocation.coverage" NAME="UncapacitatedFacilityLocation Coverage Results" MODIFIED="1499656110623" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>org.or.mip.BenderDecomposition.*</FILTER>
     </SUITE>
   </component>
@@ -33,16 +34,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UncapacitatedFacilityLocation.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UncapacitatedFacilityLocation.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/UncapacitatedFacilityLocation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1158">
-              <caret line="106" column="74" lean-forward="false" selection-start-line="106" selection-start-column="74" selection-end-line="106" selection-end-column="74" />
+            <state relative-caret-position="307">
+              <caret line="456" column="24" lean-forward="false" selection-start-line="456" selection-start-column="24" selection-end-line="456" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#10145#10195#0" expanded="false" />
-                <element signature="e#12655#12690#0" expanded="false" />
-                <marker date="1499422404322" expanded="false" signature="21032:22324" ph="//..." />
+                <element signature="e#10252#10302#0" expanded="false" />
+                <element signature="e#12762#12797#0" expanded="false" />
+                <marker date="1499658262940" expanded="false" signature="21479:22771" ph="//..." />
               </folding>
             </state>
           </provider>
@@ -51,7 +52,7 @@
       <file leaf-file-name="UncapacitatedFacilityLocation2.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/UncapacitatedFacilityLocation2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
+            <state relative-caret-position="-450">
               <caret line="43" column="23" lean-forward="false" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
               <folding />
             </state>
@@ -61,15 +62,36 @@
       <file leaf-file-name="XpressModel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/or/mip/Modelling/XpressModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="16" column="29" lean-forward="false" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
-              <folding />
+            <state relative-caret-position="453">
+              <caret line="69" column="45" lean-forward="false" selection-start-line="69" selection-start-column="45" selection-end-line="69" selection-end-column="45" />
+              <folding>
+                <marker date="1499658262944" expanded="false" signature="2722:2733" ph=" { " />
+                <marker date="1499658262944" expanded="false" signature="2779:2785" ph=" }" />
+                <marker date="1499658262944" expanded="false" signature="2831:2842" ph=" { " />
+                <marker date="1499658262944" expanded="false" signature="2869:2875" ph=" }" />
+                <marker date="1499658262944" expanded="false" signature="3040:3051" ph=" { " />
+                <marker date="1499658262944" expanded="false" signature="3076:3082" ph=" }" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="50.1.opt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/ufl/GalvaoRaggi/50/50.1.opt">
+      <file leaf-file-name="GoogleLPModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleLPModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="522">
+              <caret line="46" column="5" lean-forward="false" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1484#1485#0" expanded="true" />
+                <element signature="e#1523#1524#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="apex-vcs.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/apex-vcs.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -78,8 +100,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="70.1" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/ufl/GalvaoRaggi/70/70.1">
+      <file leaf-file-name="preferred-vcs.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/preferred-vcs.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -88,31 +110,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="70.6.opt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/ufl/GalvaoRaggi/70/70.6.opt">
+      <file leaf-file-name="GoogleMIPModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleMIPModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="378">
+              <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gs250a-1" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/a/gs250a-1">
+      <file leaf-file-name="XPRSconstants.class" pinned="false" current-in-tab="false">
+        <entry file="jar:///opt/xpressmp/lib/xprs.jar!/com/dashoptimization/XPRSconstants.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4118">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="190">
+              <caret line="25" column="8" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gs250a-1.opt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/a/gs250a-1.opt">
+      <file leaf-file-name="XPRSprob.class" pinned="false" current-in-tab="false">
+        <entry file="jar:///opt/xpressmp/lib/xprs.jar!/com/dashoptimization/XPRSprob.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state relative-caret-position="180">
+              <caret line="70" column="0" lean-forward="true" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -128,113 +150,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="files.lst" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/c/files.lst">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Enum" />
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>getLength</find>
-      <find>getAttribute</find>
-      <find>newProb</find>
-      <find>model.</find>
-      <find>.getModel()</find>
-      <find>sub2</find>
-      <find>Sub2</find>
-      <find>feasibleSub2</find>
-      <find>feasibleSub3</find>
-      <find>20</find>
-      <find>parm</find>
-      <find>solveMIP</find>
-      <find>XpressModel</find>
-      <find>&quot;y&quot;</find>
-      <find>&quot;&quot;</find>
-      <find>&quot;x&quot;</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>sub2</replace>
-      <replace>sub3</replace>
-      <replace>GoogleModel</replace>
-      <replace>&quot;x_&quot;</replace>
-    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GradleLocalSettings">
-    <option name="externalProjectsViewState">
-      <projects_view />
-    </option>
-  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleSolver.java" />
-        <option value="$PROJECT_DIR$/src/org/or/mip/Modelling/Expression.java" />
-        <option value="$PROJECT_DIR$/src/org/or/mip/Modelling/Constraint.java" />
-        <option value="$PROJECT_DIR$/src/org/or/mip/BranchBound/BranchAndBoundSolver2.java" />
-        <option value="$PROJECT_DIR$/src/org/or/mip/Modelling/XpressSolver.java" />
-        <option value="$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/BenderDecompositionSolver2.java" />
-        <option value="$PROJECT_DIR$/src/org/or/mip/Modelling/ModelSolver.java" />
-        <option value="$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/Test.java" />
-        <option value="$PROJECT_DIR$/src/org/or/mip/glpk/Lp.java" />
-        <option value="$PROJECT_DIR$/src/org/or/mip/Modelling/Model.java" />
-        <option value="$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/BenderDecompositionSolver4.java" />
-        <option value="$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/BenderDecompositionSolver3.java" />
-        <option value="$PROJECT_DIR$/data/ufl/123UnifS.txt" />
-        <option value="$PROJECT_DIR$/data/ufl/223UnifS.txt" />
-        <option value="$PROJECT_DIR$/data/ufl/323UnifS.txt" />
-        <option value="$PROJECT_DIR$/data/ufl/423UnifS.txt" />
-        <option value="$PROJECT_DIR$/data/ufl/523UnifS.txt" />
-        <option value="$PROJECT_DIR$/data/ufl/623UnifS.txt" />
-        <option value="$PROJECT_DIR$/data/ufl/723UnifS.txt" />
-        <option value="$PROJECT_DIR$/data/ufl/823UnifS.txt" />
-        <option value="$PROJECT_DIR$/data/ufl/923UnifS.txt" />
-        <option value="$PROJECT_DIR$/data/ufl/1023UnifS.txt" />
-        <option value="$PROJECT_DIR$/data/ufl/1123UnifS.txt" />
-        <option value="$PROJECT_DIR$/data/ufl/1223UnifS.txt" />
-        <option value="$PROJECT_DIR$/data/ufl/1323UnifS.txt" />
-        <option value="$PROJECT_DIR$/data/ufl/1423UnifS.txt" />
-        <option value="$PROJECT_DIR$/data/ufl/1523UnifS.txt" />
-        <option value="$PROJECT_DIR$/data/ufl/1623UnifS.txt" />
-        <option value="$PROJECT_DIR$/data/ufl/1723UnifS.txt" />
-        <option value="$PROJECT_DIR$/data/ufl/1823UnifS.txt" />
-        <option value="$PROJECT_DIR$/data/ufl/1923UnifS.txt" />
-        <option value="$PROJECT_DIR$/data/ufl/2023UnifS.txt" />
-        <option value="$PROJECT_DIR$/data/ufl/2123UnifS.txt" />
-        <option value="$PROJECT_DIR$/data/ufl/2223UnifS.txt" />
-        <option value="$PROJECT_DIR$/data/ufl/2323UnifS.txt" />
-        <option value="$PROJECT_DIR$/data/ufl/2423UnifS.txt" />
-        <option value="$PROJECT_DIR$/data/ufl/2523UnifS.txt" />
-        <option value="$PROJECT_DIR$/data/ufl/2623UnifS.txt" />
-        <option value="$PROJECT_DIR$/data/ufl/2723UnifS.txt" />
-        <option value="$PROJECT_DIR$/data/ufl/2823UnifS.txt" />
-        <option value="$PROJECT_DIR$/data/ufl/2923UnifS.txt" />
-        <option value="$PROJECT_DIR$/data/ufl/3023UnifS.txt" />
-        <option value="$PROJECT_DIR$/data/ufl/simpleExample.txt" />
-        <option value="$PROJECT_DIR$/src/org/or/mip/xpress/xbcutex.java" />
-        <option value="$PROJECT_DIR$/src/org/or/mip/Modelling/SolverUtils.java" />
-        <option value="$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleModel.java" />
-        <option value="$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/UncapacitatedFacilityLocation2.java" />
-        <option value="$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleMIPModel.java" />
         <option value="$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleLPModel.java" />
+        <option value="$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleMIPModel.java" />
         <option value="$PROJECT_DIR$/src/org/or/mip/Modelling/XpressModel.java" />
         <option value="$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/UncapacitatedFacilityLocation.java" />
       </list>
@@ -245,22 +170,6 @@
     <option name="y" value="-11" />
     <option name="width" value="2497" />
     <option name="height" value="1452" />
-  </component>
-  <component name="ProjectInspectionProfilesVisibleTreeState">
-    <entry key="Project Default">
-      <profile-state>
-        <expanded-state>
-          <State>
-            <id />
-          </State>
-        </expanded-state>
-        <selected-state>
-          <State>
-            <id>Ant inspections</id>
-          </State>
-        </selected-state>
-      </profile-state>
-    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -540,6 +449,54 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ufl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GalvaoRaggi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MIP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MIP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ufl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GalvaoRaggi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="200" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MIP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MIP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value=".idea" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -554,27 +511,6 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="SearchEverywhereHistoryKey" value="Google&#9;FILE&#9;file:///Users/baohuaw/Workspace/MIP/src/org/or/mip/Modelling/GoogleModel.java&#10;Dijkstr&#9;FILE&#9;jar:///home/local/ANT/baohuaw/IdeaProjects/MIP/lib/gs-algo-1.3.jar!/org/graphstream/algorithm/Dijkstra.class&#10;graphPath&#9;FILE&#9;jar:///home/local/ANT/baohuaw/.ideaLibSources/jgrapht-core-1.0.1-sources.jar!/org/jgrapht/GraphPath.java&#10;Path&#9;FILE&#9;jar:///home/local/ANT/baohuaw/.ideaLibSources/jgrapht-core-1.0.1-sources.jar!/org/jgrapht/alg/shortestpath/DijkstraShortestPath.java&#10;Default&#9;FILE&#9;jar:///home/local/ANT/baohuaw/.ideaLibSources/jgrapht-core-1.0.1-sources.jar!/org/jgrapht/graph/DefaultEdge.java&#10;simpleDirec&#9;PSI&#9;JAVA://org.jgrapht.graph.SimpleDirectedWeightedGraph" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/data/ufl" />
-      <recent name="$PROJECT_DIR$/data/ufl/kmedian" />
-      <recent name="$PROJECT_DIR$/data/ufl/Uniform" />
-      <recent name="$PROJECT_DIR$/data/ufl/PCodes" />
-      <recent name="$PROJECT_DIR$/src/org/or/mip/glpk" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="org.or.mip.Modelling" />
-      <recent name="org.or.mip.BenderDecomposition" />
-      <recent name="org.or.mip.BranchBound" />
-      <recent name="org.or.mip.cg" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/data/ufl/Uniform" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -589,72 +525,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.UncapacitatedFacilityLocation">
-    <configuration default="false" name="BenderDecompositionSolver3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="org.or.mip.BenderDecomposition.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="org.or.mip.BenderDecomposition.BenderDecompositionSolver3" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="MIP" />
-      <envs>
-        <env name="LD_LIBRARY_PATH" value="/opt/xpressmp/lib" />
-      </envs>
-      <method />
-    </configuration>
-    <configuration default="false" name="BenderDecompositionSolver4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="org.or.mip.BenderDecomposition.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="org.or.mip.BenderDecomposition.BenderDecompositionSolver4" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="MIP" />
-      <envs>
-        <env name="LD_LIBRARY_PATH" value="/opt/xpressmp/lib" />
-      </envs>
-      <method />
-    </configuration>
-    <configuration default="false" name="SolverUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="org.or.mip.Modelling.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="org.or.mip.Modelling.SolverUtils" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="MIP" />
-      <envs>
-        <env name="LD_LIBRARY_PATH" value="/opt/xpressmp/lib" />
-      </envs>
-      <method />
-    </configuration>
     <configuration default="false" name="UncapacitatedFacilityLocation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -675,26 +545,6 @@
       <envs>
         <env name="LD_LIBRARY_PATH" value="/opt/xpressmp/lib" />
       </envs>
-      <method />
-    </configuration>
-    <configuration default="false" name="UncapacitatedFacilityLocation2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="org.or.mip.BenderDecomposition.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="org.or.mip.BenderDecomposition.UncapacitatedFacilityLocation2" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="MIP" />
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -919,49 +769,14 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="Lp" type="Application" factoryName="Application" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="org.or.mip.glpk.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="org.or.mip.glpk.Lp" />
-      <option name="VM_PARAMETERS" value="-Djava.library.path=/usr/local/lib/jni/" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="MIP" />
-      <envs />
-      <method />
-    </configuration>
-    <list size="6">
-      <item index="0" class="java.lang.String" itemvalue="Application.Lp" />
-      <item index="1" class="java.lang.String" itemvalue="Application.BenderDecompositionSolver3" />
-      <item index="2" class="java.lang.String" itemvalue="Application.BenderDecompositionSolver4" />
-      <item index="3" class="java.lang.String" itemvalue="Application.SolverUtils" />
-      <item index="4" class="java.lang.String" itemvalue="Application.UncapacitatedFacilityLocation" />
-      <item index="5" class="java.lang.String" itemvalue="Application.UncapacitatedFacilityLocation2" />
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Application.UncapacitatedFacilityLocation" />
     </list>
     <recent_temporary>
-      <list size="5">
+      <list size="1">
         <item index="0" class="java.lang.String" itemvalue="Application.UncapacitatedFacilityLocation" />
-        <item index="1" class="java.lang.String" itemvalue="Application.UncapacitatedFacilityLocation2" />
-        <item index="2" class="java.lang.String" itemvalue="Application.SolverUtils" />
-        <item index="3" class="java.lang.String" itemvalue="Application.BenderDecompositionSolver4" />
-        <item index="4" class="java.lang.String" itemvalue="Application.BenderDecompositionSolver3" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SFStoredExecutionPersistentComponent">
-    <executions>
-      <execution name="Default" sourceToExecute="" />
-    </executions>
-    <lastSelectedExecutionName>Default</lastSelectedExecutionName>
   </component>
   <component name="SbtLocalSettings">
     <option name="externalProjectsViewState">
@@ -971,27 +786,8 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="1842aaef-f73b-4006-ab03-e7773f027b72" name="Default" comment="" />
-      <created>1498024124850</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1498024124850</updated>
-    </task>
     <servers />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="2497" height="1452" extended-state="6" />
@@ -1004,12 +800,13 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.53720933" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.53720933" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945737" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32993057" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23178294" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2756227" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21478154" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Brazil" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1028,7 +825,6 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32993057" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32790697" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1068,9 +864,6 @@
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1226,19 +1019,19 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/UncapacitatedFacilityLocation.java</url>
-          <line>45</line>
+          <line>46</line>
           <properties />
           <option name="timeStamp" value="70" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/UncapacitatedFacilityLocation.java</url>
-          <line>44</line>
+          <line>45</line>
           <properties />
           <option name="timeStamp" value="81" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/UncapacitatedFacilityLocation.java</url>
-          <line>141</line>
+          <line>142</line>
           <properties />
           <option name="timeStamp" value="82" />
         </line-breakpoint>
@@ -1268,13 +1061,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/UncapacitatedFacilityLocation.java</url>
-          <line>468</line>
+          <line>472</line>
           <properties />
           <option name="timeStamp" value="92" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/UncapacitatedFacilityLocation.java</url>
-          <line>163</line>
+          <line>164</line>
           <properties />
           <option name="timeStamp" value="93" />
         </line-breakpoint>
@@ -1288,48 +1081,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/data/ufl/Uniform/1323UnifS.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="9" lean-forward="true" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/ufl/Uniform/1423UnifS.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="9" lean-forward="true" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/ufl/Uniform/1523UnifS.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="9" lean-forward="true" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/ufl/Uniform/1623UnifS.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="9" lean-forward="true" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/ufl/Uniform/1723UnifS.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="9" lean-forward="false" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/ufl/Uniform/1823UnifS.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="9" lean-forward="true" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/ufl/Uniform/1923UnifS.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1546,24 +1297,6 @@
     </entry>
     <entry file="jar://$USER_HOME$/OpenSouce/GLPK/libglpk-java-1.9.0/swig/glpk-java.jar!/org/gnu/glpk/GLPKConstants.class" />
     <entry file="file://$PROJECT_DIR$/src/org/or/mip/glpk/Lp.java" />
-    <entry file="file://$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleMIPModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="45" column="49" lean-forward="false" selection-start-line="45" selection-start-column="49" selection-end-line="45" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleLPModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="50" column="47" lean-forward="false" selection-start-line="50" selection-start-column="47" selection-end-line="50" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/ufl/GalvaoRaggi/50/50.2">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1604,26 +1337,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/UncapacitatedFacilityLocation2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="43" column="23" lean-forward="false" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/a/gs250a-1">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4118">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/or/mip/Modelling/XpressModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="16" column="29" lean-forward="false" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -1636,6 +1353,90 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/a/gs250a-1.opt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/or/mip/Modelling/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="15" lean-forward="false" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/UncapacitatedFacilityLocation2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-450">
+          <caret line="43" column="23" lean-forward="false" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleLPModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="46" column="5" lean-forward="false" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1484#1485#0" expanded="true" />
+            <element signature="e#1523#1524#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/preferred-vcs.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/apex-vcs.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleMIPModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///opt/xpressmp/lib/xprs.jar!/com/dashoptimization/XPRSconstants.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="25" column="8" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///opt/xpressmp/lib/xprs.jar!/com/dashoptimization/XPRSprob.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="70" column="0" lean-forward="true" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/a/gs250a-2.bub">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1644,24 +1445,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/UncapacitatedFacilityLocation.java">
+    <entry file="file://$PROJECT_DIR$/src/org/or/mip/Modelling/XpressModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1158">
-          <caret line="106" column="74" lean-forward="false" selection-start-line="106" selection-start-column="74" selection-end-line="106" selection-end-column="74" />
+        <state relative-caret-position="453">
+          <caret line="69" column="45" lean-forward="false" selection-start-line="69" selection-start-column="45" selection-end-line="69" selection-end-column="45" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#10145#10195#0" expanded="false" />
-            <element signature="e#12655#12690#0" expanded="false" />
-            <marker date="1499422404322" expanded="false" signature="21032:22324" ph="//..." />
+            <marker date="1499658262944" expanded="false" signature="2722:2733" ph=" { " />
+            <marker date="1499658262944" expanded="false" signature="2779:2785" ph=" }" />
+            <marker date="1499658262944" expanded="false" signature="2831:2842" ph=" { " />
+            <marker date="1499658262944" expanded="false" signature="2869:2875" ph=" }" />
+            <marker date="1499658262944" expanded="false" signature="3040:3051" ph=" { " />
+            <marker date="1499658262944" expanded="false" signature="3076:3082" ph=" }" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/a/gs250a-1.opt">
+    <entry file="file://$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/UncapacitatedFacilityLocation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="307">
+          <caret line="456" column="24" lean-forward="false" selection-start-line="456" selection-start-column="24" selection-end-line="456" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#10252#10302#0" expanded="false" />
+            <element signature="e#12762#12797#0" expanded="false" />
+            <marker date="1499658262940" expanded="false" signature="21479:22771" ph="//..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1719,18 +1527,6 @@
       <state key="ModuleStructureConfigurable.UI">
         <settings>
           <last-edited>MIP</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

@@ -39,7 +39,8 @@ public class UncapacitatedFacilityLocation {
 
     public static void main(String[] args) throws IOException {
         UncapacitatedFacilityLocation location = new UncapacitatedFacilityLocation();
-        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/KoerkelGhosh-sym/250/a/gs250a-1");
+//        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/GalvaoRaggi/200/200.9");
+        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/KoerkelGhosh-sym/250/a/gs250a-2");
 //        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/simpleExample.txt");
         long startTime = System.currentTimeMillis();
 //        location.solveOriginalModel();
@@ -370,7 +371,9 @@ public class UncapacitatedFacilityLocation {
 
     void solveMasterModel() {
 //        masterSolver.solveMIP();
+        long time = System.currentTimeMillis();
         masterSolver.solveMIP();
+        System.out.println("Time for Solving Master : " + (System.currentTimeMillis() - time));
 //        if (masterSolver.getOptimum() > lb)
         lb = masterSolver.getOptimum();
 
@@ -425,6 +428,7 @@ public class UncapacitatedFacilityLocation {
         }
 
         masterSolver.addConstraint("Benders Cut " + masterBendersCutId, cutTerms, ConstraintType.LEQL, -Double.MAX_VALUE, -totalSubOptimum + sumOfBoundingMultipliedDual);
+//        masterSolver.addCut(masterBendersCutId, cutTerms, ConstraintType.LEQL, -Double.MAX_VALUE, -totalSubOptimum + sumOfBoundingMultipliedDual);
         masterBendersCutId++;
     }
 
@@ -450,7 +454,7 @@ public class UncapacitatedFacilityLocation {
 
         while (Math.abs(ub - lb) >= 1) {
 
-            if (step % 10 == 0) {
+            if (step % 1 == 0) {
                 System.out.println("### Step " + step);
                 System.out.println("UB = " + ub);
                 System.out.println("LB = " + lb);
@@ -491,6 +495,7 @@ public class UncapacitatedFacilityLocation {
     }
 
     boolean solveSubModel(Map<String, Map<String, Double>> boundingVarSubDuals) {
+        long time = System.currentTimeMillis();
         for (String subProblem : subSolvers.keySet()) {
             for (String boundingVar : complicatingVarNames) {
                 subSolvers.get(subProblem).setConstraintBound("Bounding with " +
@@ -537,6 +542,7 @@ public class UncapacitatedFacilityLocation {
 //                }
 //            }
         }
+        System.out.println("Time for Solving all Sub : " + (System.currentTimeMillis() - time));
         return true;
     }
 }

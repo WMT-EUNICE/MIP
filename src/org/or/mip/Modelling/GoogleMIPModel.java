@@ -42,6 +42,11 @@ public class GoogleMIPModel implements Model {
     }
 
     @Override
+    public void addCut(int id, Map<String, Double> terms, ConstraintType type, double lb, double ub) {
+
+    }
+
+    @Override
     public void solveLP() {
         System.out.println("This is a MIP solver!");
 //        status = solver.solve();

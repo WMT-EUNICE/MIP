@@ -19,7 +19,7 @@ public class UncapacitatedFacilityLocation2 {
     int numCustomer;
     Map<String, Model> subSolvers = new HashMap<>();
     Map<String, Model> feasibleSubSolvers = new HashMap<>();
-    Model masterSolver = new GoogleLPModel("Master");
+    Model masterSolver = new GoogleMIPModel("Master");
 
     Model originalSolver = new GoogleLPModel("Original");
     double lb = -Double.MAX_VALUE;
