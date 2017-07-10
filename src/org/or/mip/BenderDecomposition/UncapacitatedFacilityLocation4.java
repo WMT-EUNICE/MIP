@@ -40,7 +40,7 @@ public class UncapacitatedFacilityLocation4 {
     public static void main(String[] args) throws IOException {
         UncapacitatedFacilityLocation4 location = new UncapacitatedFacilityLocation4();
 //        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/GalvaoRaggi/200/200.9");
-        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/KoerkelGhosh-sym/500/a/gs500a-1");
+        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/KoerkelGhosh-sym/250/a/gs250a-1");
 //        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/simpleExample.txt");
         long startTime = System.currentTimeMillis();
 //        location.solveOriginalModel();
@@ -91,7 +91,7 @@ public class UncapacitatedFacilityLocation4 {
         for (String locationVar : complicatingVarNames) {
             masterSolver.addVariable(locationVar, VariableType.INTEGER, 0, 1);
         }
-        masterSolver.addVariable("alpha", VariableType.REAL, -1000, Double.MAX_VALUE);
+        masterSolver.addVariable("alpha", VariableType.REAL, 0, Double.MAX_VALUE);
 
         Map<String, Double> objTerms = new LinkedHashMap<>();
         for (int i = 1; i <= complicatingVarNames.size(); i++) {
@@ -363,6 +363,12 @@ public class UncapacitatedFacilityLocation4 {
 //        masterSolver.solveMIP();
 //        long time = System.currentTimeMillis();
         masterSolver.solveMIP();
+
+//        for (int i = 1; i <= numFacility; i++) {
+//            if (Math.abs(masterSolver.getVariableSol("y_" + i) - 1) <= 0.0001) {
+//                System.out.println("Facility " + i + " is opening with cost of " + openCosts.get(String.valueOf(i)));
+//            }
+//        }
 //        System.out.println("Time for Solving Master : " + (System.currentTimeMillis() - time));
 //        if (masterSolver.getOptimum() > lb)
         lb = masterSolver.getOptimum();
