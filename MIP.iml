@@ -33,17 +33,17 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="file://$USER_HOME$/Applications/or-tools_Ubuntu-16.04-64bit_v6.0.4217/lib" />
+          <root url="file://$USER_HOME$/OpenSouce/GoogleORTools/or-tools_MacOsX-10.12.2_v5.1.4048/lib" />
         </CLASSES>
         <JAVADOC />
         <NATIVE>
-          <root url="file://$USER_HOME$/Applications/or-tools_Ubuntu-16.04-64bit_v6.0.4217/lib" />
+          <root url="file://$USER_HOME$/OpenSouce/GoogleORTools/or-tools_MacOsX-10.12.2_v5.1.4048/lib" />
         </NATIVE>
         <SOURCES>
-          <root url="file://$USER_HOME$/Applications/or-tools_Ubuntu-16.04-64bit_v6.0.4217/lib" />
+          <root url="file://$USER_HOME$/OpenSouce/GoogleORTools/or-tools_MacOsX-10.12.2_v5.1.4048/lib" />
         </SOURCES>
-        <jarDirectory url="file://$USER_HOME$/Applications/or-tools_Ubuntu-16.04-64bit_v6.0.4217/lib" recursive="false" />
-        <jarDirectory url="file://$USER_HOME$/Applications/or-tools_Ubuntu-16.04-64bit_v6.0.4217/lib" recursive="false" type="SOURCES" />
+        <jarDirectory url="file://$USER_HOME$/OpenSouce/GoogleORTools/or-tools_MacOsX-10.12.2_v5.1.4048/lib" recursive="false" />
+        <jarDirectory url="file://$USER_HOME$/OpenSouce/GoogleORTools/or-tools_MacOsX-10.12.2_v5.1.4048/lib" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
   </component>

@@ -2,111 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1842aaef-f73b-4006-ab03-e7773f027b72" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/a/files.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/a/gs250a-1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/a/gs250a-1.opt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/a/gs250a-2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/a/gs250a-2.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/a/gs250a-3" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/a/gs250a-3.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/a/gs250a-4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/a/gs250a-4.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/a/gs250a-5" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/a/gs250a-5.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/b/files.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/b/gs250b-1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/b/gs250b-1.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/b/gs250b-2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/b/gs250b-2.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/b/gs250b-3" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/b/gs250b-3.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/b/gs250b-4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/b/gs250b-4.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/b/gs250b-5" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/b/gs250b-5.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/c/files.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/c/gs250c-1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/c/gs250c-1.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/c/gs250c-2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/c/gs250c-2.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/c/gs250c-3" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/c/gs250c-3.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/c/gs250c-4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/c/gs250c-4.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/c/gs250c-5" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/c/gs250c-5.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/a/files.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/a/gs500a-1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/a/gs500a-1.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/a/gs500a-2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/a/gs500a-2.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/a/gs500a-3" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/a/gs500a-3.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/a/gs500a-4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/a/gs500a-4.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/a/gs500a-5" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/a/gs500a-5.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/b/files.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/b/gs500b-1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/b/gs500b-1.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/b/gs500b-2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/b/gs500b-2.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/b/gs500b-3" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/b/gs500b-3.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/b/gs500b-4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/b/gs500b-4.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/b/gs500b-5" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/b/gs500b-5.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/c/files.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/c/gs500c-1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/c/gs500c-1.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/c/gs500c-2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/c/gs500c-2.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/c/gs500c-3" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/c/gs500c-3.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/c/gs500c-4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/c/gs500c-4.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/c/gs500c-5" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/500/c/gs500c-5.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/a/files.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/a/gs750a-1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/a/gs750a-1.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/a/gs750a-2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/a/gs750a-2.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/a/gs750a-3" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/a/gs750a-3.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/a/gs750a-4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/a/gs750a-4.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/a/gs750a-5" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/a/gs750a-5.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/b/files.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/b/gs750b-1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/b/gs750b-1.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/b/gs750b-2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/b/gs750b-2.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/b/gs750b-3" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/b/gs750b-3.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/b/gs750b-4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/b/gs750b-4.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/b/gs750b-5" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/b/gs750b-5.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/c/files.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/c/gs750c-1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/c/gs750c-1.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/c/gs750c-2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/c/gs750c-2.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/c/gs750c-3" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/c/gs750c-3.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/c/gs750c-4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/c/gs750c-4.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/c/gs750c-5" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/750/c/gs750c-5.bub" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleMIPModel.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleModel.java" afterPath="$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleLPModel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MIP.iml" afterPath="$PROJECT_DIR$/MIP.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/UncapacitatedFacilityLocation.java" afterPath="$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/UncapacitatedFacilityLocation.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/UncapacitatedFacilityLocation2.java" afterPath="$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/UncapacitatedFacilityLocation2.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleLPModel.java" afterPath="$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleLPModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleMIPModel.java" afterPath="$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleMIPModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/or/mip/Modelling/Model.java" afterPath="$PROJECT_DIR$/src/org/or/mip/Modelling/Model.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/or/mip/Modelling/XpressModel.java" afterPath="$PROJECT_DIR$/src/org/or/mip/Modelling/XpressModel.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -121,13 +23,13 @@
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/MIP$UncapacitatedFacilityLocation.coverage" NAME="UncapacitatedFacilityLocation Coverage Results" MODIFIED="1499318722516" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.or.mip.BenderDecomposition.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/MIP$MultiCommodityFlow.coverage" NAME="MultiCommodityFlow Coverage Results" MODIFIED="1498030387414" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>org.or.mip.cg.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/MIP$BenderDecompositionSolver.coverage" NAME="BenderDecompositionSolver Coverage Results" MODIFIED="1498707117752" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>org.or.mip.BenderDecomposition.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/MIP$UncapacitatedFacilityLocation.coverage" NAME="UncapacitatedFacilityLocation Coverage Results" MODIFIED="1499318722516" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>org.or.mip.BenderDecomposition.*</FILTER>
     </SUITE>
   </component>
@@ -140,23 +42,22 @@
       <file leaf-file-name="UncapacitatedFacilityLocation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/UncapacitatedFacilityLocation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-336">
-              <caret line="127" column="80" lean-forward="false" selection-start-line="127" selection-start-column="80" selection-end-line="127" selection-end-column="80" />
+            <state relative-caret-position="-238">
+              <caret line="403" column="9" lean-forward="false" selection-start-line="403" selection-start-column="9" selection-end-line="403" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#10139#10189#0" expanded="false" />
                 <element signature="e#12649#12684#0" expanded="false" />
-                <marker date="1499417746225" expanded="false" signature="21025:22317" ph="//..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UncapacitatedFacilityLocation2.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UncapacitatedFacilityLocation2.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/UncapacitatedFacilityLocation2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="43" column="23" lean-forward="false" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
+            <state relative-caret-position="-1019">
+              <caret line="21" column="38" lean-forward="false" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -165,58 +66,60 @@
       <file leaf-file-name="XpressModel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/or/mip/Modelling/XpressModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="16" column="29" lean-forward="false" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+            <state relative-caret-position="-45">
+              <caret line="36" column="9" lean-forward="true" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="50.1.opt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/ufl/GalvaoRaggi/50/50.1.opt">
+      <file leaf-file-name="GoogleMIPModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleMIPModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="315">
+              <caret line="45" column="47" lean-forward="false" selection-start-line="45" selection-start-column="47" selection-end-line="45" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="70.1" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/ufl/GalvaoRaggi/70/70.1">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="70.6.opt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/ufl/GalvaoRaggi/70/70.6.opt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gs250a-1" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/a/gs250a-1">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4118">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gs250a-1.opt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="gs250a-1.opt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/a/gs250a-1.opt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state relative-caret-position="17">
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GoogleLPModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleLPModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="267">
+              <caret line="45" column="48" lean-forward="false" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="48" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Model.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/or/mip/Modelling/Model.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="12" column="22" lean-forward="false" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XpressSolver.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/or/mip/Modelling/XpressSolver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="15" column="16" lean-forward="false" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -299,7 +202,6 @@
         <option value="$PROJECT_DIR$/src/org/or/mip/Modelling/ModelSolver.java" />
         <option value="$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/Test.java" />
         <option value="$PROJECT_DIR$/src/org/or/mip/glpk/Lp.java" />
-        <option value="$PROJECT_DIR$/src/org/or/mip/Modelling/Model.java" />
         <option value="$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/BenderDecompositionSolver4.java" />
         <option value="$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/BenderDecompositionSolver3.java" />
         <option value="$PROJECT_DIR$/data/ufl/123UnifS.txt" />
@@ -336,19 +238,19 @@
         <option value="$PROJECT_DIR$/src/org/or/mip/xpress/xbcutex.java" />
         <option value="$PROJECT_DIR$/src/org/or/mip/Modelling/SolverUtils.java" />
         <option value="$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleModel.java" />
-        <option value="$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/UncapacitatedFacilityLocation2.java" />
-        <option value="$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleMIPModel.java" />
-        <option value="$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleLPModel.java" />
-        <option value="$PROJECT_DIR$/src/org/or/mip/Modelling/XpressModel.java" />
         <option value="$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/UncapacitatedFacilityLocation.java" />
+        <option value="$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleLPModel.java" />
+        <option value="$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleMIPModel.java" />
+        <option value="$PROJECT_DIR$/src/org/or/mip/Modelling/Model.java" />
+        <option value="$PROJECT_DIR$/src/org/or/mip/Modelling/XpressModel.java" />
+        <option value="$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/UncapacitatedFacilityLocation2.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="64" />
-    <option name="y" value="-11" />
-    <option name="width" value="2497" />
-    <option name="height" value="1452" />
+    <option name="y" value="23" />
+    <option name="width" value="1280" />
+    <option name="height" value="727" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -382,8 +284,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -650,7 +550,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -808,7 +710,59 @@
       <predefined_log_file id="idea.log" enabled="true" />
       <method />
     </configuration>
-    <configuration default="true" type="ApexTest" factoryName="Apex Test">
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <Java />
+      <Profilers>
+        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
+        <option name="GAPID_ENABLED" value="false" />
+        <option name="GAPID_DISABLE_PCS" value="false" />
+        <option name="SUPPORT_LIB_ENABLED" value="true" />
+        <option name="INSTRUMENTATION_ENABLED" value="true" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <Java />
+      <Profilers>
+        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
+        <option name="GAPID_ENABLED" value="false" />
+        <option name="GAPID_DISABLE_PCS" value="false" />
+        <option name="SUPPORT_LIB_ENABLED" value="true" />
+        <option name="INSTRUMENTATION_ENABLED" value="true" />
+      </Profilers>
       <method />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -991,19 +945,6 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="true" type="executeSpecs" factoryName="Gauge Execution">
-      <setting name="environment" value="" />
-      <setting name="specsToExecute" value="" />
-      <setting name="tags" value="" />
-      <setting name="parallelNodes" value="" />
-      <setting name="execInParallel" value="false" />
-      <setting name="programParameters" value="" />
-      <setting name="workingDirectory" value="" />
-      <setting name="moduleName" value="" />
-      <envMap />
-      <setting name="rowsRange" value="" />
-      <method />
-    </configuration>
     <configuration default="true" type="uTestRunConfiguration" factoryName="utest">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -1098,42 +1039,43 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="2497" height="1452" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="727" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945737" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug Logs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.53720933" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945737" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23178294" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23152709" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2756227" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28478965" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Brazil" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3984496" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Salesforce" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug Logs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Salesforce" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945737" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32993057" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32790697" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1391,20 +1333,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/data/ufl/Uniform/1323UnifS.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="9" lean-forward="true" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/ufl/Uniform/1423UnifS.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="9" lean-forward="true" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/ufl/Uniform/1523UnifS.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1599,7 +1527,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="8" lean-forward="false" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1607,7 +1534,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="6" lean-forward="false" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1615,7 +1541,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1623,7 +1548,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1631,7 +1555,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1649,29 +1572,10 @@
     </entry>
     <entry file="jar://$USER_HOME$/OpenSouce/GLPK/libglpk-java-1.9.0/swig/glpk-java.jar!/org/gnu/glpk/GLPKConstants.class" />
     <entry file="file://$PROJECT_DIR$/src/org/or/mip/glpk/Lp.java" />
-    <entry file="file://$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleMIPModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="45" column="49" lean-forward="false" selection-start-line="45" selection-start-column="49" selection-end-line="45" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleLPModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="50" column="47" lean-forward="false" selection-start-line="50" selection-start-column="47" selection-end-line="50" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/ufl/GalvaoRaggi/50/50.2">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1679,7 +1583,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="16" column="265" lean-forward="false" selection-start-line="16" selection-start-column="265" selection-end-line="16" selection-end-column="265" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1707,40 +1610,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/UncapacitatedFacilityLocation2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="43" column="23" lean-forward="false" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/a/gs250a-1">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4118">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/or/mip/Modelling/XpressModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="16" column="29" lean-forward="false" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/UncapacitatedFacilityLocation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-336">
-          <caret line="127" column="80" lean-forward="false" selection-start-line="127" selection-start-column="80" selection-end-line="127" selection-end-column="80" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#10139#10189#0" expanded="false" />
-            <element signature="e#12649#12684#0" expanded="false" />
-            <marker date="1499417746225" expanded="false" signature="21025:22317" ph="//..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1762,8 +1636,70 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/ufl/KoerkelGhosh-sym/250/a/gs250a-1.opt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/or/mip/Modelling/XpressSolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="15" column="16" lean-forward="false" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleLPModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="45" column="48" lean-forward="false" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/or/mip/Modelling/GoogleMIPModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="45" column="47" lean-forward="false" selection-start-line="45" selection-start-column="47" selection-end-line="45" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/or/mip/Modelling/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="12" column="22" lean-forward="false" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/UncapacitatedFacilityLocation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-238">
+          <caret line="403" column="9" lean-forward="false" selection-start-line="403" selection-start-column="9" selection-end-line="403" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#10139#10189#0" expanded="false" />
+            <element signature="e#12649#12684#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/or/mip/Modelling/XpressModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-45">
+          <caret line="36" column="9" lean-forward="true" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/or/mip/BenderDecomposition/UncapacitatedFacilityLocation2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1019">
+          <caret line="21" column="38" lean-forward="false" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
           <folding />
         </state>
       </provider>

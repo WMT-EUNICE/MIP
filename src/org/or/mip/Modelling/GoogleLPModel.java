@@ -42,6 +42,11 @@ public class GoogleLPModel implements Model {
     }
 
     @Override
+    public void addCut(String name, Map<String, Double> terms, ConstraintType type, double lb, double ub) {
+        addConstraint(name, terms, type, lb, ub);
+    }
+
+    @Override
     public void solveLP() {
         status = solver.solve();
     }

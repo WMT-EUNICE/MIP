@@ -44,6 +44,17 @@ public class XpressModel implements Model {
     }
 
     @Override
+    public void addCut(int id, Map<String, Double> terms, ConstraintType type, double lb, double ub) {
+        XPRBexpr ctr = new XPRBexpr();
+        for(String varName : terms.keySet()){
+            ctr.add(problem.getVarByName(varName).mul(terms.get(varName)));
+        }
+//        XPRBcut cut = problem.newCut(ctr, id);
+//        cut.setTerm(ub);
+        problem.newCut(ctr.lEql(ub));
+    }
+
+    @Override
     public void solveLP() {
 //        problem.setMsgLevel(4);
         problem.lpOptimise();
