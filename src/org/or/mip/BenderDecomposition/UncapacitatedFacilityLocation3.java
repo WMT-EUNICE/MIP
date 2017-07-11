@@ -11,6 +11,8 @@ import java.util.Map;
 
 /**
  * Created by baohuaw on 7/10/17.
+ * This does not work because the cut call back is used inside MIP solver to help to find a integer solution
+ * If the original problem can find an integer solution, callback is neglected
  */
 public class UncapacitatedFacilityLocation3 extends UncapacitatedFacilityLocation {
     XPRB bcl;
@@ -36,7 +38,7 @@ public class UncapacitatedFacilityLocation3 extends UncapacitatedFacilityLocatio
 
 
     protected void solve() {
-        createVirtualFacility();
+//        createVirtualFacility();
 
         bcl = new XPRB();                     /* Initialize BCL */
         p = bcl.newProb("Els");               /* Create a new problem in BCL */
@@ -48,10 +50,7 @@ public class UncapacitatedFacilityLocation3 extends UncapacitatedFacilityLocatio
         }
 
         for (String locationVar : complicatingVarNames) {
-            if (locationVar.equals("y_" + VIRTUAL_FACILITY))
-                p.newVar(locationVar, XPRB.UI, 1, 1);
-            else
-                p.newVar(locationVar, XPRB.UI, 0, 1);
+            p.newVar(locationVar, XPRB.UI, 0, 1);
         }
         p.newVar("alpha", XPRB.PL, -10000, Double.MAX_VALUE);
 
@@ -62,7 +61,13 @@ public class UncapacitatedFacilityLocation3 extends UncapacitatedFacilityLocatio
         }
         obj.addTerm(p.getVarByName("alpha"), 1.0);
         p.setObj(obj);
-//        masterSolver.setObj(objTerms);
+
+
+        XPRBexpr ctr = new XPRBexpr();
+        for (int i = 1; i <= complicatingVarNames.size(); i++) {
+            ctr.addTerm(p.getVarByName(complicatingVarNames.get(i - 1)), 1);
+        }
+        p.newCtr("Facility existence", ctr.gEql(1));
 
         initSubModel();
 
@@ -202,15 +207,10 @@ public class UncapacitatedFacilityLocation3 extends UncapacitatedFacilityLocatio
         long time = System.currentTimeMillis();
         for (String subProblem : subModels.keySet()) {
             for (String boundingVar : complicatingVarNames) {
-//                subSolvers.get(subProblem).setConstraintBound("Bounding with " +
-//                                boundingVar, masterSolver.getVariableSol(boundingVar),
-//                        masterSolver.getVariableSol(boundingVar));
                 subModels.get(subProblem).getCtrByName("Bounding with " + boundingVar).setRange(p.getVarByName(boundingVar).getSol(),
                         p.getVarByName(boundingVar).getSol());
             }
             subModels.get(subProblem).lpOptimize();
-
-//            subSolvers.get(subProblem).solveLP();
 
             for (String boundingVar : complicatingVarNames) {
                 if (!boundingVarSubDuals.containsKey(boundingVar))
@@ -218,43 +218,6 @@ public class UncapacitatedFacilityLocation3 extends UncapacitatedFacilityLocatio
 
                 boundingVarSubDuals.get(boundingVar).put(subProblem, subModels.get(subProblem).getCtrByName("Bounding with " + boundingVar).getDual());
             }
-
-//            if (subSolvers.get(subProblem).getStatus() == ModelSolver.Status.OPTIMAL) {
-////                System.out.println("Sub model objective value: " + subSolvers.get(subProblem).getOptimum());
-//
-//                for (String boundingVar : complicatingVarNames) {
-//                    if (!boundingVarSubDuals.containsKey(boundingVar))
-//                        boundingVarSubDuals.put(boundingVar, new LinkedHashMap<>());
-//
-//                    boundingVarSubDuals.get(boundingVar).put(subProblem, subSolvers.get(subProblem).getDual("Bounding with " + boundingVar));
-//                }
-//            } else {
-//                System.out.println("Sub model infeasible!");
-//                return false;
-//            }
-//            else {
-//                System.out.println("Sub model infeasible!");
-//                for (String boundingVar : complicatingVarNames) {
-//                    feasibleSubSolvers.get(subProblem).setConstraintBound("Bounding with " +
-//                                    boundingVar, masterSolver.getVariableSol(boundingVar),
-//                            masterSolver.getVariableSol(boundingVar));
-//                }
-//
-//                feasibleSubSolvers.get(subProblem).solveLP();
-//
-//                if (feasibleSubSolvers.get(subProblem).getStatus() == ModelSolver.Status.OPTIMAL) {
-//                    System.out.println("Sub model objective value: " + feasibleSubSolvers.get(subProblem).getOptimum());
-//                } else {
-//                    System.out.println("Bug exists when building the always feasible model");
-//                }
-//
-//                for (String boundingVar : complicatingVarNames) {
-//                    if (!boundingVarSubDuals.containsKey(boundingVar))
-//                        boundingVarSubDuals.put(boundingVar, new LinkedHashMap<>());
-//
-//                    boundingVarSubDuals.get(boundingVar).put(subProblem, feasibleSubSolvers.get(subProblem).getDual("Bounding with " + boundingVar));
-//                }
-//            }
         }
         System.out.println("Time for Solving all Sub : " + (System.currentTimeMillis() - time));
         return true;

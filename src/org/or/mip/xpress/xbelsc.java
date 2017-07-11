@@ -1,4 +1,4 @@
-package org.or.mip.BenderDecomposition; /********************************************************
+package org.or.mip.xpress; /********************************************************
  Xpress-BCL Java Example Problems
  ================================
 

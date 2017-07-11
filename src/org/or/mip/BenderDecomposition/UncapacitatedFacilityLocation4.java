@@ -35,12 +35,12 @@ public class UncapacitatedFacilityLocation4 {
 
 //    final double LARGE_COST = 20000.0;
 
-    String VIRTUAL_FACILITY;
+//    String VIRTUAL_FACILITY;
 
     public static void main(String[] args) throws IOException {
         UncapacitatedFacilityLocation4 location = new UncapacitatedFacilityLocation4();
-//        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/GalvaoRaggi/200/200.9");
-        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/KoerkelGhosh-sym/250/a/gs250a-1");
+        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/GalvaoRaggi/50/50.1");
+//       location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/KoerkelGhosh-sym/500/a/gs500a-1");
 //        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/simpleExample.txt");
         long startTime = System.currentTimeMillis();
 //        location.solveOriginalModel();
@@ -450,6 +450,7 @@ public class UncapacitatedFacilityLocation4 {
 
 
         while (Math.abs(ub - lb) >= 1) {
+//            System.
 
             if (step % 1 == 0) {
                 System.out.println(step + ",  " + lb + ",  " + ub + ",  " + (ub - lb));
