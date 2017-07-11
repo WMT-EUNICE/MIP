@@ -2,18 +2,19 @@ package org.or.mip.xpress; /****************************************************
   Xpress-BCL Java Example Problems
   ================================
 
-  file xbfixbv.java
-  `````````````````
+  file xbfixbvls.java
+  ```````````````````
   Using the complete Coco Problem, as in xbcoco.java
   this program implements a binary fixing heuristic.
+  - Model version saving and loading a start solution -
 
-  (c) 2008 Fair Isaac Corporation
-      author: S.Heipcke, 2001, rev. Mar. 2011
+  (c) 2009 Fair Isaac Corporation
+      author: S.Heipcke, Oct. 2009, rev. Mar. 2011
 ********************************************************/
 
 import com.dashoptimization.*;
 
-public class xbfixbv
+public class xbfixbvls
 {
  static final double TOL = 5.0E-4;
 
@@ -210,10 +211,11 @@ public class xbfixbv
  {
   XPRSprob po;
   XPRBbasis basis;
-  int f,t, ifgsol;
+  int f,t, ifgsol, ncol, status;
   double solval=0; 
   double[][] osol;
- 
+  double[] allsol;
+
 /****SOLVING + OUTPUT****/
   po=pb.getXPRSprob();
   po.setIntControl(XPRS.CUTSTRATEGY, 0);
@@ -237,10 +239,17 @@ public class xbfixbv
 
   pb.mipOptimize("c");       /* Continue solving the MIP-problem */
   ifgsol=0;
+  ncol = po.getIntAttrib(XPRS.ORIGINALCOLS);
+  allsol = new double[ncol]; 
   if(pb.getMIPStat()==XPRS.MIP_SOLUTION || pb.getMIPStat()==XPRS.MIP_OPTIMAL)
   {                          /* If a global solution was found */
    ifgsol=1;
    solval=pb.getObjVal();    /* Get the value of the best solution */
+
+                             /* Save the MIP solution values */
+   for(f=0;f<NF;f++)
+    for(t=0;t<NT;t++)
+     allsol[openm[f][t].getColNum()] = openm[f][t].getSol();
   }
 
     /* Reset variables to their original bounds: */
@@ -258,9 +267,13 @@ public class xbfixbv
                                in any other way, so that there is no need to 
                                reload the matrix */
   basis = null;             /* No need to store the saved basis any longer */
-  if(ifgsol==1)
-   po.setDblControl(XPRS.MIPABSCUTOFF, solval);
-                            /* Set the cutoff to the best known solution */
+  if(ifgsol==1) 
+  {                         /* Load the previously saved MIP solution */
+   status = pb.loadMIPSol(allsol, true);
+   if(status!=0) System.out.println("Loading MIP solution failed");   
+   allsol = null;
+  } 
+			    
   pb.mipOptimize("");       /* Solve the MIP-problem */
 
   if(pb.getMIPStat()==XPRS.MIP_SOLUTION || pb.getMIPStat()==XPRS.MIP_OPTIMAL)

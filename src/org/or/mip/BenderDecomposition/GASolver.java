@@ -14,11 +14,16 @@ import java.util.*;
  */
 public class GASolver {
     int TOURNAMENT_ARITY = 2;
-    int NUM_GENERATIONS = 1000;
-    int POP_SIZE = 200;
+    int NUM_GENERATIONS;
+    int POP_SIZE;
 
     int NUM_FACILITY;
     int NUM_CUSTOMER;
+
+    public GASolver(int NUM_GENERATIONS, int POP_SIZE) {
+        this.NUM_GENERATIONS = NUM_GENERATIONS;
+        this.POP_SIZE = POP_SIZE;
+    }
 
     Map<Integer, Double> openCosts = new LinkedHashMap<>();
     //facility->customer->cost
@@ -76,13 +81,13 @@ public class GASolver {
     }
 
     public static void main(String[] args) throws IOException {
-        GASolver solver = new GASolver();
+        GASolver solver = new GASolver(1000, 200);
         solver.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/KoerkelGhosh-sym/250/a/gs250a-1");
         solver.initNearestFacilityMapping();
         solver.solve();
     }
 
-    public void solve() {
+    List<Integer> solve() {
         long start = System.currentTimeMillis();
         // initialize a new genetic algorithm
         GeneticAlgorithm ga = new GeneticAlgorithm(
@@ -110,6 +115,7 @@ public class GASolver {
         System.out.println("Time " + (System.currentTimeMillis() - start));
 
         LocationChromosome lc = (LocationChromosome)bestFinal;
+        return lc.getGenes();
 //        for(int val : ((LocationChromosome) bestFinal).getRepresentation()){
 //
 //        }

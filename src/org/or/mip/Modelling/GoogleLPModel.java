@@ -58,6 +58,11 @@ public class GoogleLPModel implements Model {
     }
 
     @Override
+    public void addInitialSolution(Map<String, Double> varValues) {
+
+    }
+
+    @Override
     public void removeConstraint(String ctrName) {
 
     }
@@ -95,6 +100,11 @@ public class GoogleLPModel implements Model {
     @Override
     public void setConstraintBound(String ctrName, double lb, double ub) {
         solver.lookupConstraintOrNull(ctrName).setBounds(lb, ub);
+    }
+
+    @Override
+    public void setVariableValue(String varName, double value) {
+
     }
 
     @Override

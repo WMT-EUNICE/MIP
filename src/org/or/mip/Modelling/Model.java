@@ -16,6 +16,8 @@ public interface Model {
 
     void solveMIP();
 
+    void addInitialSolution(Map<String,Double> varValues);
+
     void removeConstraint(String ctrName);
 
     double getVariableSol(String varName);
@@ -29,6 +31,8 @@ public interface Model {
     ModelSolver.Status getStatus();
 
     void setConstraintBound(String ctrName, double lb, double ub);
+
+    void setVariableValue(String varName, double value);
 
     void setSense(ModelSolver.Sense sense);
 

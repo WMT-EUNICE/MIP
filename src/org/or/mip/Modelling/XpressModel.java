@@ -1,6 +1,7 @@
 package org.or.mip.Modelling;
 
 import com.dashoptimization.*;
+import org.or.mip.xpress.xbd1wagon2;
 
 import java.util.Map;
 
@@ -95,6 +96,32 @@ public class XpressModel implements Model {
 
     }
 
+    /* Callback function reporting loaded solution status */
+    static class UserSolNotifyCallback implements XPRSuserSolNotifyListener {
+        public void XPRSuserSolNotifyEvent(XPRSprob oprob, Object data, String name, int status) {
+            System.out.printf("Optimizer loaded solution %s with status=%d\n", name, status);
+        }
+    }
+
+    @Override
+    public void addInitialSolution(Map<String, Double> varValues) {
+//        XPRSprob oprob = problem.getXPRSprob();
+
+        XPRBsol sol = problem.newSol();
+        for(String var : varValues.keySet()){
+            sol.setVar(problem.getVarByName(var), varValues.get(var));
+        }
+        problem.addMIPSol(sol, "heurSol");
+
+         /* Request notification of solution status after processing */
+        op.addUserSolNotifyListener(new UserSolNotifyCallback());
+
+   /* Parameter settings to make use of loaded solution */
+        op.setDblControl(XPRS.HEURSEARCHEFFORT, 2);
+        op.setIntControl(XPRS.HEURSEARCHROOTSELECT, 31);
+        op.setIntControl(XPRS.HEURSEARCHTREESELECT, 19);
+    }
+
     @Override
     public void removeConstraint(String ctrName) {
         XPRBctr ctr = problem.getCtrByName(ctrName);
@@ -134,6 +161,12 @@ public class XpressModel implements Model {
     public void setConstraintBound(String ctrName, double lb, double ub) {
         XPRBctr ctr = problem.getCtrByName(ctrName);
         ctr.setRange(lb, ub);
+    }
+
+    @Override
+    public void setVariableValue(String varName, double value) {
+        problem.getVarByName(varName).setLB(value);
+        problem.getVarByName(varName).setUB(value);
     }
 
     @Override
