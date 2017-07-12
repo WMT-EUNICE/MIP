@@ -1,7 +1,5 @@
 package org.or.mip.BenderDecomposition;
 
-import com.sun.org.apache.bcel.internal.generic.POP;
-import org.apache.commons.math3.exception.NumberIsTooLargeException;
 import org.apache.commons.math3.genetics.*;
 
 import java.io.BufferedReader;
@@ -12,7 +10,7 @@ import java.util.*;
 /**
  * Created by baohuaw on 7/10/17.
  */
-public class GASolver {
+public class ApacheGASolver {
     int TOURNAMENT_ARITY = 2;
     int NUM_GENERATIONS;
     int POP_SIZE;
@@ -20,7 +18,7 @@ public class GASolver {
     int NUM_FACILITY;
     int NUM_CUSTOMER;
 
-    public GASolver(int NUM_GENERATIONS, int POP_SIZE) {
+    public ApacheGASolver(int NUM_GENERATIONS, int POP_SIZE) {
         this.NUM_GENERATIONS = NUM_GENERATIONS;
         this.POP_SIZE = POP_SIZE;
     }
@@ -81,7 +79,7 @@ public class GASolver {
     }
 
     public static void main(String[] args) throws IOException {
-        GASolver solver = new GASolver(1000, 200);
+        ApacheGASolver solver = new ApacheGASolver(1000, 200);
         solver.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/KoerkelGhosh-sym/250/a/gs250a-1");
         solver.initNearestFacilityMapping();
         solver.solve();

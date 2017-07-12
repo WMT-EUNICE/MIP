@@ -34,13 +34,15 @@ public class UncapacitatedFacilityLocation5 {
 
     List<Integer> initSolution;
 
+    final int ALPHA_LB = 0;
 
 
     public static void main(String[] args) throws IOException {
-        String fileName = "/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/GalvaoRaggi/50/50.1";
+        String fileName = "/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/KoerkelGhosh-sym/500/a/gs500a-2";
 
+//        String fileName = "/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/kmedian/500-10";
 
-        GASolver gaSolver = new GASolver(10, 5);
+        ApacheGASolver gaSolver = new ApacheGASolver(1000, 100);
         gaSolver.readProblem(fileName);
         List<Integer> initSolution = gaSolver.solve();
 
@@ -52,6 +54,7 @@ public class UncapacitatedFacilityLocation5 {
 //        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/simpleExample.txt");
         long startTime = System.currentTimeMillis();
 //        location.solveOriginalModel();
+        System.out.println("Start Benders Decomposition");
         location.solve();
         System.out.println("Solving the problem with " + (System.currentTimeMillis() - startTime) + " milli second");
     }
@@ -97,21 +100,23 @@ public class UncapacitatedFacilityLocation5 {
 
     void initMaster() {
 
-        Map<String, Double> varValues = new LinkedHashMap<>();
+//        Map<String, Double> varValues = new LinkedHashMap<>();
         for (int i = 1; i <= numFacility; i++) {
             complicatingVarNames.add("y_" + i);
 
-            if(initSolution.get(i - 1) == 1){
-                varValues.put("y_" + i, 1.0);
-            }else{
-                varValues.put("y_" + i, 0.0);
-            }
+//            if (initSolution.get(i - 1) == 1) {
+//                varValues.put("y_" + i, 1.0);
+//            } else {
+//                varValues.put("y_" + i, 0.0);
+//            }
         }
 
         for (String locationVar : complicatingVarNames) {
             masterSolver.addVariable(locationVar, VariableType.INTEGER, 0, 1);
+//            masterSolver.addVariable(locationVar, VariableType.INTEGER, varValues.get(locationVar),
+//                    varValues.get(locationVar));
         }
-        masterSolver.addVariable("alpha", VariableType.REAL, 0, Double.MAX_VALUE);
+        masterSolver.addVariable("alpha", VariableType.REAL, ALPHA_LB, Double.MAX_VALUE);
 
         Map<String, Double> objTerms = new LinkedHashMap<>();
         for (int i = 1; i <= complicatingVarNames.size(); i++) {
@@ -129,9 +134,10 @@ public class UncapacitatedFacilityLocation5 {
         masterSolver.setSense(ModelSolver.Sense.MIN);
 
 
-        for(int i = 0;i < complicatingVarNames.size();i++){
-            masterSolver.setVariableValue(complicatingVarNames.get(i), varValues.get(complicatingVarNames.get(i)));
-        }
+//        for(int i = 0;i < complicatingVarNames.size();i++){
+//            masterSolver.setVariableBound(complicatingVarNames.get(i), varValues.get(complicatingVarNames.get(i)),
+//                    varValues.get(complicatingVarNames.get(i)));
+//        }
 //        masterSolver.addInitialSolution(varValues);
     }
 
@@ -398,14 +404,18 @@ public class UncapacitatedFacilityLocation5 {
 
     }
 
-    void updateUB() {
+    void updateUB(boolean useHeuristicInput) {
 //        ub = 0;
 
         double currentUb = 0;
 
         for (int i = 1; i <= numFacility; i++) {
-            currentUb += masterSolver.getVariableSol("y_" + i) * openCosts.get(i);
 
+            if (useHeuristicInput) {
+                currentUb += initSolution.get(i - 1) * openCosts.get(i);
+            } else {
+                currentUb += masterSolver.getVariableSol("y_" + i) * openCosts.get(i);
+            }
         }
 
         for (int i = 1; i <= numFacility; i++) {
@@ -453,22 +463,29 @@ public class UncapacitatedFacilityLocation5 {
 
     protected void solve() {
         initMaster();
-
-
-
         initSubModel();
 
-        solveMasterModel();
+//        solveMasterModel();
 
+//        for (int i = 0; i < complicatingVarNames.size(); i++) {
+//            masterSolver.setVariableBound(complicatingVarNames.get(i), 0, 1);
+//        }
+
+//        double currentUb = 0;
+        lb = 0;
+        for (int i = 1; i <= numFacility; i++) {
+            lb += initSolution.get(i - 1) * openCosts.get(i);
+        }
+        lb += ALPHA_LB;
 
         Map<String, Map<String, Double>> boundingVarSubDuals = new LinkedHashMap<>();
-        if (!solveSubModel(boundingVarSubDuals)) {
+        if (!solveSubModel(boundingVarSubDuals, true)) {
             System.out.println("Terminate due to sub problem infeasibility!");
             return;
         }
 
 
-        updateUB();
+        updateUB(true);
         addBendersCutToMaster(boundingVarSubDuals);
 
         int step = 0;
@@ -477,15 +494,13 @@ public class UncapacitatedFacilityLocation5 {
         while (Math.abs(ub - lb) >= 1) {
             if (step % 1 == 0) {
                 System.out.println(step + ",  " + lb + ",  " + ub + ",  " + (ub - lb));
-//                System.out.println("UB = " + ub);
-//                System.out.println("LB = " + lb);
             }
             solveMasterModel();
-            if (!solveSubModel(boundingVarSubDuals)) {
+            if (!solveSubModel(boundingVarSubDuals, false)) {
                 System.out.println("Terminate due to sub problem infeasibility!");
                 return;
             }
-            updateUB();
+            updateUB(false);
 
             addBendersCutToMaster(boundingVarSubDuals);
             step++;
@@ -515,13 +530,22 @@ public class UncapacitatedFacilityLocation5 {
         System.out.println("Benders Cut " + masterBendersCutId);
     }
 
-    boolean solveSubModel(Map<String, Map<String, Double>> boundingVarSubDuals) {
+    boolean solveSubModel(Map<String, Map<String, Double>> boundingVarSubDuals, boolean useHeuristicInput) {
         long time = System.currentTimeMillis();
         for (String subProblem : subSolvers.keySet()) {
             for (String boundingVar : complicatingVarNames) {
-                subSolvers.get(subProblem).setConstraintBound("Bounding with " +
-                                boundingVar, masterSolver.getVariableSol(boundingVar),
-                        masterSolver.getVariableSol(boundingVar));
+                if (useHeuristicInput) {
+                    String varIndex = boundingVar.substring(boundingVar.indexOf("_") + 1, boundingVar.length());
+
+                    subSolvers.get(subProblem).setConstraintBound("Bounding with " + boundingVar,
+                            initSolution.get(Integer.valueOf(varIndex) - 1),
+                            initSolution.get(Integer.valueOf(varIndex) - 1));
+                } else {
+                    subSolvers.get(subProblem).setConstraintBound("Bounding with " + boundingVar,
+                            masterSolver.getVariableSol(boundingVar),
+                            masterSolver.getVariableSol(boundingVar));
+                }
+
             }
 
             subSolvers.get(subProblem).solveLP();
@@ -539,29 +563,6 @@ public class UncapacitatedFacilityLocation5 {
                 System.out.println("Sub model infeasible!");
                 return false;
             }
-//            else {
-//                System.out.println("Sub model infeasible!");
-//                for (String boundingVar : complicatingVarNames) {
-//                    feasibleSubSolvers.get(subProblem).setConstraintBound("Bounding with " +
-//                                    boundingVar, masterSolver.getVariableSol(boundingVar),
-//                            masterSolver.getVariableSol(boundingVar));
-//                }
-//
-//                feasibleSubSolvers.get(subProblem).solveLP();
-//
-//                if (feasibleSubSolvers.get(subProblem).getStatus() == ModelSolver.Status.OPTIMAL) {
-//                    System.out.println("Sub model objective value: " + feasibleSubSolvers.get(subProblem).getOptimum());
-//                } else {
-//                    System.out.println("Bug exists when building the always feasible model");
-//                }
-//
-//                for (String boundingVar : complicatingVarNames) {
-//                    if (!boundingVarSubDuals.containsKey(boundingVar))
-//                        boundingVarSubDuals.put(boundingVar, new LinkedHashMap<>());
-//
-//                    boundingVarSubDuals.get(boundingVar).put(subProblem, feasibleSubSolvers.get(subProblem).getDual("Bounding with " + boundingVar));
-//                }
-//            }
         }
 //        System.out.println("Time for Solving all Sub : " + (System.currentTimeMillis() - time));
         return true;

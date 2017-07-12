@@ -39,8 +39,9 @@ public class UncapacitatedFacilityLocation4 {
 
     public static void main(String[] args) throws IOException {
         UncapacitatedFacilityLocation4 location = new UncapacitatedFacilityLocation4();
-        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/GalvaoRaggi/50/50.1");
-//       location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/KoerkelGhosh-sym/500/a/gs500a-1");
+//        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/GalvaoRaggi/50/50.1");
+//       location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/KoerkelGhosh-sym/250/a/gs250a-1");
+        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/kmedian/500-10");
 //        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/simpleExample.txt");
         long startTime = System.currentTimeMillis();
 //        location.solveOriginalModel();
@@ -101,10 +102,10 @@ public class UncapacitatedFacilityLocation4 {
         masterSolver.setObj(objTerms);
 
         Map<String, Double> ctrTerms = new LinkedHashMap<>();
-        for(int i = 1;i <= complicatingVarNames.size();i++){
+        for (int i = 1; i <= complicatingVarNames.size(); i++) {
             ctrTerms.put(complicatingVarNames.get(i - 1), 1.0);
         }
-        masterSolver.addConstraint("Facility existence",ctrTerms, ConstraintType.GEQL, 1, Double.MAX_VALUE);
+        masterSolver.addConstraint("Facility existence", ctrTerms, ConstraintType.GEQL, 1, Double.MAX_VALUE);
 
         masterSolver.setSense(ModelSolver.Sense.MIN);
     }
@@ -151,7 +152,6 @@ public class UncapacitatedFacilityLocation4 {
 
         originalSolver.setSense(ModelSolver.Sense.MIN);
         originalSolver.solveMIP();
-
 
 
         for (int i = 1; i <= numFacility; i++) {
@@ -440,7 +440,6 @@ public class UncapacitatedFacilityLocation4 {
             System.out.println("Terminate due to sub problem infeasibility!");
             return;
         }
-
 
 
         updateUB();

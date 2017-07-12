@@ -32,7 +32,7 @@ public interface Model {
 
     void setConstraintBound(String ctrName, double lb, double ub);
 
-    void setVariableValue(String varName, double value);
+    void setVariableBound(String varName, double lb, double ub);
 
     void setSense(ModelSolver.Sense sense);
 

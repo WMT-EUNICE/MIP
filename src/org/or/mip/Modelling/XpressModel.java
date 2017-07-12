@@ -164,9 +164,9 @@ public class XpressModel implements Model {
     }
 
     @Override
-    public void setVariableValue(String varName, double value) {
-        problem.getVarByName(varName).setLB(value);
-        problem.getVarByName(varName).setUB(value);
+    public void setVariableBound(String varName, double lb, double ub) {
+        problem.getVarByName(varName).setLB(lb);
+        problem.getVarByName(varName).setUB(ub);
     }
 
     @Override

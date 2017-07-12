@@ -103,7 +103,7 @@ public class GoogleMIPModel implements Model {
     }
 
     @Override
-    public void setVariableValue(String varName, double value) {
+    public void setVariableBound(String varName, double lb, double ub) {
 
     }
 
