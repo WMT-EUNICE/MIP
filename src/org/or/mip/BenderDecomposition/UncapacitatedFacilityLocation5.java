@@ -9,10 +9,9 @@ import java.util.*;
 
 /**
  * Created by baohuaw on 7/5/17.
- * Node that the approache which creates artificial variables to make all sub problems always feasible (ref.
- * Decomposition techniques in Integer programming) does not work for UFL and currently I do not know why.
- * Instead, I create a virtual facility which has very high opening cost and serving cost for each customer and that works
- * , and further, easily to explain and we can decrease the sub problem to half as before
+ * Use GA to obtain a heuristic initial solution.
+ * Experiments shows that this way works for problem size less than 200. Much faster, less cuts.
+ * But for problem size larger than 250, this way can get a better lower bound, but still difficult to converge
  */
 public class UncapacitatedFacilityLocation5 {
     int numFacility;
@@ -518,7 +517,7 @@ public class UncapacitatedFacilityLocation5 {
         }
 
         for (int j = 1; j <= numCustomer; j++) {
-            for (int i = 1; i < numFacility; i++) {
+            for (int i = 1; i <= numFacility; i++) {
                 if (Math.abs(subSolvers.get("Customer " + j).getVariableSol("x_" + i + "_" + j) - 1) < 0.0001) {
                     System.out.println("Customer " + j + " is served by Facility " + i + " with cost of " + servingCosts.get(i).get(j));
                     totalCost += servingCosts.get(i).get(j);
