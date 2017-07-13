@@ -4,6 +4,7 @@ import com.google.ortools.linearsolver.MPConstraint;
 import com.google.ortools.linearsolver.MPObjective;
 import com.google.ortools.linearsolver.MPSolver;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -49,6 +50,16 @@ public class GoogleLPModel implements Model {
     @Override
     public void solveLP() {
         status = solver.solve();
+    }
+
+    @Override
+    public void solveByBranchAndBound(List<String> varNames) {
+
+    }
+
+    @Override
+    public void setVariableType(String varName, VariableType type) {
+
     }
 
     @Override

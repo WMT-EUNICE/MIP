@@ -29,7 +29,7 @@ public class UncapacitatedFacilityLocation6 {
 
     int masterBendersCutId = 1;
 
-    Map<Integer, String> bendersCuts = new LinkedHashMap<>();
+//    Map<Integer, String> bendersCuts = new LinkedHashMap<>();
 //    final double LARGE_POSTIVE = 100;
 
 //    final double LARGE_COST = 20000.0;
@@ -61,7 +61,6 @@ public class UncapacitatedFacilityLocation6 {
         String line;
         int lineId = 0;
         while ((line = in.readLine()) != null) {
-//            System.out.println(line);
             if (lineId == 0) {
                 System.out.println(line);
             } else if (lineId == 1) {
@@ -303,7 +302,7 @@ public class UncapacitatedFacilityLocation6 {
 
     protected void solveMasterModel() {
         masterSolver.solveMIP();
-
+        lb = masterSolver.getOptimum();
 
     }
 

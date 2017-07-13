@@ -4,6 +4,7 @@ import com.google.ortools.linearsolver.MPConstraint;
 import com.google.ortools.linearsolver.MPObjective;
 import com.google.ortools.linearsolver.MPSolver;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -50,6 +51,16 @@ public class GoogleMIPModel implements Model {
     public void solveLP() {
         System.out.println("This is a MIP solver!");
 //        status = solver.solve();
+    }
+
+    @Override
+    public void solveByBranchAndBound(List<String> varNames) {
+
+    }
+
+    @Override
+    public void setVariableType(String varName, VariableType type) {
+
     }
 
     @Override

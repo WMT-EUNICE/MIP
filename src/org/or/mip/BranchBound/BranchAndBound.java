@@ -1,6 +1,5 @@
 package org.or.mip.BranchBound;
 
-import org.omg.PortableInterceptor.ORBIdHelper;
 import org.or.mip.Modelling.*;
 
 import java.util.*;
@@ -11,10 +10,22 @@ import java.util.*;
  * s.t.
  * Ax <= b
  */
-public class BranchAndBoundSolver2 {
-    Model origin = new XpressModel("Branch and Bound");
+public class BranchAndBound {
+    Model origin;
 
-    public class BranchingConstraint{
+    public BranchAndBound() {
+    }
+
+    public BranchAndBound(Model origin, List<String> varNames) {
+        this.origin = origin;
+        this.varNames = varNames;
+
+        for (String varName : varNames) {
+            yy.put(varName, 1.0);
+        }
+    }
+
+    public class BranchingConstraint {
         String name;
         String branchingVarName;
         ConstraintType branchingType;
@@ -38,60 +49,59 @@ public class BranchAndBoundSolver2 {
     double ub = Double.MAX_VALUE;
 
     final double INT_GAP = 0.00001;
-//    Model model = new Model();
 
-    List<String> varNames = new ArrayList<>();
+    List<String> varNames;
+
+    double LAMDA = 0.2;
+
+    double DELTA = 2 * INT_GAP;
+
+    Map<String, Double> yy = new LinkedHashMap<>();
 
     public static void main(String[] args) {
-
-        BranchAndBoundSolver2 modeller = new BranchAndBoundSolver2();
-
+        BranchAndBound modeller = new BranchAndBound();
         modeller.buildInitalModel();
-//        modeller.solver.setModel(modeller.model);
         modeller.branchAndBound();
+    }
+
+    Map<String, Double> stabilize() {
+        for (String var : varNames) {
+            double temp = (yy.get(var) + origin.getVariableSol(var)) * 0.5;
+            yy.put(var, temp);
+        }
+
+        Map<String, Double> separator = new LinkedHashMap<>();
+        for (String var : varNames) {
+            double temp = LAMDA * origin.getVariableSol(var) + (1 - LAMDA) * yy.get(var) + DELTA;
+            separator.put(var, temp);
+        }
+        return separator;
     }
 
     void buildInitalModel() {
 
-//        Variable x1 = new Variable("x1", VariableType.REAL, 0, Double.MAX_VALUE);
-//        Variable x2 = new Variable("x2", VariableType.REAL, 0, Double.MAX_VALUE);
-//
-//        solver.getVars().put("x1", x1);
-//        solver.getVars().put("x2", x2);
+        varNames = new ArrayList<>();
+        origin = new XpressModel("Branch and Bound");
+
         origin.addVariable("x_1", VariableType.REAL, 0, Double.MAX_VALUE);
         origin.addVariable("x_2", VariableType.REAL, 0, Double.MAX_VALUE);
         varNames.add("x_1");
         varNames.add("x_2");
 
-//        Expression obj = new Expression();
-//        obj.getTerms().add(new Term(x1, -5));
-//        obj.getTerms().add(new Term(x2, -8));
-//        solver.setObj(obj);
         Map<String, Double> objTerms = new LinkedHashMap<>();
         objTerms.put("x_1", -5.0);
         objTerms.put("x_2", -8.0);
         origin.setObj(objTerms);
-
-
-//        Constraint constraint1 = new Constraint("Constraint 1", ConstraintType.LEQL, 6);
-//        constraint1.getTerms().add(new Term(x1, 1));
-//        constraint1.getTerms().add(new Term(x2, 1));
-//        solver.getConstraints().put(constraint1.getName(), constraint1);
 
         Map<String, Double> ctr1Terms = new LinkedHashMap<>();
         ctr1Terms.put("x_1", 1.0);
         ctr1Terms.put("x_2", 1.0);
         origin.addConstraint("Ctr 1", ctr1Terms, ConstraintType.LEQL, -Double.MAX_VALUE, 6);
 
-//        Constraint constraint2 = new Constraint("Constraint 2", ConstraintType.LEQL, 45);
-//        constraint2.getTerms().add(new Term(x1, 5));
-//        constraint2.getTerms().add(new Term(x2, 9));
-//        solver.getConstraints().put(constraint2.getName(), constraint2);
-
         Map<String, Double> ctr2Terms = new LinkedHashMap<>();
         ctr2Terms.put("x_1", 5.0);
         ctr2Terms.put("x_2", 9.0);
-        origin.addConstraint("Ctr 2", ctr1Terms, ConstraintType.LEQL, -Double.MAX_VALUE, 45);
+        origin.addConstraint("Ctr 2", ctr2Terms, ConstraintType.LEQL, -Double.MAX_VALUE, 45);
 
         origin.setSense(Model.Sense.MIN);
     }
@@ -107,7 +117,8 @@ public class BranchAndBoundSolver2 {
         return true;
     }
 
-    void branchAndBound() {
+    public void branchAndBound() {
+//        origin.solveMIP();
 
 //        problem.mipOptimize("");             /* Solve the LP-problem */
 //        for(String var : vars.keySet()){
@@ -116,7 +127,9 @@ public class BranchAndBoundSolver2 {
 //        problem.lpOptimize("");             /* Solve the LP-problem */
         origin.solveLP();
 
-        System.out.println("Objective: " + origin.getOptimum());  /* Get objective value */
+        Map<String, Double> seperator = stabilize();
+
+//        System.out.println("Objective: " + origin.getOptimum());  /* Get objective value */
 
         if (integerSolution()) {
             System.out.println("Integer Solution Found! No branching needed...");
@@ -132,6 +145,7 @@ public class BranchAndBoundSolver2 {
         branching(target);
 
         while (!branchingConsSet.isEmpty()) {
+            System.out.println("Node " + branchingConsSet.size());
             if (ub == lb) {
                 System.out.println("Terminate because of UB = LB = " + lb);
                 return;
@@ -147,17 +161,16 @@ public class BranchAndBoundSolver2 {
     //if need further branching, return true; Else, return false
     boolean solveBranchingModel(BranchingConstraintSet targetSet) {
         for (BranchingConstraint branching : targetSet.branchingConstraints) {
-            Map<String,Double> terms = new HashMap<>();
+            Map<String, Double> terms = new HashMap<>();
             terms.put(branching.branchingVarName, 1.0);
 
-            if(branching.branchingType == ConstraintType.LEQL)
+            if (branching.branchingType == ConstraintType.LEQL)
                 origin.addConstraint(branching.name, terms, branching.branchingType, -Double.MAX_VALUE, branching.bound);
             else
                 origin.addConstraint(branching.name, terms, branching.branchingType, branching.bound, Double.MAX_VALUE);
 
         }
 
-//        solver.solve();
         origin.solveLP();
 
         for (BranchingConstraint branching : targetSet.branchingConstraints) {
@@ -165,7 +178,7 @@ public class BranchAndBoundSolver2 {
         }
 
         if (origin.getStatus() == Model.Status.OPTIMAL) {
-            System.out.println("Objective: " + origin.getOptimum());  /* Get objective value */
+//            System.out.println("Objective: " + origin.getOptimum());  /* Get objective value */
             if (integerSolution()) {
                 if (origin.getOptimum() < ub)
                     ub = origin.getOptimum();
@@ -185,17 +198,13 @@ public class BranchAndBoundSolver2 {
         BranchingConstraintSet branchingSet = new BranchingConstraintSet();
 
         branchingSet.branchingConstraints.addAll(targetSet.branchingConstraints);
-//        int bound = (int) branchingVar.getValue();
-        int bound = (int)origin.getVariableSol(branchingVar);
+        int bound = (int) origin.getVariableSol(branchingVar);
         if (branchingType == ConstraintType.LEQL) {
-            BranchingConstraint leftBranching = new BranchingConstraint("Left " + branchingVar, branchingVar, ConstraintType.LEQL, bound);
+            BranchingConstraint leftBranching = new BranchingConstraint(branchingVar + " <= " + bound, branchingVar, ConstraintType.LEQL, bound);
             branchingSet.branchingConstraints.add(leftBranching);
         } else {
-            BranchingConstraint rightBranching = new BranchingConstraint("Right " + branchingVar,branchingVar, ConstraintType.GEQL, bound + 1);
+            BranchingConstraint rightBranching = new BranchingConstraint(branchingVar + " >= " + (bound + 1), branchingVar, ConstraintType.GEQL, bound + 1);
             branchingSet.branchingConstraints.add(rightBranching);
-//            Constraint rightBranching = new Constraint("Right", ConstraintType.GEQL, bound + 1);
-//            rightBranching.getTerms().add(new Term(branchingVar, 1));
-//            branchingSet.constraints.add(rightBranching);
         }
 
         branchingConsSet.add(branchingSet);
@@ -203,7 +212,6 @@ public class BranchAndBoundSolver2 {
     }
 
     void branching(BranchingConstraintSet set) {
-//        Variable target = null;
         String targetBranchingVar = null;
         for (String varName : varNames) {
             if (Math.abs(origin.getVariableSol(varName) - (int) origin.getVariableSol(varName)) >= 0.00001) {

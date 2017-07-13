@@ -1,8 +1,10 @@
 package org.or.mip.Modelling;
 
 import com.dashoptimization.*;
-import org.or.mip.xpress.xbd1wagon2;
+import org.or.mip.BenderDecomposition.BendersCut;
+import org.or.mip.BranchBound.BranchAndBound;
 
+import java.util.List;
 import java.util.Map;
 
 import static org.or.mip.Modelling.SolverUtils.bcl;
@@ -12,9 +14,8 @@ import static org.or.mip.Modelling.SolverUtils.bcl;
  */
 public class XpressModel implements Model {
     XPRBprob problem;
-    XPRBbasis basis = null;
+    //    XPRBbasis basis = null;
     XPRSprob op;
-
 
 
     public XpressModel(String name) {
@@ -76,6 +77,29 @@ public class XpressModel implements Model {
     }
 
     @Override
+    public void solveByBranchAndBound(List<String> varNames) {
+        BranchAndBound bb = new BranchAndBound(this, varNames);
+        bb.branchAndBound();
+    }
+
+    @Override
+    public void solveByBranchAndBound(List<String> varNames, BendersCut cut) {
+        BranchAndBound bb = new BranchAndBound(this, varNames);
+        bb.branchAndBound();
+    }
+
+    @Override
+    public void setVariableType(String varName, VariableType type) {
+        if (type == VariableType.REAL) {
+            problem.getVarByName(varName).setType(XPRB.PL);
+        } else if (type == VariableType.INTEGER) {
+            problem.getVarByName(varName).setType(XPRB.UI);
+        } else if (type == VariableType.BINARY) {
+            problem.getVarByName(varName).setType(XPRB.BV);
+        }
+    }
+
+    @Override
     public void solveMIP() {
 //        problem.setMsgLevel(4);
 //        problem.mipOptimise();
@@ -108,7 +132,7 @@ public class XpressModel implements Model {
 //        XPRSprob oprob = problem.getXPRSprob();
 
         XPRBsol sol = problem.newSol();
-        for(String var : varValues.keySet()){
+        for (String var : varValues.keySet()) {
             sol.setVar(problem.getVarByName(var), varValues.get(var));
         }
         problem.addMIPSol(sol, "heurSol");
@@ -192,7 +216,7 @@ public class XpressModel implements Model {
 
     @Override
     public boolean hasConstraint(String ctrName) {
-        if(problem.getCtrByName(ctrName) == null)
+        if (problem.getCtrByName(ctrName) == null)
             return false;
         return true;
     }

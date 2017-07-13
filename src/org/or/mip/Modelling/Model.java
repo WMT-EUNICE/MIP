@@ -1,5 +1,8 @@
 package org.or.mip.Modelling;
 
+import org.or.mip.BenderDecomposition.BendersCut;
+
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -23,6 +26,12 @@ public interface Model {
     void addCut(int id, Map<String, Double> terms, ConstraintType type, double lb, double ub);
 
     void solveLP();
+
+    void solveByBranchAndBound(List<String> varNames);
+
+    void solveByBranchAndBound(List<String> varNames, BendersCut cut);
+
+    void setVariableType(String varName, VariableType type);
 
     void solveMIP();
 
