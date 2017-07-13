@@ -76,7 +76,7 @@ public class BenderDecompositionSolver3 {
         objTerms.put("alpha", 1.0);
         masterSolver.setObj(objTerms);
 
-        masterSolver.setSense(ModelSolver.Sense.MIN);
+        masterSolver.setSense(Model.Sense.MIN);
 
 //        masterSolver.translateModel();
         masterSolver.solveLP();
@@ -134,7 +134,7 @@ public class BenderDecompositionSolver3 {
             boundingVarCtrMapping.put(boundingVar, "Bounding with " + boundingVar);
         }
 
-        subSolver.setSense(ModelSolver.Sense.MIN);
+        subSolver.setSense(Model.Sense.MIN);
         subSolver.solveLP();
 
         System.out.println("Sub model objective value: " + subSolver.getOptimum());

@@ -88,12 +88,12 @@ public class GoogleLPModel implements Model {
     }
 
     @Override
-    public ModelSolver.Status getStatus() {
+    public Status getStatus() {
         if(status == MPSolver.ResultStatus.OPTIMAL)
-            return ModelSolver.Status.OPTIMAL;
+            return Status.OPTIMAL;
         else {
 //            System.out.println(status);
-            return ModelSolver.Status.ELSE;
+            return Status.ELSE;
         }
     }
 
@@ -108,8 +108,8 @@ public class GoogleLPModel implements Model {
     }
 
     @Override
-    public void setSense(ModelSolver.Sense sense) {
-        if(sense == ModelSolver.Sense.MIN)
+    public void setSense(Sense sense) {
+        if(sense == Sense.MIN)
             solver.objective().setMinimization();
         else
             solver.objective().setMaximization();
@@ -122,5 +122,15 @@ public class GoogleLPModel implements Model {
             objective.setCoefficient(solver.lookupVariableOrNull(varName), terms.get(varName));
         }
 //        objective.setMaximization();
+    }
+
+    @Override
+    public double getSlack(String ctrName) {
+        return 0;
+    }
+
+    @Override
+    public boolean hasConstraint(String ctrName) {
+        return false;
     }
 }

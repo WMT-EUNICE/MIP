@@ -150,11 +150,11 @@ public class XpressModel implements Model {
     }
 
     @Override
-    public ModelSolver.Status getStatus() {
+    public Status getStatus() {
         if (problem.getLPStat() == XPRB.LP_OPTIMAL)
-            return ModelSolver.Status.OPTIMAL;
+            return Status.OPTIMAL;
         else
-            return ModelSolver.Status.ELSE;
+            return Status.ELSE;
     }
 
     @Override
@@ -170,10 +170,10 @@ public class XpressModel implements Model {
     }
 
     @Override
-    public void setSense(ModelSolver.Sense sense) {
-        if (sense == ModelSolver.Sense.MAX)
+    public void setSense(Sense sense) {
+        if (sense == Sense.MAX)
             problem.setSense(XPRB.MAXIM);
-        else if (sense == ModelSolver.Sense.MIN)
+        else if (sense == Sense.MIN)
             problem.setSense(XPRB.MINIM);
     }
 
@@ -183,5 +183,17 @@ public class XpressModel implements Model {
         for (String varName : terms.keySet())
             obj.add(problem.getVarByName(varName).mul(terms.get(varName)));
         problem.setObj(obj);
+    }
+
+    @Override
+    public double getSlack(String ctrName) {
+        return problem.getCtrByName(ctrName).getSlack();
+    }
+
+    @Override
+    public boolean hasConstraint(String ctrName) {
+        if(problem.getCtrByName(ctrName) == null)
+            return false;
+        return true;
     }
 }

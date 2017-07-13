@@ -116,7 +116,7 @@ public class UncapacitatedFacilityLocation2 {
         objTerms.put("alpha", 1.0);
         masterSolver.setObj(objTerms);
 
-        masterSolver.setSense(ModelSolver.Sense.MIN);
+        masterSolver.setSense(Model.Sense.MIN);
     }
 
     void solveOriginalModel() {
@@ -159,7 +159,7 @@ public class UncapacitatedFacilityLocation2 {
             }
         }
 
-        originalSolver.setSense(ModelSolver.Sense.MIN);
+        originalSolver.setSense(Model.Sense.MIN);
         originalSolver.solveMIP();
 
 
@@ -238,7 +238,7 @@ public class UncapacitatedFacilityLocation2 {
             originalSolver.addConstraint("Weaker bound facility " + i, terms, ConstraintType.LEQL, -Double.MAX_VALUE, 0);
         }
 
-        originalSolver.setSense(ModelSolver.Sense.MIN);
+        originalSolver.setSense(Model.Sense.MIN);
         originalSolver.solveMIP();
 
         System.out.println("Origin Model Optimum " + originalSolver.getOptimum());
@@ -298,7 +298,7 @@ public class UncapacitatedFacilityLocation2 {
                         0, 0);
             }
 
-            customer.setSense(ModelSolver.Sense.MIN);
+            customer.setSense(Model.Sense.MIN);
             subSolvers.put("Customer " + j, customer);
 
         }
@@ -421,7 +421,7 @@ public class UncapacitatedFacilityLocation2 {
 
         double totalSubOptimum = 0;
         for (String subProblem : subSolvers.keySet()) {
-            if (subSolvers.get(subProblem).getStatus() == ModelSolver.Status.OPTIMAL)
+            if (subSolvers.get(subProblem).getStatus() == Model.Status.OPTIMAL)
                 totalSubOptimum += subSolvers.get(subProblem).getOptimum();
             else
                 totalSubOptimum += feasibleSubSolvers.get(subProblem).getOptimum();
@@ -506,7 +506,7 @@ public class UncapacitatedFacilityLocation2 {
 
             subSolvers.get(subProblem).solveLP();
 
-            if (subSolvers.get(subProblem).getStatus() == ModelSolver.Status.OPTIMAL) {
+            if (subSolvers.get(subProblem).getStatus() == Model.Status.OPTIMAL) {
 //                System.out.println("Sub model objective value: " + subSolvers.get(subProblem).getOptimum());
 
                 for (String boundingVar : complicatingVarNames) {

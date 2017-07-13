@@ -31,19 +31,19 @@ public class BenderDecompositionSolver4 {
 
     void updateUB(){
         ub = 0;
-        if (subSolvers.get("Sub 1").getStatus() == ModelSolver.Status.OPTIMAL) {
+        if (subSolvers.get("Sub 1").getStatus() == Model.Status.OPTIMAL) {
             ub += -2 * subSolvers.get("Sub 1").getVariableSol("y1");
         } else {
             ub += -2 * feasibleSubSolvers.get("Sub 1").getVariableSol("y1");
         }
 
-        if (subSolvers.get("Sub 2").getStatus() == ModelSolver.Status.OPTIMAL) {
+        if (subSolvers.get("Sub 2").getStatus() == Model.Status.OPTIMAL) {
             ub += -1 * subSolvers.get("Sub 2").getVariableSol("y2");
         } else {
             ub += -1 * feasibleSubSolvers.get("Sub 2").getVariableSol("y2");
         }
 
-        if (subSolvers.get("Sub 3").getStatus() == ModelSolver.Status.OPTIMAL) {
+        if (subSolvers.get("Sub 3").getStatus() == Model.Status.OPTIMAL) {
             ub += subSolvers.get("Sub 3").getVariableSol("y3");
         } else {
             ub += feasibleSubSolvers.get("Sub 3").getVariableSol("y3");
@@ -80,7 +80,7 @@ public class BenderDecompositionSolver4 {
 //                }
 //
 //                subSolvers.get(subProblem).solve();
-//                if(subSolvers.get(subProblem).getStatus() == ModelSolver.Status.OPTIMAL){
+//                if(subSolvers.get(subProblem).getStatus() == Model.Status.OPTIMAL){
 //                    System.out.println(subProblem + " objective value: " + subSolvers.get(subProblem).getOptimum());
 //                    for(String complicatingVarName : complicatingVarNames){
 //                        boundingVarSubDuals.get(complicatingVarName).put(subProblem,
@@ -96,7 +96,7 @@ public class BenderDecompositionSolver4 {
 //
 //                    feasibleSubSolvers.get(subProblem).solve();
 //
-//                    if(feasibleSubSolvers.get(subProblem).getStatus() == ModelSolver.Status.OPTIMAL){
+//                    if(feasibleSubSolvers.get(subProblem).getStatus() == Model.Status.OPTIMAL){
 //
 //                        System.out.println(subProblem + " objective value: " + feasibleSubSolvers.get(subProblem).getOptimum());
 //                        for(String complicatingVarName : complicatingVarNames){
@@ -140,7 +140,7 @@ public class BenderDecompositionSolver4 {
         }
 
 
-        sub1.setSense(ModelSolver.Sense.MIN);
+        sub1.setSense(Model.Sense.MIN);
         subSolvers.put("Sub 1", sub1);
 
         Model sub2 = new XpressModel("Sub 2");
@@ -163,7 +163,7 @@ public class BenderDecompositionSolver4 {
             sub2.addConstraint("Bounding with " + boundingVar, boundingTerms, ConstraintType.EQL,
                     0 ,0 );
         }
-        sub2.setSense(ModelSolver.Sense.MIN);
+        sub2.setSense(Model.Sense.MIN);
         subSolvers.put("Sub 2", sub2);
 
         //definition of Sub Model 3
@@ -186,7 +186,7 @@ public class BenderDecompositionSolver4 {
             sub3.addConstraint("Bounding with " + boundingVar, boundingTerms, ConstraintType.EQL,
                     0 ,0 );
         }
-        sub3.setSense(ModelSolver.Sense.MIN);
+        sub3.setSense(Model.Sense.MIN);
         subSolvers.put("Sub 3", sub3);
     }
 
@@ -218,7 +218,7 @@ public class BenderDecompositionSolver4 {
             sub1.addConstraint("Bounding with " + boundingVar, boundingTerms, ConstraintType.EQL,
                     0 ,0 );
         }
-        sub1.setSense(ModelSolver.Sense.MIN);
+        sub1.setSense(Model.Sense.MIN);
         feasibleSubSolvers.put("Sub 1", sub1);
 
 
@@ -249,7 +249,7 @@ public class BenderDecompositionSolver4 {
             sub2.addConstraint("Bounding with " + boundingVar, boundingTerms, ConstraintType.EQL,
                     0 ,0 );
         }
-        sub2.setSense(ModelSolver.Sense.MIN);
+        sub2.setSense(Model.Sense.MIN);
         feasibleSubSolvers.put("Sub 2", sub2);
 
 
@@ -279,7 +279,7 @@ public class BenderDecompositionSolver4 {
             sub3.addConstraint("Bounding with " + boundingVar, boundingTerms, ConstraintType.EQL,
                     0 ,0 );
         }
-        sub3.setSense(ModelSolver.Sense.MIN);
+        sub3.setSense(Model.Sense.MIN);
         feasibleSubSolvers.put("Sub 3", sub3);
     }
 
@@ -301,7 +301,7 @@ public class BenderDecompositionSolver4 {
         ctr1Terms.put("x1", -1.0);
         ctr1Terms.put("x2", 1.0);
         masterSolver.addConstraint("Master Ctr 1", ctr1Terms, ConstraintType.LEQL, -Double.MAX_VALUE, 2);
-        masterSolver.setSense(ModelSolver.Sense.MIN);
+        masterSolver.setSense(Model.Sense.MIN);
     }
 
     void solveMasterModel() {
@@ -319,7 +319,7 @@ public class BenderDecompositionSolver4 {
 
             subSolvers.get(subProblem).solveLP();
 
-            if (subSolvers.get(subProblem).getStatus() == ModelSolver.Status.OPTIMAL) {
+            if (subSolvers.get(subProblem).getStatus() == Model.Status.OPTIMAL) {
                 System.out.println("Sub model objective value: " + subSolvers.get(subProblem).getOptimum());
 
                 for (String boundingVar : complicatingVarNames) {
@@ -338,7 +338,7 @@ public class BenderDecompositionSolver4 {
 
                 feasibleSubSolvers.get(subProblem).solveLP();
 
-                if (feasibleSubSolvers.get(subProblem).getStatus() == ModelSolver.Status.OPTIMAL) {
+                if (feasibleSubSolvers.get(subProblem).getStatus() == Model.Status.OPTIMAL) {
                     System.out.println("Sub model objective value: " + feasibleSubSolvers.get(subProblem).getOptimum());
                 } else {
                     System.out.println("Bug exists when building the alwayse feasible model");
@@ -371,7 +371,7 @@ public class BenderDecompositionSolver4 {
 
         double totalSubOptimum = 0;
         for (String subProblem : subSolvers.keySet()) {
-            if(subSolvers.get(subProblem).getStatus() == ModelSolver.Status.OPTIMAL)
+            if(subSolvers.get(subProblem).getStatus() == Model.Status.OPTIMAL)
                 totalSubOptimum += subSolvers.get(subProblem).getOptimum();
             else
                 totalSubOptimum += feasibleSubSolvers.get(subProblem).getOptimum();

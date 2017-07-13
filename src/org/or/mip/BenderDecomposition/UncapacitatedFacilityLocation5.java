@@ -130,7 +130,7 @@ public class UncapacitatedFacilityLocation5 {
         }
         masterSolver.addConstraint("Facility existence", ctrTerms, ConstraintType.GEQL, 1, Double.MAX_VALUE);
 
-        masterSolver.setSense(ModelSolver.Sense.MIN);
+        masterSolver.setSense(Model.Sense.MIN);
 
 
 //        for(int i = 0;i < complicatingVarNames.size();i++){
@@ -180,7 +180,7 @@ public class UncapacitatedFacilityLocation5 {
             }
         }
 
-        originalSolver.setSense(ModelSolver.Sense.MIN);
+        originalSolver.setSense(Model.Sense.MIN);
         originalSolver.solveMIP();
 
 
@@ -258,7 +258,7 @@ public class UncapacitatedFacilityLocation5 {
             originalSolver.addConstraint("Weaker bound facility " + i, terms, ConstraintType.LEQL, -Double.MAX_VALUE, 0);
         }
 
-        originalSolver.setSense(ModelSolver.Sense.MIN);
+        originalSolver.setSense(Model.Sense.MIN);
         originalSolver.solveMIP();
 
         System.out.println("Origin Model Optimum " + originalSolver.getOptimum());
@@ -318,7 +318,7 @@ public class UncapacitatedFacilityLocation5 {
                         0, 0);
             }
 
-            customer.setSense(ModelSolver.Sense.MIN);
+            customer.setSense(Model.Sense.MIN);
             subSolvers.put("Customer " + j, customer);
 
         }
@@ -383,7 +383,7 @@ public class UncapacitatedFacilityLocation5 {
 //                        0, 0);
 //            }
 //
-//            customer.setSense(ModelSolver.Sense.MIN);
+//            customer.setSense(Model.Sense.MIN);
 //            feasibleSubSolvers.put("Customer " + j, customer);
 //
 //        }
@@ -420,7 +420,7 @@ public class UncapacitatedFacilityLocation5 {
         for (int i = 1; i <= numFacility; i++) {
             for (int j = 1; j <= numCustomer; j++) {
                 currentUb += subSolvers.get("Customer " + j).getVariableSol("x_" + i + "_" + j) * servingCosts.get(i).get(j);
-//                if (subSolvers.get("Customer " + j).getStatus() == ModelSolver.Status.OPTIMAL) {
+//                if (subSolvers.get("Customer " + j).getStatus() == Model.Status.OPTIMAL) {
 //
 //                } else {
 //                    currentUb += feasibleSubSolvers.get("Customer " + j).getVariableSol("x_" + i + "_" + j) * servingCosts.get(i).get(j);
@@ -448,7 +448,7 @@ public class UncapacitatedFacilityLocation5 {
 
         double totalSubOptimum = 0;
         for (String subProblem : subSolvers.keySet()) {
-            if (subSolvers.get(subProblem).getStatus() == ModelSolver.Status.OPTIMAL)
+            if (subSolvers.get(subProblem).getStatus() == Model.Status.OPTIMAL)
                 totalSubOptimum += subSolvers.get(subProblem).getOptimum();
             else
                 totalSubOptimum += feasibleSubSolvers.get(subProblem).getOptimum();
@@ -549,7 +549,7 @@ public class UncapacitatedFacilityLocation5 {
 
             subSolvers.get(subProblem).solveLP();
 
-            if (subSolvers.get(subProblem).getStatus() == ModelSolver.Status.OPTIMAL) {
+            if (subSolvers.get(subProblem).getStatus() == Model.Status.OPTIMAL) {
 //                System.out.println("Sub model objective value: " + subSolvers.get(subProblem).getOptimum());
 
                 for (String boundingVar : complicatingVarNames) {
