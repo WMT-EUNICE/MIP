@@ -1,7 +1,5 @@
 package org.or.mip.Modelling;
 
-import org.or.mip.BenderDecomposition.BendersCut;
-
 import java.util.List;
 import java.util.Map;
 
@@ -28,8 +26,6 @@ public interface Model {
     void solveLP();
 
     void solveByBranchAndBound(List<String> varNames);
-
-    void solveByBranchAndBound(List<String> varNames, BendersCut cut);
 
     void setVariableType(String varName, VariableType type);
 
@@ -60,4 +56,6 @@ public interface Model {
     double getSlack(String ctrName);
 
     boolean hasConstraint(String ctrName);
+
+    void printConstraint(String ctrName);
 }

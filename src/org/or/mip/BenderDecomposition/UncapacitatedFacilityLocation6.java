@@ -96,7 +96,7 @@ public class UncapacitatedFacilityLocation6 {
         }
 
         for (String locationVar : complicatingVarNames) {
-            masterSolver.addVariable(locationVar, VariableType.INTEGER, 0, 1);
+            masterSolver.addVariable(locationVar, VariableType.REAL, 0, 1);
         }
         masterSolver.addVariable("alpha", VariableType.REAL, 0, Double.MAX_VALUE);
 
@@ -306,7 +306,7 @@ public class UncapacitatedFacilityLocation6 {
 
     }
 
-    void updateUB() {
+    protected void updateUB() {
         double currentUb = 0;
 
         for (int i = 1; i <= numFacility; i++) {

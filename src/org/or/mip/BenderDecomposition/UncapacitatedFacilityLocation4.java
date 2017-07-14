@@ -9,10 +9,7 @@ import java.util.*;
 
 /**
  * Created by baohuaw on 7/5/17.
- * Node that the approache which creates artificial variables to make all sub problems always feasible (ref.
- * Decomposition techniques in Integer programming) does not work for UFL and currently I do not know why.
- * Instead, I create a virtual facility which has very high opening cost and serving cost for each customer and that works
- * , and further, easily to explain and we can decrease the sub problem to half as before
+
  */
 public class UncapacitatedFacilityLocation4 {
     int numFacility;
@@ -41,9 +38,9 @@ public class UncapacitatedFacilityLocation4 {
         UncapacitatedFacilityLocation4 location = new UncapacitatedFacilityLocation4();
 //        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/GalvaoRaggi/200/200.1");
 //        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/GalvaoRaggi/50/50.1");
-       location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/KoerkelGhosh-sym/250/a/gs250a-1");
+//       location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/KoerkelGhosh-sym/250/a/gs250a-1");
 //        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/kmedian/500-10");
-//        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/simpleExample.txt");
+        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/simpleExample2.txt");
         long startTime = System.currentTimeMillis();
 //        location.solveOriginalModel();
         location.solve();

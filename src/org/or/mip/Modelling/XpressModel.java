@@ -1,7 +1,6 @@
 package org.or.mip.Modelling;
 
 import com.dashoptimization.*;
-import org.or.mip.BenderDecomposition.BendersCut;
 import org.or.mip.BranchBound.BranchAndBound;
 
 import java.util.List;
@@ -78,12 +77,6 @@ public class XpressModel implements Model {
 
     @Override
     public void solveByBranchAndBound(List<String> varNames) {
-        BranchAndBound bb = new BranchAndBound(this, varNames);
-        bb.branchAndBound();
-    }
-
-    @Override
-    public void solveByBranchAndBound(List<String> varNames, BendersCut cut) {
         BranchAndBound bb = new BranchAndBound(this, varNames);
         bb.branchAndBound();
     }
@@ -219,5 +212,10 @@ public class XpressModel implements Model {
         if (problem.getCtrByName(ctrName) == null)
             return false;
         return true;
+    }
+
+    @Override
+    public void printConstraint(String ctrName) {
+        System.out.println(problem.getCtrByName(ctrName).toString());
     }
 }

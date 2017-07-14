@@ -144,4 +144,9 @@ public class GoogleLPModel implements Model {
     public boolean hasConstraint(String ctrName) {
         return false;
     }
+
+    @Override
+    public void printConstraint(String ctrName) {
+
+    }
 }
