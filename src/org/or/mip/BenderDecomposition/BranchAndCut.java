@@ -94,7 +94,7 @@ public class BranchAndCut extends UncapacitatedFacilityLocation6 {
 
         int step = 1;
         while (!branchingConsSet.isEmpty()) {
-            if (step % 500 == 0)
+            if (step % 50 == 0)
                 System.out.println(ub + "   node size " + branchingConsSet.size() + "   step = " + step);
             target = branchingConsSet.get(0);
             branchingConsSet.remove(0);
@@ -157,9 +157,9 @@ public class BranchAndCut extends UncapacitatedFacilityLocation6 {
                 masterSolver.removeConstraint(branching.name);
             }
 
-            if (step % 5 == 0) {
-                removeSlackCutOfMaster();
-            }
+//            if (step % 5 == 0) {
+//                removeSlackCutOfMaster();
+//            }
             step++;
         }
         System.out.println("UB = " + ub);
@@ -965,7 +965,7 @@ public class BranchAndCut extends UncapacitatedFacilityLocation6 {
             branchingSet.branchingConstraints.add(rightBranching);
         }
 
-        branchingConsSet.add(branchingSet);
+        branchingConsSet.add(0, branchingSet);
 
     }
 }

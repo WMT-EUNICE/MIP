@@ -1,9 +1,6 @@
 package org.or.mip.BenderDecomposition;
 
-import org.or.mip.Modelling.ConstraintType;
-import org.or.mip.Modelling.Model;
-import org.or.mip.Modelling.VariableType;
-import org.or.mip.Modelling.XpressModel;
+import org.or.mip.Modelling.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -14,14 +11,16 @@ import java.util.*;
  * Created by baohuaw on 7/5/17.
  * How about not setting explicit bounding constraint in sub problem? Works
  * Each sub problem generates a cut, ref. paper "redesigning Benders Decomposition for large-scale facility location"
+ * Use Google OR Tools
  */
-public class UncapacitatedFacilityLocation7 {
+public class UncapacitatedFacilityLocation8 {
     int numFacility;
     int numCustomer;
     Map<String, Model> subSolvers = new HashMap<>();
     Map<String, Model> feasibleSubSolvers = new HashMap<>();
-    Model masterSolver = new XpressModel("Master");
-    Model originalSolver = new XpressModel("Original");
+    Model masterSolver = new GoogleMIPModel("Master");
+
+    Model originalSolver = new GoogleLPModel("Original");
     double lb = -Double.MAX_VALUE;
     double ub = Double.MAX_VALUE;
     List<String> complicatingVarNames = new ArrayList<>();
@@ -41,10 +40,10 @@ public class UncapacitatedFacilityLocation7 {
     Map<Integer, List<Integer>> customerCriticals = new LinkedHashMap<>();
 
     public static void main(String[] args) throws IOException {
-        UncapacitatedFacilityLocation7 location = new UncapacitatedFacilityLocation7();
-//        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/GalvaoRaggi/50/50.1");
+        UncapacitatedFacilityLocation8 location = new UncapacitatedFacilityLocation8();
+        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/GalvaoRaggi/50/50.1");
 //        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/GalvaoRaggi/200/200.2");
-        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/KoerkelGhosh-sym/250/a/gs250a-2");
+//        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/KoerkelGhosh-sym/250/a/gs250a-1");
 //        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/kmedian/500-10");
 //        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/simpleExample2.txt");
 //        long startTime = System.currentTimeMillis();
@@ -396,55 +395,60 @@ public class UncapacitatedFacilityLocation7 {
     boolean addBendersCutForEachSubProblemToMaster() {
         boolean newCut = false;
         for (int j = 1; j <= numCustomer; j++) {
-            Map<Integer, Double> targetServingCosts = new TreeMap<>();
-            for (int i = 1; i <= numFacility; i++) {
-                targetServingCosts.put(i, servingCosts.get(i).get(j));
-            }
-
-            // 升序比较器
-            Comparator<Map.Entry<Integer, Double>> valueComparator = (o1, o2) -> {
-                // TODO Auto-generated method stub
-                return (int) (o1.getValue() - o2.getValue());
-            };
-
-            List<Map.Entry<Integer, Double>> list = new ArrayList<>(targetServingCosts.entrySet());
-            list.sort(valueComparator);
-
-            int temp = 0;
-
-            int critical = -1;
-            Map<String, Double> cutTerms = new LinkedHashMap<>();
-            for (Map.Entry<Integer, Double> entry : list) {
-                temp += masterSolver.getVariableSol("y_" + entry.getKey());
-                if (temp >= 1 && temp - masterSolver.getVariableSol("y_" + entry.getKey()) < 1) {
-                    critical = entry.getKey();
-                    break;
+            try {
+                Map<Integer, Double> targetServingCosts = new TreeMap<>();
+                for (int i = 1; i <= numFacility; i++) {
+                    targetServingCosts.put(i, servingCosts.get(i).get(j));
                 }
-            }
 
-            List<Integer> historicalCriticals = customerCriticals.get(j);
-            if (historicalCriticals != null && historicalCriticals.contains(critical))
-                continue;
+                // 升序比较器
+                Comparator<Map.Entry<Integer, Double>> valueComparator = (o1, o2) -> {
+                    // TODO Auto-generated method stub
+                    return (int) (o1.getValue() - o2.getValue());
+                };
 
-            if (historicalCriticals == null)
-                customerCriticals.put(j, new LinkedList<>());
-            customerCriticals.get(j).add(critical);
+                List<Map.Entry<Integer, Double>> list = new ArrayList<>(targetServingCosts.entrySet());
+                list.sort(valueComparator);
 
-            for (Map.Entry<Integer, Double> entry : list) {
-                if (entry.getKey() == critical) {
-                    break;
-                } else {
-                    if (servingCosts.get(critical).get(j) - entry.getValue() != 0) {
-                        cutTerms.put("y_" + entry.getKey(), servingCosts.get(critical).get(j) - entry.getValue());
+                int temp = 0;
+
+                int critical = -1;
+                Map<String, Double> cutTerms = new LinkedHashMap<>();
+                for (Map.Entry<Integer, Double> entry : list) {
+                    temp += masterSolver.getVariableSol("y_" + entry.getKey());
+                    if (temp >= 1 && temp - masterSolver.getVariableSol("y_" + entry.getKey()) < 1) {
+                        critical = entry.getKey();
+                        break;
                     }
                 }
+                printResult();
+
+                List<Integer> historicalCriticals = customerCriticals.get(j);
+                if (historicalCriticals != null && historicalCriticals.contains(critical))
+                    continue;
+
+                if (historicalCriticals == null)
+                    customerCriticals.put(j, new LinkedList<>());
+                customerCriticals.get(j).add(critical);
+
+                for (Map.Entry<Integer, Double> entry : list) {
+                    if (entry.getKey() == critical) {
+                        break;
+                    } else {
+                        if (servingCosts.get(critical).get(j) - entry.getValue() != 0) {
+                            cutTerms.put("y_" + entry.getKey(), servingCosts.get(critical).get(j) - entry.getValue());
+                        }
+                    }
+                }
+                cutTerms.put("alpha_" + j, 1.0);
+
+
+                //            for()
+                masterSolver.addConstraint("Benders cut " + j + " " + masterBendersCutId, cutTerms, ConstraintType.GEQL, servingCosts.get(critical).get(j), Double.MAX_VALUE);
+                newCut = true;
+            } catch (NullPointerException e) {
+                e.printStackTrace();
             }
-            cutTerms.put("alpha_" + j, 1.0);
-
-
-//            for()
-            masterSolver.addConstraint("Benders cut " + j + " " + masterBendersCutId, cutTerms, ConstraintType.GEQL, servingCosts.get(critical).get(j), Double.MAX_VALUE);
-            newCut = true;
         }
         return newCut;
     }
