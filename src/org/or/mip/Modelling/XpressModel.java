@@ -218,4 +218,11 @@ public class XpressModel implements Model {
     public void printConstraint(String ctrName) {
         System.out.println(problem.getCtrByName(ctrName).toString());
     }
+
+    @Override
+    public void destroy() {
+        problem.finalize();
+        problem = null;
+        Runtime.getRuntime().gc();
+    }
 }

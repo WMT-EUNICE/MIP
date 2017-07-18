@@ -149,4 +149,9 @@ public class GoogleLPModel implements Model {
     public void printConstraint(String ctrName) {
 
     }
+
+    @Override
+    public void destroy() {
+
+    }
 }

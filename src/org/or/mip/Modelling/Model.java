@@ -58,4 +58,6 @@ public interface Model {
     boolean hasConstraint(String ctrName);
 
     void printConstraint(String ctrName);
+
+    void destroy();
 }

@@ -29,7 +29,7 @@ public class UncapacitatedFacilityLocation6 {
 
     int masterBendersCutId = 1;
 
-//    Map<Integer, String> bendersCuts = new LinkedHashMap<>();
+    Map<Integer, String> bendersCuts = new LinkedHashMap<>();
 //    final double LARGE_POSTIVE = 100;
 
 //    final double LARGE_COST = 20000.0;
@@ -47,7 +47,7 @@ public class UncapacitatedFacilityLocation6 {
         UncapacitatedFacilityLocation6 location = new UncapacitatedFacilityLocation6();
 //        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/GalvaoRaggi/50/50.1");
 //        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/GalvaoRaggi/200/200.1");
-        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/KoerkelGhosh-sym/250/a/gs250a-1");
+        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/KoerkelGhosh-sym/250/a/gs250a-2");
 //        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/kmedian/500-10");
 //        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/simpleExample.txt");
         long startTime = System.currentTimeMillis();
@@ -310,9 +310,25 @@ public class UncapacitatedFacilityLocation6 {
         double currentUb = 0;
 
         for (int i = 1; i <= numFacility; i++) {
+//            if (Math.abs(masterSolver.getVariableSol("y_" + i) - 1) <= 0.0001) {
+//
+//            }
+
+            System.out.println("Facility " + i + " is opening with cost of " + openCosts.get(String.valueOf(i)) + "    " + masterSolver.getVariableSol("y_" + i));
+//                totalCost += openCosts.get(String.valueOf(i));
             currentUb += masterSolver.getVariableSol("y_" + i) * openCosts.get(String.valueOf(i));
 
+
+
         }
+
+//        for (int i = 1; i <= numFacility; i++) {
+//            if (Math.abs(masterSolver.getVariableSol("y_" + i) - 1) <= 0.0001) {
+//                System.out.println("Facility " + i + " is opening with cost of " + openCosts.get(String.valueOf(i)));
+////                totalCost += openCosts.get(String.valueOf(i));
+//            }
+//        }
+
 
         for (int i = 1; i <= numFacility; i++) {
             for (int j = 1; j <= numCustomer; j++) {
@@ -365,6 +381,7 @@ public class UncapacitatedFacilityLocation6 {
         }
 
         masterSolver.addConstraint("Benders Cut " + masterBendersCutId, cutTerms, ConstraintType.LEQL, -Double.MAX_VALUE, -totalSubOptimum + sumOfBoundingMultipliedDual);
+        bendersCuts.put(masterBendersCutId, "Benders Cut " + masterBendersCutId);
 //        masterSolver.addCut(masterBendersCutId, cutTerms, ConstraintType.LEQL, -Double.MAX_VALUE, -totalSubOptimum + sumOfBoundingMultipliedDual);
         masterBendersCutId++;
     }
@@ -451,6 +468,9 @@ public class UncapacitatedFacilityLocation6 {
 //                System.out.println("UB = " + ub);
 //                System.out.println("LB = " + lb);
             }
+
+//            if(step % 5 == 0)
+//                removeSlackCut();
             solveMasterModel();
 
 //            if (masterSolver.getOptimum() != lb) {
@@ -514,25 +534,31 @@ public class UncapacitatedFacilityLocation6 {
 
         System.out.println("Total cost " + (totalCost));
         System.out.println("Benders Cut " + masterBendersCutId);
+
+        masterSolver.destroy();
+
+        for(String subModel : subSolvers.keySet()){
+            subSolvers.get(subModel).destroy();
+        }
     }
 
-//    void removeSlackCut(){
-////        for(int cut = 1;cut < masterBendersCutId;cut++){
-////            if(!masterSolver.hasConstraint("Benders Cut " + cut))
-////                continue;
-////            if(masterSolver.getSlack("Benders Cut " + cut) > 0){
-////                masterSolver.removeConstraint("Benders Cut " + cut);
-////
-////            }
-////        }
-//        for(Iterator<Integer> iterator  = bendersCuts.keySet().iterator();iterator.hasNext();){
-//            int cutId = iterator.next();
-//            if(masterSolver.getSlack(bendersCuts.get(cutId)) > 0){
-//                masterSolver.removeConstraint(bendersCuts.get(cutId));
-//                iterator.remove();
+    void removeSlackCut(){
+//        for(int cut = 1;cut < masterBendersCutId;cut++){
+//            if(!masterSolver.hasConstraint("Benders Cut " + cut))
+//                continue;
+//            if(masterSolver.getSlack("Benders Cut " + cut) > 0){
+//                masterSolver.removeConstraint("Benders Cut " + cut);
+//
 //            }
 //        }
-//    }
+        for(Iterator<Integer> iterator  = bendersCuts.keySet().iterator();iterator.hasNext();){
+            int cutId = iterator.next();
+            if(masterSolver.getSlack(bendersCuts.get(cutId)) > 0){
+                masterSolver.removeConstraint(bendersCuts.get(cutId));
+                iterator.remove();
+            }
+        }
+    }
 
     boolean solveSubModel(Map<String, Map<String, Double>> boundingVarSubDuals) {
         long time = System.currentTimeMillis();

@@ -149,4 +149,9 @@ public class GoogleMIPModel implements Model {
     public void printConstraint(String ctrName) {
 
     }
+
+    @Override
+    public void destroy() {
+
+    }
 }

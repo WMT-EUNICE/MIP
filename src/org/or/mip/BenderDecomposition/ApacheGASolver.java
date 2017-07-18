@@ -123,6 +123,45 @@ public class ApacheGASolver {
 
     }
 
+
+    double solveToGetOptimum() {
+        long start = System.currentTimeMillis();
+        // initialize a new genetic algorithm
+        GeneticAlgorithm ga = new GeneticAlgorithm(
+                new OnePointCrossover<Integer>(),
+                1,
+                new BinaryMutation(),
+                0.10,
+                new TournamentSelection(TOURNAMENT_ARITY)
+        );
+
+// initial population
+        Population initial = randomPopulation(NUM_FACILITY);
+
+        Chromosome bestInitial = initial.getFittestChromosome();
+
+// stopping condition
+        StoppingCondition stopCond = new FixedGenerationCount(NUM_GENERATIONS);
+
+// run the algorithm
+        Population finalPopulation = ga.evolve(initial, stopCond);
+
+// best chromosome from the final population
+        Chromosome bestFinal = finalPopulation.getFittestChromosome();
+        System.out.println("Best fitness " + -bestFinal.getFitness());
+        System.out.println("Time " + (System.currentTimeMillis() - start));
+
+        LocationChromosome lc = (LocationChromosome)bestFinal;
+        return -bestFinal.getFitness();
+//        for(int val : ((LocationChromosome) bestFinal).getRepresentation()){
+//
+//        }
+//        for(int val : ((LocationChromosome)bestFinal) )
+//        ((FindOnes)bestFinal).
+//        ((ElitisticListPopulation) finalPopulation).getChromosomes().get(0).
+
+    }
+
     /**
      * Initializes a random population.
      */
