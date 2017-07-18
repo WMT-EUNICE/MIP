@@ -64,9 +64,14 @@ public class GoogleLPModel implements Model {
 
     @Override
     public void solveMIP() {
-        System.out.println("This is a LP solver");
-//        status = solver.solve();
+
     }
+
+//    @Override
+//    public void solveMIP() {
+//        System.out.println("This is a LP solver");
+////        status = solver.solve();
+//    }
 
     @Override
     public void addInitialSolution(Map<String, Double> varValues) {
@@ -152,6 +157,6 @@ public class GoogleLPModel implements Model {
 
     @Override
     public void destroy() {
-
+        solver.delete();
     }
 }
