@@ -54,6 +54,7 @@ public class BranchAndCut extends UncapacitatedFacilityLocation6 {
     public static void main(String[] args) throws IOException {
 
         String fileName = "/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/KoerkelGhosh-sym/250/a/gs250a-1";
+//        String fileName = "/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/KoerkelGhosh-sym/250/a/gs250a-1";
 //        ApacheGASolver gaSolver = new ApacheGASolver(1000, 100);
 //        gaSolver.readProblem(fileName);
 //
@@ -65,9 +66,9 @@ public class BranchAndCut extends UncapacitatedFacilityLocation6 {
 
         bc.readProblem(fileName);
 //        bc.ub = heuristicSolution;
-//        bc.branchAndCut();
+        bc.branchAndCut();
 //        bc.branchAndCut2();
-        bc.branchAndCut3();
+//        bc.branchAndCut3();
     }
 
     //add benders cut to integer solution node

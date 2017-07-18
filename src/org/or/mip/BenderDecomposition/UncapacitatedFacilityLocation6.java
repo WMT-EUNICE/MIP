@@ -47,9 +47,9 @@ public class UncapacitatedFacilityLocation6 {
         UncapacitatedFacilityLocation6 location = new UncapacitatedFacilityLocation6();
 //        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/GalvaoRaggi/50/50.1");
 //        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/GalvaoRaggi/200/200.1");
-        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/KoerkelGhosh-sym/250/a/gs250a-2");
+        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/KoerkelGhosh-sym/250/a/gs250a-3");
 //        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/kmedian/500-10");
-//        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/simpleExample.txt");
+//        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/simpleExample2.txt");
         long startTime = System.currentTimeMillis();
 //        location.solveOriginalModel();
         location.solve();
@@ -96,7 +96,7 @@ public class UncapacitatedFacilityLocation6 {
         }
 
         for (String locationVar : complicatingVarNames) {
-            masterSolver.addVariable(locationVar, VariableType.REAL, 0, 1);
+            masterSolver.addVariable(locationVar, VariableType.INTEGER, 0, 1);
         }
         masterSolver.addVariable("alpha", VariableType.REAL, 0, Double.MAX_VALUE);
 
@@ -310,13 +310,14 @@ public class UncapacitatedFacilityLocation6 {
         double currentUb = 0;
 
         for (int i = 1; i <= numFacility; i++) {
+            currentUb += masterSolver.getVariableSol("y_" + i) * openCosts.get(String.valueOf(i));
 //            if (Math.abs(masterSolver.getVariableSol("y_" + i) - 1) <= 0.0001) {
 //
 //            }
 
-            System.out.println("Facility " + i + " is opening with cost of " + openCosts.get(String.valueOf(i)) + "    " + masterSolver.getVariableSol("y_" + i));
+//            System.out.println("Facility " + i + " is opening with cost of " + openCosts.get(String.valueOf(i)) + "    " + masterSolver.getVariableSol("y_" + i));
 //                totalCost += openCosts.get(String.valueOf(i));
-            currentUb += masterSolver.getVariableSol("y_" + i) * openCosts.get(String.valueOf(i));
+
 
 
 
@@ -333,6 +334,9 @@ public class UncapacitatedFacilityLocation6 {
         for (int i = 1; i <= numFacility; i++) {
             for (int j = 1; j <= numCustomer; j++) {
                 currentUb += subSolvers.get("Customer " + j).getVariableSol("x_" + i + "_" + j) * servingCosts.get(String.valueOf(i)).get(String.valueOf(j));
+//                if(Math.abs(subSolvers.get("Customer " + j).getVariableSol("x_" + i + "_" + j) - 1) <= 0.0001) {
+//
+//                }
             }
         }
 
@@ -448,6 +452,19 @@ public class UncapacitatedFacilityLocation6 {
             return;
         }
 
+//        for (int i = 1; i <= numFacility; i++) {
+//            if (Math.abs(masterSolver.getVariableSol("y_" + i) - 1) <= 0.0001) {
+//                System.out.println("Facility " + i + " is opening with cost of " + openCosts.get(String.valueOf(i)));
+//            }
+//        }
+//
+//        for (int j = 1; j <= numCustomer; j++) {
+//            for (int i = 1; i <= numFacility; i++) {
+//                if (Math.abs(subSolvers.get("Customer " + j).getVariableSol("x_" + i + "_" + j) - 1) < 0.0001) {
+//                    System.out.println("Customer " + j + " is served by Facility " + i + " with cost of " + servingCosts.get(String.valueOf(i)).get(String.valueOf(j)));
+//                }
+//            }
+//        }
         updateUB();
 //        updateUB(seperator);
         addBendersCutToMaster(boundingVarSubDuals);
@@ -505,6 +522,20 @@ public class UncapacitatedFacilityLocation6 {
                 System.out.println("Terminate due to sub problem infeasibility!");
                 return;
             }
+
+//            for (int i = 1; i <= numFacility; i++) {
+//                if (Math.abs(masterSolver.getVariableSol("y_" + i) - 1) <= 0.0001) {
+//                    System.out.println("Facility " + i + " is opening with cost of " + openCosts.get(String.valueOf(i)));
+//                }
+//            }
+//
+//            for (int j = 1; j <= numCustomer; j++) {
+//                for (int i = 1; i <= numFacility; i++) {
+//                    if (Math.abs(subSolvers.get("Customer " + j).getVariableSol("x_" + i + "_" + j) - 1) < 0.0001) {
+//                        System.out.println("Customer " + j + " is served by Facility " + i + " with cost of " + servingCosts.get(String.valueOf(i)).get(String.valueOf(j)));
+//                    }
+//                }
+//            }
 //            updateUB();
 
             updateUB();
