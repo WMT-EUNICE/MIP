@@ -43,8 +43,8 @@ public class UncapacitatedFacilityLocation7 {
     public static void main(String[] args) throws IOException {
         UncapacitatedFacilityLocation7 location = new UncapacitatedFacilityLocation7();
 //        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/GalvaoRaggi/50/50.1");
-//        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/GalvaoRaggi/200/200.2");
-        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/KoerkelGhosh-sym/250/a/gs250a-2");
+        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/GalvaoRaggi/200/200.1");
+//        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/KoerkelGhosh-sym/500/a/gs500a-1");
 //        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/kmedian/500-10");
 //        location.readProblem("/home/local/ANT/baohuaw/IdeaProjects/MIP/data/ufl/simpleExample2.txt");
 //        long startTime = System.currentTimeMillis();
@@ -319,10 +319,10 @@ public class UncapacitatedFacilityLocation7 {
         double currentUb = 0;
 
         for (int i = 1; i <= numFacility; i++) {
-            currentUb += masterSolver.getVariableSol("y_" + i) * openCosts.get(i);
-//            if (Math.abs(masterSolver.getVariableSol("y_" + i) - 1) <= 0.0001) {
-//
-//            }
+
+            if (Math.abs(masterSolver.getVariableSol("y_" + i) - 1) <= 0.0001) {
+                currentUb += masterSolver.getVariableSol("y_" + i) * openCosts.get(i);
+            }
 
 //            System.out.println("Facility " + i + " is opening with cost of " + openCosts.get(i) + "    " + masterSolver.getVariableSol("y_" + i));
 //                totalCost += openCosts.get(i);
@@ -331,12 +331,14 @@ public class UncapacitatedFacilityLocation7 {
 
         for (int i = 1; i <= numFacility; i++) {
             for (int j = 1; j <= numCustomer; j++) {
-                currentUb += subSolvers.get("Customer " + j).getVariableSol("x_" + i + "_" + j) * servingCosts.get(i).get(j);
-//                if(Math.abs(subSolvers.get("Customer " + j).getVariableSol("x_" + i + "_" + j) - 1) <= 0.0001) {
-//
-//                }
+
+                if(Math.abs(subSolvers.get("Customer " + j).getVariableSol("x_" + i + "_" + j) - 1) <= 0.0001) {
+                    currentUb += subSolvers.get("Customer " + j).getVariableSol("x_" + i + "_" + j) * servingCosts.get(i).get(j);
+                }
             }
         }
+
+//        printResult();
 
         ub = currentUb;
     }
@@ -499,7 +501,7 @@ public class UncapacitatedFacilityLocation7 {
 //            addBendersCutForEachSubProblemToMaster();
             if (!addBendersCutForEachSubProblemToMaster()) {
                 System.out.println("UB = " + ub);
-                return;
+                break;
             }
 //            addBendersCutToMaster2();
             step++;

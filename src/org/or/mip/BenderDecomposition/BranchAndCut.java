@@ -26,6 +26,8 @@ public class BranchAndCut extends UncapacitatedFacilityLocation6 {
         }
     }
 
+    Map<Integer, List<Integer>> customerCriticals = new LinkedHashMap<>();
+
     public class BranchingConstraintSet {
         int nodeId;
         List<BranchingConstraint> branchingConstraints = new LinkedList<>();
@@ -73,11 +75,6 @@ public class BranchAndCut extends UncapacitatedFacilityLocation6 {
 
     //add benders cut to integer solution node
     void branchAndCut() {
-//        for (int i = 1; i <= numFacility; i++) {
-//            yy.put("y_" + i, 1.0);
-//        }
-
-
         initMaster();
         initSubModel();
 
@@ -165,6 +162,62 @@ public class BranchAndCut extends UncapacitatedFacilityLocation6 {
         System.out.println("UB = " + ub);
         System.out.println("LB = " + lb);
         System.out.println("Time " + (System.currentTimeMillis() - start) + " Step = " + step);
+    }
+
+    boolean addBendersCutForEachSubProblemToMaster() {
+        boolean newCut = false;
+        for (int j = 1; j <= numCustomer; j++) {
+            Map<Integer, Double> targetServingCosts = new TreeMap<>();
+            for (int i = 1; i <= numFacility; i++) {
+                targetServingCosts.put(i, servingCosts.get(i).get(j));
+            }
+
+            // 升序比较器
+            Comparator<Map.Entry<Integer, Double>> valueComparator = (o1, o2) -> {
+                // TODO Auto-generated method stub
+                return (int) (o1.getValue() - o2.getValue());
+            };
+
+            List<Map.Entry<Integer, Double>> list = new ArrayList<>(targetServingCosts.entrySet());
+            list.sort(valueComparator);
+
+            int temp = 0;
+
+            int critical = -1;
+            Map<String, Double> cutTerms = new LinkedHashMap<>();
+            for (Map.Entry<Integer, Double> entry : list) {
+                temp += masterSolver.getVariableSol("y_" + entry.getKey());
+                if (temp >= 1 && temp - masterSolver.getVariableSol("y_" + entry.getKey()) < 1) {
+                    critical = entry.getKey();
+                    break;
+                }
+            }
+
+            List<Integer> historicalCriticals = customerCriticals.get(j);
+            if (historicalCriticals != null && historicalCriticals.contains(critical))
+                continue;
+
+            if (historicalCriticals == null)
+                customerCriticals.put(j, new LinkedList<>());
+            customerCriticals.get(j).add(critical);
+
+            for (Map.Entry<Integer, Double> entry : list) {
+                if (entry.getKey() == critical) {
+                    break;
+                } else {
+                    if (servingCosts.get(critical).get(j) - entry.getValue() != 0) {
+                        cutTerms.put("y_" + entry.getKey(), servingCosts.get(critical).get(j) - entry.getValue());
+                    }
+                }
+            }
+            cutTerms.put("alpha_" + j, 1.0);
+
+
+//            for()
+            masterSolver.addConstraint("Benders cut " + j + " " + masterBendersCutId, cutTerms, ConstraintType.GEQL, servingCosts.get(critical).get(j), Double.MAX_VALUE);
+            newCut = true;
+        }
+        return newCut;
     }
 
     void removeSlackCutOfMaster() {
