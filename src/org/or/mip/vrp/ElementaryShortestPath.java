@@ -55,14 +55,14 @@ public class ElementaryShortestPath {
 
     class Label implements Comparable<Label> {
         Node node;
-        Node pre;
+        Label preLabel;
         double cost;
         int arrivalTime;
         int curDemand;
 
-        public Label(Node node, Node pre, double cost, int arrivalTime, int curDemand) {
+        public Label(Node node, Label preLabel, double cost, int arrivalTime, int curDemand) {
             this.node = node;
-            this.pre = pre;
+            this.preLabel = preLabel;
             this.cost = cost;
             this.arrivalTime = arrivalTime;
             this.curDemand = curDemand;
@@ -70,9 +70,9 @@ public class ElementaryShortestPath {
 
         @Override
         public int compareTo(Label o) {
-            if (this.cost < o.cost) {
+            if (this.arrivalTime < o.arrivalTime) {
                 return -1;
-            } else if (this.cost > o.cost) {
+            } else if (this.arrivalTime > o.arrivalTime) {
                 return 1;
             } else {
                 return 0;
@@ -83,7 +83,7 @@ public class ElementaryShortestPath {
         @Override
         public String toString() {
             return "Label{" +
-                    "node=" + node +
+                    "nodeId=" + node.id +
                     '}';
         }
     }
@@ -138,40 +138,81 @@ public class ElementaryShortestPath {
         nodeLabels.get(source).add(sourceLabel);
         NPS.add(sourceLabel);
 
-        Node curNode = source;
+//        Node curNode;
         Label targetLabel;
-//        NPS.remove(sourcelabel);
-        while (curNode.id != target.id) {
+        while (!NPS.isEmpty()) {
             Collections.sort(NPS);
             targetLabel = NPS.get(0);
             NPS.remove(0);
-            curNode = targetLabel.node;
+//            curNode = targetLabel.node;
             for (Arc arc : outArcs.get(targetLabel.node)) {
                 if (arc.target.id != targetLabel.node.id &&
                         targetLabel.arrivalTime + arc.time <= arc.target.latestTime &&
                         targetLabel.curDemand + arc.target.demand <= capacity) {
                     if (!nodeLabels.containsKey(arc.target)) {
                         nodeLabels.put(arc.target, new LinkedList<>());
-                        nodeLabels.get(arc.target).add(new Label(arc.target, curNode, targetLabel.cost + arc.cost, targetLabel.arrivalTime + arc.time,
+                        nodeLabels.get(arc.target).add(new Label(arc.target, targetLabel, targetLabel.cost + arc.cost,
+                                Math.max(targetLabel.arrivalTime + arc.time, arc.target.earliestTime),
                                 targetLabel.curDemand + arc.target.demand));
 
                         NPS.add(nodeLabels.get(arc.target).get(0));
                     } else {
-                        for (Label arcTargetLabel : nodeLabels.get(arc.target)) {
-                            if (arcTargetLabel.cost > targetLabel.cost + arc.cost) {
-                                arcTargetLabel.cost = targetLabel.cost + arc.cost;
-                                arcTargetLabel.arrivalTime = Math.max(arc.target.earliestTime, targetLabel.arrivalTime + arc.time);
-                                arcTargetLabel.curDemand = targetLabel.curDemand + arc.target.demand;
-                                arcTargetLabel.pre = curNode;
-                                NPS.add(arcTargetLabel);
+
+                        boolean addNewLabel = true;
+                        for (Iterator<Label> iter = nodeLabels.get(arc.target).iterator(); iter.hasNext(); ) {
+                            Label label = iter.next();
+                            if (label.cost >= targetLabel.cost + arc.cost &&
+                                    label.arrivalTime >= targetLabel.arrivalTime + arc.time &&
+                                    label.curDemand >= targetLabel.curDemand + arc.target.demand) {
+                                if (NPS.contains(label)) {
+                                    NPS.remove(label);
+                                }
+                                iter.remove();
+                            }
+
+                            if (label.cost <= targetLabel.cost + arc.cost &&
+                                    label.arrivalTime <= targetLabel.arrivalTime + arc.time &&
+                                    label.curDemand <= targetLabel.curDemand + arc.target.demand) {
+                                addNewLabel = false;
                                 break;
                             }
+                        }
+                        if (addNewLabel) {
+                            Label newLabel = new Label(arc.target, targetLabel, targetLabel.cost + arc.cost,
+                                    Math.max(targetLabel.arrivalTime + arc.time, arc.target.earliestTime),
+                                    targetLabel.curDemand + arc.target.demand);
+                            nodeLabels.get(arc.target).add(newLabel);
+                            NPS.add(newLabel);
                         }
                     }
                 }
             }
         }
         System.out.println();
+
+        for(Node node : nodeLabels.keySet()){
+            for(Label label : nodeLabels.get(node)){
+                targetLabel = label;
+                if(targetLabel.arrivalTime > targetLabel.node.latestTime){
+                    System.out.println("Node " + targetLabel.node.id + " violate time window");
+                    return;
+                }
+                String path = String.valueOf(targetLabel.node.id);
+                while(targetLabel.preLabel != null){
+                    path = targetLabel.preLabel.node.id + " - " + path;
+                    targetLabel = targetLabel.preLabel;
+                    if(targetLabel.arrivalTime > targetLabel.node.latestTime){
+                        System.out.println("Node " + targetLabel.node.id + " violate time window");
+                        return;
+                    }
+                }
+                System.out.println("Path from " + source.id + " to " + label.node.id + "  ->  " + path + "  cost: " + label.cost);
+            }
+        }
+    }
+
+    public void verify(){
+
     }
 
     public static void main(String[] args) {
